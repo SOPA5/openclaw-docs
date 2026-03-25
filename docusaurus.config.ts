@@ -106,6 +106,11 @@ const config: Config = {
               label: 'Twitter',
               href: 'https://twitter.com/openclaw',
             },
+          ],
+        },
+        {
+          title: '공식',
+          items: [
             {
               label: '공식 사이트',
               href: 'https://openclaw.ai/',
