@@ -6,6 +6,16 @@ sidebar_position: 4
 
 # 컨텍스트 관리 (Context)
 
+이 문서에서는 OpenClaw의 핵심 개념을 쉽게 이해하는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- context engine이 모으는 재료
+- 왜 compaction이 필요한가
+- session pruning
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 OpenClaw의 컨텍스트는 단순히 “최근 대화 몇 줄”이 아닙니다. 최신 구조에서는 **context engine**이 세션 기록, 도구 출력, 시스템 정책, 메모리, 워크스페이스 단서를 함께 조합해 모델에 넘깁니다.
 
 ## context engine이 모으는 재료
@@ -69,3 +79,9 @@ OpenClaw의 context engine은 바로 이 균형을 맞추기 위해 존재합니
 - [시스템 프롬프트](/concepts/system-prompt)
 - [세션](/concepts/sessions)
 - [메모리](/concepts/memory)
+
+## 🎯 다음 단계
+
+- 다음으로 [메모리](/concepts/memory) 문서를 읽어보세요.
+- 다음으로 [시스템 프롬프트](/concepts/system-prompt) 문서를 읽어보세요.
+- 다음으로 [세션](/concepts/sessions) 문서를 읽어보세요.

@@ -6,11 +6,26 @@ sidebar_position: 6
 
 # REST API 및 프로토콜 (API)
 
+이 문서에서는 OpenClaw Gateway가 어떻게 동작하는지 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 1. Tools Invoke API
+- 2. OpenAI 호환 API
+- 3. OpenResponses API
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 OpenClaw Gateway는 채팅 앱용 백엔드일 뿐 아니라, **프로그래밍 방식으로 호출 가능한 제어면 API**도 제공합니다. 최신 기준에서 중요한 API 축은 세 가지입니다.
 
 - **Tools Invoke API**
 - **OpenAI 호환 API**
 - **OpenResponses API**
+
+
+:::tip 💡 쉽게 이해하기
+**Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
+:::
 
 ## 1. Tools Invoke API
 
@@ -78,3 +93,9 @@ OpenClaw API는 단순한 “LLM 프록시”가 아닙니다. Gateway가 뒤에
 - [보안](/gateway/security)
 - [세션](/concepts/sessions)
 - [도구 개요](/tools/)
+
+## 🎯 다음 단계
+
+- 다음으로 [원격 접근](/gateway/remote) 문서를 읽어보세요.
+- 다음으로 [보안](/gateway/security) 문서를 읽어보세요.
+- 다음으로 [세션](/concepts/sessions) 문서를 읽어보세요.

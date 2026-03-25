@@ -6,7 +6,22 @@ sidebar_position: 1
 
 # 메시징 채널 (Channels)
 
+이 문서에서는 OpenClaw를 다양한 채팅 앱과 연결하는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 한눈에 보는 채널 전략
+- 지원 채널 전체 목록
+- 공통 설정 흐름
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해, 같은 에이전트를 다양한 대화 창에서 사용할 수 있게 해줍니다. 빠른 시작은 보통 [Telegram](/channels/telegram)이나 [WhatsApp](/channels/whatsapp)에서 하고, Apple 생태계는 [BlueBubbles](/channels/bluebubbles)를 우선 검토하면 됩니다.
+
+
+:::tip 💡 쉽게 이해하기
+**Channel**은 쉽게 말해 여러분이 OpenClaw와 대화하는 채팅 창이에요. Telegram, Discord, Slack 같은 앱이 모두 Channel이 될 수 있습니다.
+:::
 
 ## 한눈에 보는 채널 전략
 
@@ -54,7 +69,7 @@ OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해,
 2. 발급받은 토큰·시크릿·앱 ID를 준비합니다.
 3. `openclaw onboard --install-daemon` 또는 설정 UI에서 채널을 연결합니다.
 4. [페어링 가이드](/start/pairing)를 따라 DM 또는 안전한 승인 흐름으로 연결합니다.
-5. 연결 후 `openclaw gateway status`로 Gateway 상태를 확인합니다.
+5. 연결 후 `openclaw gateway status`로 Gateway (중앙 통로) 상태를 확인합니다.
 
 ## 채널 선택 가이드
 
@@ -81,3 +96,9 @@ OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해,
 - [BlueBubbles](/channels/bluebubbles)
 - [모델 제공자 개요](/providers/)
 - [FAQ](/help/faq)
+
+## 🎯 다음 단계
+
+- 다음으로 [Telegram](/channels/telegram) 문서를 읽어보세요.
+- 다음으로 [WhatsApp](/channels/whatsapp) 문서를 읽어보세요.
+- 다음으로 [BlueBubbles](/channels/bluebubbles) 문서를 읽어보세요.

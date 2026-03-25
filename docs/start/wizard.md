@@ -6,12 +6,28 @@ sidebar_position: 3
 
 # 온보딩 마법사 (CLI)
 
+이 문서에서는 OpenClaw를 처음 시작할 때 필요한 핵심 흐름을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 🚀 실행 방법
+- ⚙️ 마법사가 설정하는 항목
+- 🔄 개별 재설정
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 온보딩 마법사는 macOS, Linux, Windows(WSL2) 환경에서 OpenClaw를 설정하는 **권장 방법**입니다. 대화형 프롬프트를 통해 모델, 채널, 데몬까지 한 번에 구성합니다.
 
 ---
 
+
+:::tip 💡 쉽게 이해하기
+**OAuth**는 비밀번호를 직접 넘기지 않고도 다른 서비스의 권한만 빌려오는 로그인 방식이에요. "열쇠 전체" 대신 "잠깐 쓰는 출입권"을 주는 느낌입니다.
+:::
+
 ## 🚀 실행 방법
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw onboard --install-daemon
 ```
@@ -37,6 +53,7 @@ openclaw onboard --install-daemon
 
 마법사를 전부 다시 실행하지 않고 특정 항목만 변경하려면:
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 # 채널만 재설정
 openclaw configure
@@ -52,9 +69,16 @@ openclaw doctor
 
 ## 📋 완료 후 확인
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw gateway status
 openclaw dashboard
 ```
 
 > 관련 가이드: [채널 페어링](/start/pairing) | [플랫폼별 설정](/platforms/)
+
+## 🎯 다음 단계
+
+- 다음으로 [채널 페어링](/start/pairing) 문서를 읽어보세요.
+- 다음으로 [플랫폼별 설정](/platforms/) 문서를 읽어보세요.
+- 다음으로 [시작하기](/start/getting-started) 문서를 읽어보세요.

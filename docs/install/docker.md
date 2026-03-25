@@ -6,6 +6,16 @@ sidebar_position: 3
 
 # Docker 설치 가이드
 
+이 문서에서는 OpenClaw를 설치하고 준비하는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 1. Gateway (중앙 통로) 컨테이너 실행
+- 빠른 실행
+- Docker Compose 사용 (권장)
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 OpenClaw를 Docker 환경에서 사용하는 방법은 두 가지입니다:
 
 1. **Gateway를 컨테이너로 실행** — 서버 환경에서 격리된 상태로 운영
@@ -13,12 +23,18 @@ OpenClaw를 Docker 환경에서 사용하는 방법은 두 가지입니다:
 
 ---
 
-## 1. Gateway 컨테이너 실행
+
+:::tip 💡 쉽게 이해하기
+**Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
+:::
+
+## 1. Gateway (중앙 통로) 컨테이너 실행
 
 서버 환경에서 OpenClaw Gateway를 Docker로 띄울 때 사용합니다.
 
 ### 빠른 실행
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 docker run -d \
   --name openclaw-gateway \
@@ -29,6 +45,7 @@ docker run -d \
 
 ### Docker Compose 사용 (권장)
 
+아래 예시 설정을 참고하세요:
 ```yaml
 # docker-compose.yml
 services:
@@ -47,6 +64,7 @@ docker compose up -d
 
 ### 특정 버전 고정
 
+아래 예시 설정을 참고하세요:
 ```yaml
 image: openclaw/gateway:2026.3.23
 ```
@@ -59,6 +77,7 @@ image: openclaw/gateway:2026.3.23
 
 ### 샌드박스 활성화
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw configure set sandbox.enabled true
 openclaw configure set sandbox.provider docker
@@ -66,6 +85,7 @@ openclaw configure set sandbox.provider docker
 
 또는 `~/.openclaw/openclaw.json`에서 직접 설정:
 
+아래 예시 설정을 참고하세요:
 ```json
 {
   "sandbox": {
@@ -94,6 +114,7 @@ openclaw configure set sandbox.provider docker
 
 ## 🔧 헬스체크 설정
 
+아래 예시 설정을 참고하세요:
 ```yaml
 services:
   gateway:
@@ -112,4 +133,10 @@ services:
 
 ---
 
-> 관련 가이드: [설치 개요](/install/) | [Gateway 보안](/gateway/security)
+> 관련 가이드: [설치 개요](/install/) | [Gateway (중앙 통로) 보안](/gateway/security)
+
+## 🎯 다음 단계
+
+- 다음으로 [설치 개요](/install/) 문서를 읽어보세요.
+- 다음으로 [Gateway (중앙 통로) 보안](/gateway/security) 문서를 읽어보세요.
+- 다음으로 [시작하기](/start/getting-started) 문서를 읽어보세요.

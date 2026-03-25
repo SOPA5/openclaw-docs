@@ -6,9 +6,24 @@ sidebar_position: 5
 
 # 채널 페어링 (Pairing)
 
+이 문서에서는 OpenClaw를 처음 시작할 때 필요한 핵심 흐름을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 🔗 페어링 방법
+- 방법 1. 대화형 설정 (권장)
+- 방법 2. QR 코드 방식 (WhatsApp, LINE 등)
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 채팅 채널(Telegram, WhatsApp, Discord, Slack 등)을 OpenClaw Gateway에 연결하는 과정을 **페어링(Pairing)**이라고 합니다. OpenClaw는 20개 이상의 채널을 지원하며, 각 채널은 고유한 연결 방식을 사용합니다.
 
 ---
+
+
+:::tip 💡 쉽게 이해하기
+**Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
+:::
 
 ## 🔗 페어링 방법
 
@@ -16,6 +31,7 @@ sidebar_position: 5
 
 온보딩 또는 `configure` 명령으로 채널을 선택하면 마법사가 단계별로 안내합니다.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw configure
 ```
@@ -24,6 +40,7 @@ openclaw configure
 
 게이트웨이 실행 시 터미널에 QR 코드가 표시됩니다. 모바일 앱의 '연결된 기기' 메뉴에서 스캔하세요.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw gateway start
 # 터미널에 QR 코드 출력됨
@@ -31,8 +48,9 @@ openclaw gateway start
 
 ### 방법 3. API 토큰 방식 (Telegram, Discord, Slack 등)
 
-각 플랫폼의 개발자 콘솔에서 발급받은 Bot Token 또는 API Key를 설정합니다.
+각 플랫폼의 개발자 콘솔에서 발급받은 Bot (봇, 자동으로 응답하는 AI 프로그램) Token (토큰, AI가 처리하는 텍스트 단위) 또는 API Key를 설정합니다.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw configure
 # 채널 선택 후 토큰 입력 프롬프트 안내
@@ -87,6 +105,7 @@ OpenClaw v2026.3.23 기준 20개 이상의 채널을 지원합니다.
 - `channels.{name}.allowFrom`을 설정하면 특정 사용자만 에이전트에 접근할 수 있습니다.
 - 페어링 초기화가 필요하면:
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw pairing reset
 ```
@@ -96,3 +115,9 @@ openclaw pairing reset
 ## 🔄 여러 채널 동시 연결
 
 하나의 Gateway에 여러 채널을 동시에 연결할 수 있습니다. `openclaw configure`를 채널 수만큼 반복하거나, 설정 파일(`~/.openclaw/openclaw.json`)에서 직접 다중 채널을 구성할 수 있습니다.
+
+## 🎯 다음 단계
+
+- 다음으로 [채널 목록](/channels/) 문서를 읽어보세요.
+- 다음으로 [시작하기](/start/getting-started) 문서를 읽어보세요.
+- 다음으로 [온보딩](/start/onboarding) 문서를 읽어보세요.

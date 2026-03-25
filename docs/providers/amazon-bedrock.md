@@ -6,7 +6,22 @@ sidebar_position: 6
 
 # Amazon Bedrock
 
+이 문서에서는 AI 모델 Provider를 연결하는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 언제 적합한가
+- 장점
+- 주의할 점
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 Amazon Bedrock은 AWS 환경 안에서 다양한 기초 모델을 사용할 수 있게 해주는 엔터프라이즈 지향 제공자입니다. 보안, 계정 통제, 인프라 통합이 중요한 조직에서 특히 유리합니다.
+
+
+:::tip 💡 쉽게 이해하기
+**Provider**는 AI 모델을 제공하는 회사나 서비스예요. 예를 들어 OpenAI나 Anthropic 같은 곳이 여기에 들어갑니다.
+:::
 
 ## 언제 적합한가
 
@@ -39,3 +54,9 @@ Amazon Bedrock은 AWS 환경 안에서 다양한 기초 모델을 사용할 수 
 - [OpenRouter](/providers/openrouter)
 - [로컬 모델](/providers/local-models)
 - [FAQ](/help/faq)
+
+## 🎯 다음 단계
+
+- 다음으로 [모델 제공자 개요](/providers/) 문서를 읽어보세요.
+- 다음으로 [OpenRouter](/providers/openrouter) 문서를 읽어보세요.
+- 다음으로 [로컬 모델](/providers/local-models) 문서를 읽어보세요.

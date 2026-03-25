@@ -6,7 +6,22 @@ sidebar_position: 7
 
 # 로컬 모델
 
+이 문서에서는 AI 모델 Provider를 연결하는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 대표 경로
+- 언제 적합한가
+- 장점
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 로컬 모델은 OpenClaw를 사용자의 장치나 사내 서버 위에서 직접 추론하게 만드는 방식입니다. 공식 기준에서는 **Ollama, vLLM, SGLang** 같은 경로가 대표적입니다. 프라이버시, 비용 통제, 자체 인프라 최적화가 중요할 때 적합합니다.
+
+
+:::tip 💡 쉽게 이해하기
+**Provider**는 AI 모델을 제공하는 회사나 서비스예요. 예를 들어 OpenAI나 Anthropic 같은 곳이 여기에 들어갑니다.
+:::
 
 ## 대표 경로
 
@@ -45,3 +60,9 @@ sidebar_position: 7
 - [Amazon Bedrock](/providers/amazon-bedrock)
 - [OpenRouter](/providers/openrouter)
 - [FAQ](/help/faq)
+
+## 🎯 다음 단계
+
+- 다음으로 [모델 제공자 개요](/providers/) 문서를 읽어보세요.
+- 다음으로 [Amazon Bedrock](/providers/amazon-bedrock) 문서를 읽어보세요.
+- 다음으로 [OpenRouter](/providers/openrouter) 문서를 읽어보세요.

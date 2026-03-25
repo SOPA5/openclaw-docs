@@ -6,6 +6,16 @@ sidebar_position: 7
 
 # 기억 시스템 (Memory)
 
+이 문서에서는 OpenClaw의 핵심 개념을 쉽게 이해하는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 1. `MEMORY.md`
+- 2. `memory/` 디렉터리
+- 3. flush
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 OpenClaw의 메모리는 “대화가 길어도 안 까먹게 하는 기능” 이상입니다. 최신 기준에서 메모리는 **`MEMORY.md` + `memory/` + flush + search**가 결합된 계층으로 보는 것이 가장 정확합니다.
 
 ## 1. `MEMORY.md`
@@ -71,3 +81,9 @@ OpenClaw 메모리의 큰 장점은 사람이 읽고 고치기 쉬운 파일 기
 - [컨텍스트](/concepts/context)
 - [세션](/concepts/sessions)
 - [게이트웨이 개요](/gateway/)
+
+## 🎯 다음 단계
+
+- 다음으로 [컨텍스트](/concepts/context) 문서를 읽어보세요.
+- 다음으로 [세션](/concepts/sessions) 문서를 읽어보세요.
+- 다음으로 [게이트웨이 개요](/gateway/) 문서를 읽어보세요.

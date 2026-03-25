@@ -6,6 +6,16 @@ sidebar_position: 1
 
 # 자주 묻는 질문 (FAQ)
 
+이 문서에서는 자주 헷갈리는 질문의 답을 빠르게 찾는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 설치/초기 실행
+- Q. 설치가 안 돼요.
+- Q. 대시보드나 명령어가 안 열려요.
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 이 문서는 OpenClaw 학습 게시판용 **트러블슈팅 허브**입니다. 문제가 생기면 아래 순서대로 보면 됩니다.
 
 - 설치가 안 된다 → [설치/초기 실행](#설치초기-실행)
@@ -13,12 +23,18 @@ sidebar_position: 1
 - 모델이 응답하지 않는다 → [모델/인증 문제](#모델인증-문제)
 - 전체 시스템이 멈춘 것 같다 → [게이트웨이 문제](#게이트웨이-문제)
 
+
+:::tip 💡 쉽게 이해하기
+**Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
+:::
+
 ## 설치/초기 실행
 
 ### Q. 설치가 안 돼요.
 
 가장 먼저 공식 권장 설치 흐름을 다시 확인하세요.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 openclaw onboard --install-daemon
@@ -34,6 +50,7 @@ openclaw onboard --install-daemon
 - 설치는 되었지만 Gateway가 안 떠 있으면 명령은 일부 동작해도 실제 채널 응답은 안 됩니다.
 - 먼저 아래 명령으로 상태를 확인하세요.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw gateway status
 ```
@@ -121,7 +138,7 @@ openclaw gateway status
 
 ### Q. Gateway가 중심이라는 말이 무슨 뜻인가요?
 
-OpenClaw는 **Gateway가 세션, 라우팅, 채널 연결을 중앙에서 관리하는 구조**입니다. 그래서 문제가 생기면 채널만 보지 말고 Gateway 상태를 함께 봐야 합니다.
+OpenClaw는 **Gateway가 세션, 라우팅, 채널 연결을 중앙에서 관리하는 구조**입니다. 그래서 문제가 생기면 채널만 보지 말고 Gateway (중앙 통로) 상태를 함께 봐야 합니다.
 
 ### Q. 무엇이 문제인지 모르겠어요.
 
@@ -134,6 +151,7 @@ OpenClaw는 **Gateway가 세션, 라우팅, 채널 연결을 중앙에서 관리
 
 ## 빠른 점검 체크리스트
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw gateway status
 openclaw doctor
@@ -152,3 +170,9 @@ openclaw doctor
 - [페어링](/start/pairing)
 - [채널 개요](/channels/)
 - [모델 제공자 개요](/providers/)
+
+## 🎯 다음 단계
+
+- 다음으로 [Telegram](/channels/telegram) 문서를 읽어보세요.
+- 다음으로 [WhatsApp](/channels/whatsapp) 문서를 읽어보세요.
+- 다음으로 [BlueBubbles](/channels/bluebubbles) 문서를 읽어보세요.

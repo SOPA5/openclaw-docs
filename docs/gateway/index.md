@@ -4,9 +4,24 @@ sidebar_label: 게이트웨이 개요
 sidebar_position: 1
 ---
 
-# 게이트웨이 및 운영 (Gateway & Ops)
+# 게이트웨이 및 운영 (Gateway (중앙 통로) & Ops)
+
+이 문서에서는 OpenClaw Gateway가 어떻게 동작하는지 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- Gateway가 하는 일
+- 설치와 운영의 최신 기본 흐름
+- 운영할 때 꼭 알아둘 포인트
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
 
 OpenClaw의 중심은 **Gateway**입니다. Gateway는 채널, 에이전트, 세션, 웹 UI, CLI, 모바일 node를 한곳에서 묶는 **단일 제어면(control plane)** 입니다. 사용자는 Telegram, Discord, WebChat, Control UI, macOS 앱, iOS/Android node처럼 서로 다른 진입점에서 OpenClaw를 만나지만, 실제 상태와 라우팅은 모두 Gateway가 관리합니다.
+
+
+:::tip 💡 쉽게 이해하기
+**Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
+:::
 
 ## Gateway가 하는 일
 
@@ -24,6 +39,7 @@ Gateway는 크게 다섯 가지를 맡습니다.
 
 공식 문서 기준 권장 설치 흐름은 다음과 같습니다.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 openclaw onboard --install-daemon
@@ -32,6 +48,7 @@ openclaw gateway status
 
 운영 중 자주 쓰는 명령은 아래 세 가지입니다.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw gateway status
 openclaw gateway install
@@ -64,7 +81,7 @@ openclaw doctor
 
 자세한 내용은 [보안](/gateway/security), [샌드박싱](/gateway/sandboxing) 문서를 참고하세요.
 
-## Gateway 아래에 매달리는 구성요소
+## Gateway (중앙 통로) 아래에 매달리는 구성요소
 
 Gateway를 기준으로 보면 OpenClaw 문서의 큰 축이 자연스럽게 정리됩니다.
 
@@ -83,3 +100,9 @@ OpenClaw를 이해하는 가장 좋은 출발점은 이것입니다.
 > **OpenClaw = self-hosted Gateway 중심의 멀티채널·멀티에이전트 제어면**
 
 이 관점만 잡히면 채널, 세션, node, 도구, API, Web UI가 왜 한 제품 안에서 자연스럽게 연결되는지 훨씬 쉽게 보입니다.
+
+## 🎯 다음 단계
+
+- 다음으로 [원격 접근](/gateway/remote) 문서를 읽어보세요.
+- 다음으로 [보안](/gateway/security) 문서를 읽어보세요.
+- 다음으로 [샌드박싱](/gateway/sandboxing) 문서를 읽어보세요.

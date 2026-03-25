@@ -6,6 +6,16 @@ sidebar_position: 2
 
 # 브라우저 도구 (Browser Tool)
 
+이 문서에서는 OpenClaw 도구를 안전하고 효과적으로 쓰는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 두 가지 주요 프로필
+- 기본 프로필: OpenClaw 관리 브라우저
+- `profile="user"`
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 OpenClaw의 `browser` 도구는 단순 스크린샷 유틸이 아닙니다. **OpenClaw가 관리하는 브라우저 인스턴스와 실제 사용자 브라우저 프로필을 모두 다룰 수 있는 웹 자동화 표면**입니다.
 
 ## 두 가지 주요 프로필
@@ -65,3 +75,9 @@ OpenClaw의 `browser` 도구는 단순 스크린샷 유틸이 아닙니다. **Op
 - [도구 개요](/tools/)
 - [샌드박스](/tools/sandbox)
 - [API](/gateway/api)
+
+## 🎯 다음 단계
+
+- 다음으로 [도구 개요](/tools/) 문서를 읽어보세요.
+- 다음으로 [샌드박스](/tools/sandbox) 문서를 읽어보세요.
+- 다음으로 [API](/gateway/api) 문서를 읽어보세요.

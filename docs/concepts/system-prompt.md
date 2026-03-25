@@ -6,6 +6,16 @@ sidebar_position: 5
 
 # 시스템 프롬프트 (System Prompt)
 
+이 문서에서는 OpenClaw의 핵심 개념을 쉽게 이해하는 방법을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 무엇이 합쳐지나
+- 1. 기본 정체성 및 역할
+- 2. bootstrap 정보
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 OpenClaw의 시스템 프롬프트는 한 장의 고정 문장이 아닙니다. 실제 런타임에서는 **skill / bootstrap / tooling / runtime 정책이 결합된 동적 구성물**에 가깝습니다.
 
 ## 무엇이 합쳐지나
@@ -76,3 +86,9 @@ OpenClaw의 시스템 프롬프트는 한 장의 고정 문장이 아닙니다. 
 - [에이전트](/concepts/agent)
 - [컨텍스트](/concepts/context)
 - [도구 개요](/tools/)
+
+## 🎯 다음 단계
+
+- 다음으로 [에이전트](/concepts/agent) 문서를 읽어보세요.
+- 다음으로 [컨텍스트](/concepts/context) 문서를 읽어보세요.
+- 다음으로 [도구 개요](/tools/) 문서를 읽어보세요.

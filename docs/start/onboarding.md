@@ -6,14 +6,30 @@ sidebar_position: 4
 
 # 온보딩 (macOS 앱)
 
+이 문서에서는 OpenClaw를 처음 시작할 때 필요한 핵심 흐름을 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 🍎 macOS 앱 온보딩 단계
+- 1단계. macOS 보안 경고 승인
+- 2단계. 로컬 vs 원격 선택
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 macOS 컴패니언 앱을 통한 온보딩 가이드입니다. CLI 온보딩 대신 GUI 기반으로 OpenClaw를 설정하고 싶은 macOS 사용자에게 적합합니다.
 
 > CLI 방식을 선호한다면 → [설정 마법사](/start/wizard)
 
 ---
 
+
+:::tip 💡 쉽게 이해하기
+**Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
+:::
+
 ## 🍎 macOS 앱 온보딩 단계
 
+이제 차근차근 진행해보겠습니다.
 ### 1단계. macOS 보안 경고 승인
 
 처음 실행 시 Apple의 Gatekeeper 보안 경고가 나타납니다.
@@ -47,6 +63,7 @@ macOS 컴패니언 앱을 통한 온보딩 가이드입니다. CLI 온보딩 대
 
 macOS 앱에서 npm 또는 pnpm을 통해 글로벌 CLI를 함께 설치할 수 있습니다.
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 npm install -g openclaw@latest
 ```
@@ -65,6 +82,7 @@ npm install -g openclaw@latest
 
 ### Homebrew 사용
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 brew install --cask openclaw
 ```
@@ -75,8 +93,15 @@ brew install --cask openclaw
 
 온보딩 완료 후 설정을 변경하려면:
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw configure
 ```
 
 > 관련 가이드: [macOS 상세 설정](/platforms/macos) | [채널 페어링](/start/pairing)
+
+## 🎯 다음 단계
+
+- 다음으로 [설정 마법사](/start/wizard) 문서를 읽어보세요.
+- 다음으로 [macOS 상세 설정](/platforms/macos) 문서를 읽어보세요.
+- 다음으로 [채널 페어링](/start/pairing) 문서를 읽어보세요.

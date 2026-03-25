@@ -6,7 +6,22 @@ sidebar_position: 4
 
 # 운영 환경에서의 샌드박싱 (Sandboxing)
 
+이 문서에서는 OpenClaw Gateway가 어떻게 동작하는지 배웁니다.
+
+## 📌 이 문서에서 배우는 것
+- 세 가지 축으로 이해하기
+- 1. sandbox mode
+- 2. tool policy
+
+걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+
+
 샌드박싱은 “에이전트가 도구를 쓸 수 있느냐”만이 아니라, **어디서**, **어떤 정책으로**, **얼마나 높은 권한으로** 실행되느냐를 정하는 층입니다. Gateway 관점에서 보면 샌드박싱은 도구 안전장치의 핵심입니다.
+
+
+:::tip 💡 쉽게 이해하기
+**Sandbox**는 위험한 작업을 본체와 떨어진 안전한 공간에서 실행하는 격리 상자예요. 실험실처럼 따로 떼어 두는 개념이라고 생각하면 됩니다.
+:::
 
 ## 세 가지 축으로 이해하기
 
@@ -77,6 +92,7 @@ tool policy는 보통 아래를 다룹니다.
 
 ## 운영 점검
 
+아래 명령어를 터미널에 입력하세요:
 ```bash
 openclaw gateway status
 openclaw doctor
@@ -90,3 +106,9 @@ openclaw doctor
 - [보안](/gateway/security)
 - [도구 샌드박스](/tools/sandbox)
 - [서브에이전트](/tools/subagents)
+
+## 🎯 다음 단계
+
+- 다음으로 [도구 샌드박스](/tools/sandbox) 문서를 읽어보세요.
+- 다음으로 [보안](/gateway/security) 문서를 읽어보세요.
+- 다음으로 [서브에이전트](/tools/subagents) 문서를 읽어보세요.
