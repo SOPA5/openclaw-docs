@@ -40,24 +40,10 @@ Lobster규격화된 워크플로우반복적인 자동화 파이프라인
 
 - 🛡️ 안전하게 도구 사용하기 (Sandbox)
 
-Docs
-
-- 시작하기 (/start/getting-started)
-
 Community
 
 - Discord (https://discord.gg/openclaw)
 
 - Twitter (https://twitter.com/openclaw)
 
-More
-
-- GitHub (https://github.com/openclaw/openclaw)
-
-Copyright © 2026 OpenClaw. Built with Docusaurus.
-
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 

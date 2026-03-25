@@ -68,24 +68,10 @@ OpenClaw는 AI 모델에게 다음 정보를 실시간으로 조합하여 전달
 
 - 💡 활용 팁
 
-Docs
-
-- 시작하기 (/start/getting-started)
-
 Community
 
 - Discord (https://discord.gg/openclaw)
 
 - Twitter (https://twitter.com/openclaw)
 
-More
-
-- GitHub (https://github.com/openclaw/openclaw)
-
-Copyright © 2026 OpenClaw. Built with Docusaurus.
-
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
-제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 
