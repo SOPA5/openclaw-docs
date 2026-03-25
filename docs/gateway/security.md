@@ -4,17 +4,11 @@ sidebar_label: 보안
 sidebar_position: 3
 ---
 
--  (/)
-
-- 게이트웨이 (Gateway)
-
-- 보안 감사 및 강화 (Security)
-
 # 보안 감사 및 강화 (Security)
 
 사용자의 개인정보(파일)와 시스템 권한을 보호하기 위해 OpenClaw는 다양한 보안 검사 기능을 제공합니다.
 
-## 🔍 보안 감사 (Security Audit)​ (#-보안-감사-security-audit)
+## 🔍 보안 감사 (Security Audit)​
 
 터미널에서 현재 설치된 환경의 보안 취약점을 즉시 점검할 수 있습니다.
 
@@ -23,7 +17,7 @@ openclaw security audit
 
 ```
 
-### 주요 점검 항목​ (#주요-점검-항목)
+### 주요 점검 항목​
 
 - API Key 노출: 설정 파일에 API 키가 암호화되지 않고 노출되어 있는지 확인합니다.
 
@@ -33,7 +27,7 @@ openclaw security audit
 
 ---
 
-## 🛡️ 보안 강화 규칙 (Audit Rules)​ (#️-보안-강화-규칙-audit-rules)
+## 🛡️ 보안 강화 규칙 (Audit Rules)​
 
 문제가 발견된 경우 `--fix` 옵션으로 자동 권장 설정을 적용할 수 있습니다.
 
@@ -43,7 +37,7 @@ openclaw security audit
 
 - 인증 토큰 강제: 외부 접속 시 반드시 복잡한 토큰을 사용하도록 설정합니다.
 
-## 💡 수동 강화 팁​ (#-수동-강화-팁)
+## 💡 수동 강화 팁​
 
 - 환경 변수 사용: API 키를 `config.yml`에 직접 적는 대신 환경 변수(`ANTHROPIC_API_KEY` 등)를 통해 로드하는 것을 권장합니다.
 
@@ -54,12 +48,12 @@ openclaw security audit
 운영 환경에서의 샌드박싱 (Sandboxing)
 (/gateway/sandboxing)
 
-- 🔍 보안 감사 (Security Audit) (#-보안-감사-security-audit)
-- 주요 점검 항목 (#주요-점검-항목)
+- 🔍 보안 감사 (Security Audit)
+- 주요 점검 항목
 
-- 🛡️ 보안 강화 규칙 (Audit Rules) (#️-보안-강화-규칙-audit-rules)
+- 🛡️ 보안 강화 규칙 (Audit Rules)
 
-- 💡 수동 강화 팁 (#-수동-강화-팁)
+- 💡 수동 강화 팁
 
 Docs
 
@@ -81,3 +75,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

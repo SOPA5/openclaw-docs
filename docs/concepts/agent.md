@@ -4,17 +4,11 @@ sidebar_label: 에이전트
 sidebar_position: 3
 ---
 
--  (/)
-
-- 개념 (Concepts)
-
-- 에이전트 런타임 (Agent Runtime)
-
 # 에이전트 런타임 (Agent Runtime)
 
 에이전트 런타임은 AI 모델이 여러분의 환경에서 실제로 행동하고 결정을 내리는 실행 환경입니다.
 
-## ⚙️ 실행 사이클: Plan-Act-Observe​ (#️-실행-사이클-plan-act-observe)
+## ⚙️ 실행 사이클: Plan-Act-Observe​
 
 OpenClaw 에이전트는 다음의 3단계 루프를 계속 반복합니다.
 
@@ -26,7 +20,7 @@ OpenClaw 에이전트는 다음의 3단계 루프를 계속 반복합니다.
 
 ---
 
-## 🛡️ 보안 및 샌드박스 (Sandboxing)​ (#️-보안-및-샌드박스-sandboxing)
+## 🛡️ 보안 및 샌드박스 (Sandboxing)​
 
 에이전트가 위험한 코드를 실행하거나 시스템을 망가뜨리는 것을 방지하기 위해 런타임은 격리될 수 있습니다.
 
@@ -34,7 +28,7 @@ OpenClaw 에이전트는 다음의 3단계 루프를 계속 반복합니다.
 
 - Docker 샌드박스: 별도의 컨테이너 내부에서 작업합니다. 안전하며 환경 오염이 없습니다. 상세 가이드 (/install/docker)
 
-## 🏗️ 주요 구성 요소​ (#️-주요-구성-요소)
+## 🏗️ 주요 구성 요소​
 
 - Workspace (작업 공간): 에이전트가 접근할 수 있는 파일 시스템의 범위입니다.
 
@@ -42,7 +36,7 @@ OpenClaw 에이전트는 다음의 3단계 루프를 계속 반복합니다.
 
 - Isolation Level (격리 수준): 읽기 전용 모드 또는 전체 권한 모드 설정.
 
-## 🔄 상태 관리​ (#-상태-관리)
+## 🔄 상태 관리​
 
 런타임은 각 요청마다 새로운 인스턴스로 생성되지만, Session 개념을 통해 이전 대화의 문맥을 공유합니다. 이를 통해 연속적인 작업 처리가 가능해집니다.
 
@@ -51,13 +45,13 @@ OpenClaw 에이전트는 다음의 3단계 루프를 계속 반복합니다.
 컨텍스트 관리 (Context)
 (/concepts/context)
 
-- ⚙️ 실행 사이클: Plan-Act-Observe (#️-실행-사이클-plan-act-observe)
+- ⚙️ 실행 사이클: Plan-Act-Observe
 
-- 🛡️ 보안 및 샌드박스 (Sandboxing) (#️-보안-및-샌드박스-sandboxing)
+- 🛡️ 보안 및 샌드박스 (Sandboxing)
 
-- 🏗️ 주요 구성 요소 (#️-주요-구성-요소)
+- 🏗️ 주요 구성 요소
 
-- 🔄 상태 관리 (#-상태-관리)
+- 🔄 상태 관리
 
 Docs
 
@@ -79,3 +73,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

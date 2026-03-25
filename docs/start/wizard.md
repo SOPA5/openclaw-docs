@@ -4,12 +4,6 @@ sidebar_label: 설정 마법사
 sidebar_position: 3
 ---
 
--  (/)
-
-- 시작하기 (Get Started)
-
-- 온보딩 마법사 (CLI)
-
 # 온보딩 마법사 (CLI)
 
 온보딩 마법사는 macOS, Linux 또는 Windows(WSL2)에서 OpenClaw를 설정하는 권장 방법입니다.
@@ -19,7 +13,7 @@ openclaw onboard
 
 ```
 
-## 마법사가 설정하는 항목:​ (#마법사가-설정하는-항목)
+## 마법사가 설정하는 항목:​
 
 - 모델/인증: Anthropic API 키, OAuth, OpenAI 등 설정.
 
@@ -38,7 +32,7 @@ openclaw onboard
 온보딩 (macOS 앱)
 (/start/onboarding)
 
-- 마법사가 설정하는 항목: (#마법사가-설정하는-항목)
+- 마법사가 설정하는 항목:
 
 Docs
 
@@ -60,3 +54,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

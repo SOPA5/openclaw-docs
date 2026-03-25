@@ -4,17 +4,11 @@ sidebar_label: 쇼케이스
 sidebar_position: 6
 ---
 
--  (/)
-
-- 시작하기 (Get Started)
-
-- 쇼케이스 (Showcase)
-
 # 쇼케이스 (Showcase)
 
 커뮤니티의 실제 프로젝트들입니다. 사람들이 OpenClaw로 무엇을 만들고 있는지 확인해보세요.
 
-## 주요 하이라이트:​ (#주요-하이라이트)
+## 주요 하이라이트:​
 
 - PR 리뷰 → Telegram 피드백: OpenClaw가 diff를 리뷰하고 Telegram에서 제안 및 머지 판정을 답변합니다.
 
@@ -35,7 +29,7 @@ sidebar_position: 6
 OpenClaw로 개인용 어시스턴트 만들기
 (/start/openclaw)
 
-- 주요 하이라이트: (#주요-하이라이트)
+- 주요 하이라이트:
 
 Docs
 
@@ -57,3 +51,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

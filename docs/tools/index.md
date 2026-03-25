@@ -4,17 +4,11 @@ sidebar_label: 도구 개요
 sidebar_position: 1
 ---
 
--  (/)
-
-- 도구 (Tools)
-
-- 도구 및 기술 (Tools)
-
 # 도구 및 기술 (Tools)
 
 OpenClaw 에이전트는 단순히 답변만 하는 것이 아니라, 다양한 **도구(Tools)**를 사용하여 여러분의 컴퓨터에서 직접 작업을 수행합니다.
 
-## 🛠️ 핵심 도구 상자​ (#️-핵심-도구-상자)
+## 🛠️ 핵심 도구 상자​
 
 도구기능주요 활용처
 Playwright Browser웹 사이트 자동 제어정보 검색, 자동 로그인, 데이터 수집
@@ -25,7 +19,7 @@ Lobster규격화된 워크플로우반복적인 자동화 파이프라인
 
 ---
 
-## 🛡️ 안전하게 도구 사용하기 (Sandbox)​ (#️-안전하게-도구-사용하기-sandbox)
+## 🛡️ 안전하게 도구 사용하기 (Sandbox)​
 
 에이전트가 위험한 명령어를 실행하지 못하도록 다양한 안전 장치를 제공합니다.
 
@@ -42,9 +36,9 @@ Lobster규격화된 워크플로우반복적인 자동화 파이프라인
 브라우저 도구 (Browser Tool)
 (/tools/browser)
 
-- 🛠️ 핵심 도구 상자 (#️-핵심-도구-상자)
+- 🛠️ 핵심 도구 상자
 
-- 🛡️ 안전하게 도구 사용하기 (Sandbox) (#️-안전하게-도구-사용하기-sandbox)
+- 🛡️ 안전하게 도구 사용하기 (Sandbox)
 
 Docs
 
@@ -66,3 +60,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

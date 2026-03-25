@@ -4,17 +4,11 @@ sidebar_label: Grammy
 sidebar_position: 4
 ---
 
--  (/)
-
-- 채널 (Channels)
-
-- grammY (Telegram Framework)
-
 # grammY (Telegram Framework)
 
 Telegram 채널은 내부적으로 grammY (https://grammy.dev/) 프레임워크를 사용하여 동작합니다.
 
-## 🛠️ 고급 설정​ (#️-고급-설정)
+## 🛠️ 고급 설정​
 
 에이전트의 텔레그램 봇 행동을 더 세밀하게 조정하고 싶다면 `grammY` 관련 설정을 활용할 수 있습니다.
 
@@ -31,7 +25,7 @@ Telegram 연결 가이드
 Discord 연결 가이드
 (/channels/discord)
 
-- 🛠️ 고급 설정 (#️-고급-설정)
+- 🛠️ 고급 설정
 
 Docs
 
@@ -53,3 +47,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

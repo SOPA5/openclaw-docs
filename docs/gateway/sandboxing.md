@@ -4,17 +4,11 @@ sidebar_label: 샌드박싱
 sidebar_position: 4
 ---
 
--  (/)
-
-- 게이트웨이 (Gateway)
-
-- 운영 환경에서의 샌드박싱 (Sandboxing)
-
 # 운영 환경에서의 샌드박싱 (Sandboxing)
 
 서버(Gateway) 운영자의 관점에서 에이전트의 도구 실행을 어떻게 물리적으로 격리하고 관리하는지 설명합니다.
 
-## 🏗️ 샌드박스 아키텍처​ (#️-샌드박스-아키텍처)
+## 🏗️ 샌드박스 아키텍처​
 
 게이트웨이는 도구 실행 요청이 올 때마다 설정된 **프로바이더(Provider)**에 따라 실행을 중계합니다.
 프로바이더격리 수준특징
@@ -24,15 +18,15 @@ GVisor (실험적)최고커널 레벨 격리, 고보안 환경용
 
 ---
 
-## 🐳 Docker 샌드박스 운영 상세​ (#-docker-샌드박스-운영-상세)
+## 🐳 Docker 샌드박스 운영 상세​
 
-### 1. 이미지 관리​ (#1-이미지-관리)
+### 1. 이미지 관리​
 
 게이트웨이는 실행 시 필요한 도구들이 포함된 `openclaw/sandbox` 이미지를 사용합니다.
 
 - 커스텀 이미지가 필요하다면 `config.yml`에서 이미지를 변경할 수 있습니다.
 
-### 2. 세션 상태 유지 (Persistence)​ (#2-세션-상태-유지-persistence)
+### 2. 세션 상태 유지 (Persistence)​
 
 - Isolated 모드: 도구 실행이 끝나면 컨테이너가 즉시 파괴됩니다. 보안상 가장 안전합니다.
 
@@ -43,7 +37,7 @@ openclaw configure set sandbox.mode "persistent"
 
 ```
 
-## 🔒 운영 중 주의사항​ (#-운영-중-주의사항)
+## 🔒 운영 중 주의사항​
 
 - 리소스 제한: 에이전트가 무한 루프를 도는 등 자원을 독점하지 않도록 CPU/Memory 제한을 걸 수 있습니다 (`sandbox.limits.cpu: 1.0`).
 
@@ -54,14 +48,14 @@ openclaw configure set sandbox.mode "persistent"
 MCP (Model Context Protocol) 연동
 (/gateway/mcp)
 
-- 🏗️ 샌드박스 아키텍처 (#️-샌드박스-아키텍처)
+- 🏗️ 샌드박스 아키텍처
 
-- 🐳 Docker 샌드박스 운영 상세 (#-docker-샌드박스-운영-상세)
-- 1. 이미지 관리 (#1-이미지-관리)
+- 🐳 Docker 샌드박스 운영 상세
+- 1. 이미지 관리
 
-- 2. 세션 상태 유지 (Persistence) (#2-세션-상태-유지-persistence)
+- 2. 세션 상태 유지 (Persistence)
 
-- 🔒 운영 중 주의사항 (#-운영-중-주의사항)
+- 🔒 운영 중 주의사항
 
 Docs
 
@@ -83,3 +77,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

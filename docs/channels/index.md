@@ -4,17 +4,11 @@ sidebar_label: 채널 개요
 sidebar_position: 1
 ---
 
--  (/)
-
-- 채널 (Channels)
-
-- 메시징 채널 (Channels)
-
 # 메시징 채널 (Channels)
 
 OpenClaw는 여러분이 평소 사용하는 메시징 앱을 통해 에이전트와 대화할 수 있게 해줍니다. 한 번의 설정으로 여러 채널을 동시에 운영할 수 있습니다.
 
-## 📱 지원되는 채널 목록​ (#-지원되는-채널-목록)
+## 📱 지원되는 채널 목록​
 
 채널특징추천 용도
 WhatsApp멀티 디바이스 지원, 안정적개인 비서, 글로벌 서비스
@@ -27,7 +21,7 @@ iMessagemacOS 필요 (BlueBubbles 추천)Apple 생태계 사용자
 
 ---
 
-## 🚀 기본 설정 흐름​ (#-기본-설정-흐름)
+## 🚀 기본 설정 흐름​
 
 대부분의 채널은 다음과 같은 공통 과정을 거칩니다.
 
@@ -46,9 +40,9 @@ Render를 이용한 배포
 WhatsApp 연결 가이드
 (/channels/whatsapp)
 
-- 📱 지원되는 채널 목록 (#-지원되는-채널-목록)
+- 📱 지원되는 채널 목록
 
-- 🚀 기본 설정 흐름 (#-기본-설정-흐름)
+- 🚀 기본 설정 흐름
 
 Docs
 
@@ -70,3 +64,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

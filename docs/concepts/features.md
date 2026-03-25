@@ -4,12 +4,6 @@ sidebar_label: 기능
 sidebar_position: 1
 ---
 
--  (/)
-
-- 개념 (Concepts)
-
-- 주요 특징 (Highlights)
-
 # 주요 특징 (Highlights)
 
 - 채널: 단일 게이트웨이로 WhatsApp, Telegram, Discord, iMessage 지원.
@@ -83,3 +77,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

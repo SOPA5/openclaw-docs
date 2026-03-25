@@ -4,23 +4,17 @@ sidebar_label: iMessage
 sidebar_position: 12
 ---
 
--  (/)
-
-- 채널 (Channels)
-
-- iMessage (Legacy - imsg) 가이드
-
 # iMessage (Legacy - imsg) 가이드
 
 주의
 
 이 설치 방식은 레거시(Legacy) 방법이며, 더 이상 적극적으로 권장되지 않습니다. 더 풍부한 기능과 안정적인 연결을 위해 BlueBubbles 가이드 (/channels/bluebubbles)를 사용하시길 강력히 추천합니다.
 
-## 📋 레거시 방식 개요​ (#-레거시-방식-개요)
+## 📋 레거시 방식 개요​
 
 이 방식은 macOS의 `osascript` 또는 `imsg` 도구를 사용하여 iMessage 앱을 직접 제어합니다.
 
-### 한계점​ (#한계점)
+### 한계점​
 
 - macOS에서만 동작하며, iMessage 앱이 항상 켜져 있어야 합니다.
 
@@ -28,7 +22,7 @@ sidebar_position: 12
 
 - 보안 설정(Full Disk Access)이 복잡합니다.
 
-### 설정 방법 (필요한 경우)​ (#설정-방법-필요한-경우)
+### 설정 방법 (필요한 경우)​
 
 터미널에서 레거시 브리지를 활성화합니다.
 
@@ -44,10 +38,10 @@ iMessage (BlueBubbles) 연결 가이드
 모델 제공자 (Providers)
 (/providers/)
 
-- 📋 레거시 방식 개요 (#-레거시-방식-개요)
-- 한계점 (#한계점)
+- 📋 레거시 방식 개요
+- 한계점
 
-- 설정 방법 (필요한 경우) (#설정-방법-필요한-경우)
+- 설정 방법 (필요한 경우)
 
 Docs
 
@@ -69,3 +63,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+

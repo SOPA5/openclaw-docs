@@ -4,17 +4,11 @@ sidebar_label: 메모리
 sidebar_position: 7
 ---
 
--  (/)
-
-- 개념 (Concepts)
-
-- 기억 시스템 (Memory)
-
 # 기억 시스템 (Memory)
 
 OpenClaw의 기억(Memory) 시스템은 에이전트가 과거의 대화, 사용자의 취향, 그리고 중요한 정보를 영구적으로 보존하게 해줍니다.
 
-## 🏦 기억의 원천 (Source of Truth)​ (#-기억의-원천-source-of-truth)
+## 🏦 기억의 원천 (Source of Truth)​
 
 OpenClaw는 복잡한 데이터베이스 대신 사람이 읽기 편한 Markdown 파일을 기본 저장소로 사용합니다.
 
@@ -24,17 +18,17 @@ OpenClaw는 복잡한 데이터베이스 대신 사람이 읽기 편한 Markdown
 
 ---
 
-## 🧠 기억의 종류​ (#-기억의-종류)
+## 🧠 기억의 종류​
 
-### 1. 단기 기억 (Context Window)​ (#1-단기-기억-context-window)
+### 1. 단기 기억 (Context Window)​
 
 현재 대화 세션 중인 내용입니다. 세션이 유지되는 동안만 유효합니다.
 
-### 2. 장기 기억 (Persistent Memory)​ (#2-장기-기억-persistent-memory)
+### 2. 장기 기억 (Persistent Memory)​
 
 대화가 끝나도 사라지지 않는 정보입니다. OpenClaw는 에이전트가 스스로 판단하여 "이건 나중에 또 쓸 것 같아"라고 생각되는 정보를 `MEMORY.md`에 추가하라고 권고합니다.
 
-## 🔍 기억 검색 (Retrieval)​ (#-기억-검색-retrieval)
+## 🔍 기억 검색 (Retrieval)​
 
 기억의 양이 많아지면 모든 것을 AI에게 한꺼번에 줄 수 없습니다.
 
@@ -42,7 +36,7 @@ OpenClaw는 복잡한 데이터베이스 대신 사람이 읽기 편한 Markdown
 
 - 하이브리드 검색: 단순 키워드 검색과 의미 기반 검색(Vector Search)을 동시에 사용하여 정확도를 높입니다.
 
-## 🛠️ 사용자가 기억을 관리하는 법​ (#️-사용자가-기억을-관리하는-법)
+## 🛠️ 사용자가 기억을 관리하는 법​
 
 - 직접 수정: 메모리는 마크다운 파일이므로 언제든 여러분이 직접 열어서 수정하거나 삭제할 수 있습니다.
 
@@ -53,16 +47,16 @@ OpenClaw는 복잡한 데이터베이스 대신 사람이 읽기 편한 Markdown
 도구 및 기술 (Tools)
 (/tools/)
 
-- 🏦 기억의 원천 (Source of Truth) (#-기억의-원천-source-of-truth)
+- 🏦 기억의 원천 (Source of Truth)
 
-- 🧠 기억의 종류 (#-기억의-종류)
-- 1. 단기 기억 (Context Window) (#1-단기-기억-context-window)
+- 🧠 기억의 종류
+- 1. 단기 기억 (Context Window)
 
-- 2. 장기 기억 (Persistent Memory) (#2-장기-기억-persistent-memory)
+- 2. 장기 기억 (Persistent Memory)
 
-- 🔍 기억 검색 (Retrieval) (#-기억-검색-retrieval)
+- 🔍 기억 검색 (Retrieval)
 
-- 🛠️ 사용자가 기억을 관리하는 법 (#️-사용자가-기억을-관리하는-법)
+- 🛠️ 사용자가 기억을 관리하는 법
 
 Docs
 
@@ -84,3 +78,4 @@ Copyright © 2026 OpenClaw. Built with Docusaurus.
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
 제플몰 CLAWBOX 출시! 지금 만나러 가기 (https://claude.ai/public/artifacts/4d0774a0-b077-4563-b044-098d565c24b7)
+
