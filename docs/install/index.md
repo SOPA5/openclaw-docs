@@ -168,3 +168,7 @@ openclaw doctor
 - 상세 설치 옵션이 필요하면 [설치 스크립트 상세 내역](/install/installer)
 - 컨테이너 환경이면 [Docker 가이드](/install/docker)
 - 선언적 환경이면 [Nix (Home Manager)](/install/nix)
+## 📝 도움이 안 됐나요?
+
+문서를 읽고도 막히는 부분이 있다면 [피드백 허브](/feedback)에서 알려주세요. 설치 문제, 검색 실패, 용어 혼란을 모아서 다음 개선에 반영합니다.
+

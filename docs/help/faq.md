@@ -189,3 +189,7 @@ openclaw doctor
 - 다음으로 [Telegram](/channels/telegram) 문서를 읽어보세요.
 - 다음으로 [WhatsApp](/channels/whatsapp) 문서를 읽어보세요.
 - 다음으로 [BlueBubbles](/channels/bluebubbles) 문서를 읽어보세요.
+## 📝 도움이 안 됐나요?
+
+문서를 읽고도 막히는 부분이 있다면 [피드백 허브](/feedback)에서 알려주세요. 설치 문제, 검색 실패, 용어 혼란을 모아서 다음 개선에 반영합니다.
+
