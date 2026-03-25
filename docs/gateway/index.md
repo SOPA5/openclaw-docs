@@ -43,7 +43,7 @@ REST API 및 MCP(Model Context Protocol)를 통해 외부 서비스를 연동하
 OpenClaw 게이트웨이는 설정 파일(`config.yml`)의 변경 사항을 자동으로 감지합니다. 서비스를 껐다 켤 필요 없이 즉시 새로운 설정이 반영됩니다.
 
 게이트웨이 수명 주기 (Lifecycle)
-(/platforms/mac-child-process)다음
+(/platforms/macos)다음
 원격 접속 및 접근 관리
 (/gateway/remote)
 

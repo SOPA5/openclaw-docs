@@ -36,7 +36,7 @@ iMessagemacOS 필요 (BlueBubbles 추천)Apple 생태계 사용자
 상세 페어링 가이드 보기 (/start/pairing)
 
 Render를 이용한 배포
-(/install/render)다음
+(/install/)다음
 WhatsApp 연결 가이드
 (/channels/whatsapp)
 

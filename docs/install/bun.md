@@ -42,7 +42,7 @@ bun x openclaw gateway
 Ansible을 이용한 배포
 (/install/ansible)다음
 Fly.io에 배포하기
-(/install/fly)
+(/install/)
 
 - ⚡ 설치 및 실행
 - 1. Bun 설치

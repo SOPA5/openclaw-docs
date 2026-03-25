@@ -44,7 +44,7 @@ End Patch ***/
 서브 에이전트 (Sub-agents)
 (/tools/subagents)다음
 CLI 명령어 참조 (CLI Reference)
-(/cli/)
+(/start/getting-started)
 
 - 🛠️ 왜 사용하나요?
 

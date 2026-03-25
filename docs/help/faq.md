@@ -27,7 +27,7 @@ OpenClaw 사용 중 자주 발생하는 질문들에 대한 답변입니다.
 - 더 자세한 도움이 필요하다면 Discord 커뮤니티 (https://discord.gg/openclaw)에 참여하세요.
 
 IDENTITY (정체성 템플릿)
-(/templates/identity)
+(/concepts/system-prompt)
 
 - 초기 설정 관련
 

@@ -33,7 +33,7 @@ brew install --cask openclaw
 
 - 화면 기록(Screen Recording): 브라우저나 화면의 상태를 에이전트가 '보기' 위해 필요합니다.
 
-상세 권한 설정 방법 (/platforms/mac-permissions)
+상세 권한 설정 방법 (/platforms/macos)
 
 ## 📂 로그 위치​
 
@@ -41,13 +41,13 @@ brew install --cask openclaw
 
 - `~/Library/Logs/OpenClaw/`
 
-- 로그 관리 가이드 (/platforms/mac-logging)
+- 로그 관리 가이드 (/platforms/macos)
 
 ## 🔄 게이트웨이 생명주기​
 
 데스크탑 앱을 종료하면 실행 중인 게이트웨이 프로세스도 함께 종료되도록 설계되어 있습니다.
 
-- 시스템 프로세스 정보 (/platforms/mac-child-process)
+- 시스템 프로세스 정보 (/platforms/macos)
 
 지원 플랫폼 (Platforms)
 (/platforms/)다음

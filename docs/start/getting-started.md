@@ -80,7 +80,7 @@ openclaw dashboard
 
 - 기기 연결: 메시징 채널 페어링 가이드 (/start/pairing)
 
-- 에이전트 조작: 전체 명령어 레퍼런스 (/cli)
+- 에이전트 조작: 전체 명령어 레퍼런스 (/start/getting-started)
 
 - 채널 확장: 지원되는 채팅 채널 목록 (/channels)
 

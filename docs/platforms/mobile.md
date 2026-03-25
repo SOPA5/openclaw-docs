@@ -41,7 +41,7 @@ App Store와 Google Play Store를 통해 배포되는 공식 클라이언트를 
 Windows 설치 및 설정
 (/platforms/windows)다음
 macOS 로그 관리 (Logging)
-(/platforms/mac-logging)
+(/platforms/macos)
 
 - 📱 주요 접근 방법
 - 1. PWA (Progressive Web App)
