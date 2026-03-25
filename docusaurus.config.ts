@@ -71,11 +71,7 @@ const config: Config = {
           position: 'left',
           label: '문서',
         },
-        {
-          href: 'https://github.com/SOPA5/openclaw-docs',
-          label: 'GitHub',
-          position: 'right',
-        },
+
       ],
     },
 
@@ -110,17 +106,25 @@ const config: Config = {
               label: 'Twitter',
               href: 'https://twitter.com/openclaw',
             },
-          ],
-        },
-        {
-          title: '더 보기',
-          items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/SOPA5/openclaw-docs',
+              label: '공식 사이트',
+              href: 'https://openclaw.ai/',
+            },
+            {
+              label: '공식 GitHub',
+              href: 'https://github.com/openclaw/openclaw',
+            },
+            {
+              label: '공식 Docs',
+              href: 'https://docs.openclaw.ai/',
+            },
+            {
+              label: 'Marketplace',
+              href: 'https://clawhub.ai/',
             },
           ],
         },
+
       ],
       copyright: `Copyright © ${new Date().getFullYear()} SOPA5. Docusaurus로 제작.`,
     },

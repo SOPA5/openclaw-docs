@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/start/getting-started">
+            to="/start/getting-started">
             📖 문서 시작하기 →
           </Link>
         </div>
@@ -45,7 +45,7 @@ export default function Home(): ReactNode {
                   <p>OpenClaw를 처음 사용하는 분들을 위한 가이드입니다.</p>
                 </div>
                 <div className="card__footer">
-                  <Link className="button button--primary button--block" to="/docs/start/getting-started">
+                  <Link className="button button--primary button--block" to="/start/getting-started">
                     바로 시작
                   </Link>
                 </div>
@@ -60,7 +60,7 @@ export default function Home(): ReactNode {
                   <p>Docker, Nix, Ansible 등 다양한 설치 방법을 안내합니다.</p>
                 </div>
                 <div className="card__footer">
-                  <Link className="button button--primary button--block" to="/docs/install/">
+                  <Link className="button button--primary button--block" to="/install/">
                     설치 가이드
                   </Link>
                 </div>
@@ -75,7 +75,7 @@ export default function Home(): ReactNode {
                   <p>Telegram, Discord, Slack 등 12개 채널 연동 방법입니다.</p>
                 </div>
                 <div className="card__footer">
-                  <Link className="button button--primary button--block" to="/docs/channels/">
+                  <Link className="button button--primary button--block" to="/channels/">
                     채널 보기
                   </Link>
                 </div>
