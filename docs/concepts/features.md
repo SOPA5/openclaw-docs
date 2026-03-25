@@ -8,22 +8,64 @@ sidebar_position: 1
 
 이 문서에서는 OpenClaw의 핵심 개념을 쉽게 이해하는 방법을 배웁니다.
 
+<ProgressPill level="Core" progress={60} label="핵심 개념 · 제품 전체 그림 이해" />
+
+<InfoCard title="이 문서의 역할" icon="🧠" tone="cyan">
+이 문서는 설치 방법보다 한 단계 더 올라가서, OpenClaw가 어떤 제품인지 큰 그림을 잡아주는 문서입니다.
+</InfoCard>
+
 ## 📌 이 문서에서 배우는 것
 - 한눈에 보는 최신 기능
 - 채널
 - 모델 제공자
+- 모바일 node와 자동화
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
-
+걱정하지 마세요. 큰 그림만 잡으면 됩니다.
 
 OpenClaw는 단순 채팅 봇이 아닙니다. **self-hosted Gateway (중앙 통로)**를 중심으로 채널, 에이전트, 도구, 모바일 node, 음성, 웹 UI를 한 제품 안에 묶은 운영 플랫폼입니다.
 
+<LearningPath
+  title="개념 학습 경로"
+  items={[
+    { title: '시작하기', to: '/start/getting-started', state: 'done', note: '실행 흐름을 먼저 익혔습니다.' },
+    { title: '주요 특징', to: '/concepts/features', state: 'current', note: 'OpenClaw의 전체 기능 지도를 봅니다.' },
+    { title: '아키텍처', to: '/concepts/architecture', state: 'next', note: '구조를 더 깊게 이해합니다.' },
+    { title: '에이전트', to: '/concepts/agent', state: 'next', note: '멀티에이전트 동작 방식을 봅니다.' },
+  ]}
+/>
 
 :::tip 💡 쉽게 이해하기
 **Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
 :::
 
 ## 한눈에 보는 최신 기능
+
+<ComparisonGrid
+  left={{
+    title: '사용자 입장에서 보이는 것',
+    badge: '겉으로 보이는 가치',
+    children: (
+      <ul>
+        <li>20개+ 채널 지원</li>
+        <li>34개+ 모델 제공자 지원</li>
+        <li>Canvas, Camera, Voice, TTS 지원</li>
+        <li>Web UI / WebChat / companion app 제공</li>
+      </ul>
+    ),
+  }}
+  right={{
+    title: '운영자 입장에서 중요한 것',
+    badge: '안쪽 구조',
+    children: (
+      <ul>
+        <li>Gateway 중심 연결 구조</li>
+        <li>멀티에이전트 라우팅</li>
+        <li>격리 세션과 도구 실행</li>
+        <li>fallback, 자동화, 디바이스 확장</li>
+      </ul>
+    ),
+  }}
+/>
 
 - **20개+ 채널 지원**
 - **34개+ 모델 제공자 지원**
@@ -37,7 +79,7 @@ OpenClaw는 단순 채팅 봇이 아닙니다. **self-hosted Gateway (중앙 통
 
 ## 채널
 
-OpenClaw는 하나의 Gateway로 매우 다양한 채널을 동시에 붙일 수 있습니다. 대표 예시는 다음과 같습니다.
+OpenClaw는 하나의 Gateway로 매우 다양한 채널을 동시에 붙일 수 있습니다.
 
 - Telegram
 - WhatsApp
@@ -71,7 +113,9 @@ OpenClaw는 하나의 Gateway로 매우 다양한 채널을 동시에 붙일 수
 
 ## 모바일 node와 디바이스 확장
 
-OpenClaw는 서버만 다루는 제품이 아닙니다. **iOS와 Android를 node처럼 페어링**해 실제 디바이스 기능을 끌어올 수 있습니다.
+<InfoCard title="왜 중요한가요?" icon="📱" tone="green">
+OpenClaw는 서버 안에만 머무는 에이전트가 아니라, 실제 휴대폰과 장치 기능까지 끌어올 수 있는 런타임입니다.
+</InfoCard>
 
 대표 기능:
 
@@ -84,8 +128,6 @@ OpenClaw는 서버만 다루는 제품이 아닙니다. **iOS와 Android를 node
 즉, OpenClaw는 “메신저 에이전트”를 넘어 **장치 연결형 agent runtime**으로 확장됩니다.
 
 ## 멀티모달 입출력
-
-텍스트만 처리하는 구조가 아닙니다.
 
 - 이미지 분석
 - 이미지 생성
@@ -112,8 +154,6 @@ OpenClaw는 멀티에이전트 구조를 기본적으로 지원합니다.
 
 ## UI와 운영 진입점
 
-사용자는 여러 방식으로 같은 Gateway에 붙을 수 있습니다.
-
 - CLI
 - Web Control UI
 - WebChat
@@ -121,16 +161,8 @@ OpenClaw는 멀티에이전트 구조를 기본적으로 지원합니다.
 - iOS / Android node
 - 각종 채팅 채널
 
-이 구조 덕분에 하나의 OpenClaw 인스턴스를 개인 비서, 운영 봇, 자동화 허브처럼 다양하게 활용할 수 있습니다.
-
 ## 다음에 읽으면 좋은 문서
 
 - [아키텍처](/concepts/architecture)
 - [에이전트](/concepts/agent)
 - [도구 개요](/tools/)
-
-## 🎯 다음 단계
-
-- 다음으로 [도구 개요](/tools/) 문서를 읽어보세요.
-- 다음으로 [아키텍처](/concepts/architecture) 문서를 읽어보세요.
-- 다음으로 [에이전트](/concepts/agent) 문서를 읽어보세요.

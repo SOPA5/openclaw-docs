@@ -808,3 +808,42 @@ tr:hover td {
     transform: none !important;
   }
 }
+
+/* ─── Search UX Overrides ─── */
+:root {
+  --search-local-modal-width: 640px;
+  --search-local-modal-background: rgba(255, 255, 255, 0.92);
+  --search-local-modal-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+  --search-local-hit-background: rgba(255, 255, 255, 0.9);
+  --search-local-hit-color: var(--ifm-font-color-base);
+  --search-local-highlight-color: var(--brand-indigo);
+  --search-local-muted-color: var(--ifm-color-emphasis-700);
+  --search-local-input-active-border-color: var(--brand-indigo);
+}
+
+html[data-theme='dark'] {
+  --search-local-modal-background: rgba(15, 23, 42, 0.96);
+  --search-local-modal-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --search-local-hit-background: rgba(30, 41, 59, 0.92);
+  --search-local-hit-color: var(--ifm-font-color-base);
+  --search-local-muted-color: var(--ifm-color-emphasis-600);
+}
+
+.navbar__item.navbar__search {
+  margin-left: 0.5rem;
+}
+
+.navbar__search-input,
+.navbar :is(input[type='search'], input[type='text'])[aria-label*='Search'],
+.navbar :is(button, a)[class*='searchBar'],
+.navbar :is(button, a)[class*='SearchBar'] {
+  border-radius: 9999px;
+}
+
+.announcementBar_node_modules-\@docusaurus-theme-classic-lib-theme-AnnouncementBar-styles-module {
+  border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+html[data-theme='dark'] .announcementBar_node_modules-\@docusaurus-theme-classic-lib-theme-AnnouncementBar-styles-module {
+  border-bottom-color: rgba(129, 140, 248, 0.12);
+}

@@ -7,6 +7,27 @@ const config: Config = {
   tagline: 'OpenClaw AI 에이전트 플랫폼 완벽 가이드',
   favicon: 'img/favicon.ico',
 
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: true,
+        docsRouteBasePath: '/',
+        language: ['ko', 'en'],
+        highlightSearchTermsOnTargetPage: true,
+        searchBarPosition: 'right',
+        searchBarShortcut: true,
+        searchBarShortcutHint: true,
+        searchResultLimits: 8,
+        explicitSearchResultPath: true,
+        ignoreFiles: ['/search'],
+      },
+    ],
+  ],
+
   // Vercel 배포용 URL
   url: 'https://openclaw-docs.vercel.app',
   baseUrl: '/',
@@ -48,6 +69,15 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'search-shortcut-tip',
+      content:
+        '찾는 문서가 안 보이면 <strong>상단 검색</strong>을 누르거나 <strong>Ctrl/⌘ + K</strong>를 눌러 바로 검색하세요.',
+      backgroundColor: '#eef2ff',
+      textColor: '#312e81',
+      isCloseable: true,
+    },
+
     // 소셜 카드 이미지
     image: 'img/openclaw-social-card.png',
 
@@ -71,7 +101,15 @@ const config: Config = {
           position: 'left',
           label: '문서',
         },
-
+        {
+          type: 'search',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/openclaw/openclaw',
+          label: 'GitHub',
+          position: 'right',
+        },
       ],
     },
 
