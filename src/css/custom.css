@@ -1,9 +1,5 @@
-/**
- * OpenClaw 종합 학습 게시판 - 커스텀 CSS
- * Docusaurus 기본 테마 확장
- */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 
-/* ─── 라이트 모드 색상 ───────────────────────────── */
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -13,10 +9,11 @@
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Noto Sans KR', system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-heading-font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Noto Sans KR', system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* ─── 다크 모드 색상 ────────────────────────────── */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
@@ -26,4 +23,13 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
+}
+
+/* Hero section gradient like original */
+.hero--primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }

@@ -35,7 +35,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          routeBasePath: '/docs',
+          routeBasePath: '/',
           editUrl:
             'https://github.com/SOPA5/openclaw-docs/tree/main/',
         },
@@ -87,15 +87,15 @@ const config: Config = {
           items: [
             {
               label: '시작하기',
-              to: '/docs/start/getting-started',
+              to: '/start/getting-started',
             },
             {
               label: '설치',
-              to: '/docs/install/',
+              to: '/install/',
             },
             {
               label: '채널',
-              to: '/docs/channels/',
+              to: '/channels/',
             },
           ],
         },
