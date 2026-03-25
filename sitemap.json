@@ -1,0 +1,81 @@
+{
+  "base": "https://openclaw-wheat.vercel.app",
+  "categories": {
+    "시작하기": [
+      "/start/getting-started",
+      "/start/use-cases",
+      "/start/wizard",
+      "/start/onboarding",
+      "/start/pairing",
+      "/start/showcase",
+      "/start/openclaw"
+    ],
+    "설치": [
+      "/install/",
+      "/install/installer",
+      "/install/docker",
+      "/install/nix",
+      "/install/ansible",
+      "/install/bun"
+    ],
+    "채널": [
+      "/channels/",
+      "/channels/whatsapp",
+      "/channels/telegram",
+      "/channels/grammy",
+      "/channels/discord",
+      "/channels/slack",
+      "/channels/google-chat",
+      "/channels/ms-teams",
+      "/channels/line",
+      "/channels/matrix",
+      "/channels/bluebubbles",
+      "/channels/imessage"
+    ],
+    "모델": [
+      "/providers/",
+      "/providers/anthropic",
+      "/providers/openai",
+      "/providers/google-gemini",
+      "/providers/openrouter",
+      "/providers/amazon-bedrock",
+      "/providers/local-models"
+    ],
+    "플랫폼": [
+      "/platforms/",
+      "/platforms/macos",
+      "/platforms/linux",
+      "/platforms/windows",
+      "/platforms/mobile"
+    ],
+    "게이트웨이": [
+      "/gateway/",
+      "/gateway/remote",
+      "/gateway/security",
+      "/gateway/sandboxing",
+      "/gateway/mcp",
+      "/gateway/api"
+    ],
+    "개념": [
+      "/concepts/features",
+      "/concepts/architecture",
+      "/concepts/agent",
+      "/concepts/context",
+      "/concepts/system-prompt",
+      "/concepts/sessions",
+      "/concepts/memory"
+    ],
+    "도구": [
+      "/tools/",
+      "/tools/browser",
+      "/tools/lobster",
+      "/tools/sandbox",
+      "/tools/subagents",
+      "/tools/apply-patch"
+    ],
+    "레퍼런스": [],
+    "도움말": [
+      "/help/faq"
+    ]
+  }
+}
