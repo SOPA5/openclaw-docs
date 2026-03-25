@@ -4,66 +4,36 @@ sidebar_label: Google Chat
 sidebar_position: 7
 ---
 
-# Google Chat 연결 가이드
+# Google Chat
 
-Google Workspace 환경을 사용하는 조직이라면 Google Chat을 통해 에이전트와 소통할 수 있습니다.
+Google Chat은 Google Workspace 중심 조직에서 자연스럽게 도입하기 좋은 채널입니다. 문서, 캘린더, 메일 등 Google 생태계와 운영 맥락을 맞추기 쉽습니다.
 
-## 🏗️ 기본 아키텍처​
+## 언제 쓰면 좋은가
 
-Google Chat은 Webhook 또는 Google Chat API를 통해 통신합니다. 더 복잡한 대화를 위해서는 API 방식을 권장합니다.
+- Google Workspace 기반 조직
+- 내부 업무 봇
+- 공지, 요약, 승인 보조 흐름
 
-## 🛠️ 설정 방법​
+## 설정 개요
 
-### 1. Google Cloud 프로젝트 설정​
+1. Google Chat 앱 또는 연동 구성을 준비합니다.
+2. 필요한 인증 정보와 앱 설정을 완료합니다.
+3. OpenClaw에서 Google Chat 채널을 활성화합니다.
+4. 스페이스 또는 DM에서 제한적으로 테스트합니다.
 
-- Google Cloud Console (https://console.cloud.google.com/)에서 새 프로젝트를 만듭니다.
+## 운영 팁
 
-- Google Chat API를 검색하고 활성화합니다.
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-- `Configuration` 탭에서 봇의 이름, 아바타, 앱 정보를 입력합니다.
+## 주의할 점
 
-### 2. 접속 지점(Endpoint) 설정​
-
-- OpenClaw 게이트웨이 주소(예: `https://your-server.com/hooks/google-chat`)를 입력합니다.
-
-- 로컬 개발 시에는 `ngrok` 등을 사용하여 HTTPS 주소를 생성해야 할 수 있습니다.
-
-### 3. OpenClaw 설정​
-
-```
-openclaw configure set channels.googlechat.enabled true
-# 필요한 API 키 또는 서비스 계정 파일 경로를 입력하세요.
-
-```
-
----
-
-## 💡 주요 이점​
-
-- Workspace 통합: Google 문서, 캘린더 등과 연동된 에이전트 작업이 더욱 편리해집니다.
-
-- 스페이스(Spaces): 전용 공간에서 팀원들과 함께 에이전트를 도구로 활용할 수 있습니다.
-
-Slack 연결 가이드
-(/channels/slack)다음
-Microsoft Teams 연결 가이드
-(/channels/ms-teams)
-
-- 🏗️ 기본 아키텍처
-
-- 🛠️ 설정 방법
-- 1. Google Cloud 프로젝트 설정
-
-- 2. 접속 지점(Endpoint) 설정
-
-- 3. OpenClaw 설정
-
-- 💡 주요 이점
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- 조직 정책에 따라 앱 승인 절차가 필요할 수 있습니다.
+- 스페이스 전체 노출 전에 응답 트리거를 분명히 정하세요.
+- Google Workspace 권한 범위는 최소 권한 원칙을 따르세요.
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

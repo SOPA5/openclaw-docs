@@ -6,66 +6,89 @@ sidebar_position: 4
 
 # Nix (Home Manager) 설치
 
-NixOS를 사용하거나 Nix 패키지 매니저를 선호하는 사용자를 위해 `nix-openclaw` 모듈을 제공합니다. 이는 선언적인 방식으로 OpenClaw를 관리할 수 있게 해줍니다.
+NixOS를 사용하거나 Nix 패키지 매니저를 선호하는 사용자를 위해 `nix-openclaw` 모듈을 제공합니다. 선언적 방식으로 OpenClaw를 재현 가능하게 관리할 수 있습니다.
 
-## ❄️ 설정 방법​
+---
 
-### 1. Flake 추가​
+## ❄️ 설치 방법
+
+### 1단계. Flake에 입력 추가
 
 `flake.nix` 파일에 OpenClaw 입력을 추가합니다.
 
-```
+```nix
 {
-inputs = {
-nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-openclaw.url = "github:openclaw/nix-openclaw";
-};
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    openclaw.url = "github:openclaw/nix-openclaw";
+  };
 }
-
 ```
 
-### 2. Home Manager 모듈 활성화​
+### 2단계. Home Manager 모듈 활성화
 
 Home Manager 설정에서 모듈을 불러오고 활성화합니다.
 
-```
-{ inputs, ... }: {
-imports = [ inputs.openclaw.homeManagerModules.default ];
+```nix
+{ inputs, pkgs, ... }: {
+  imports = [ inputs.openclaw.homeManagerModules.default ];
 
-services.openclaw = {
-enable = true;
-package = inputs.openclaw.packages.${pkgs.system}.default;
-# 추가 설정 (포트, 로그 등)
-port = 18789;
-};
+  services.openclaw = {
+    enable = true;
+    package = inputs.openclaw.packages.${pkgs.system}.default;
+    # 포트 설정 (기본값: 18789)
+    port = 18789;
+    # 온보딩 후 데몬 자동 시작
+    autoStart = true;
+  };
 }
-
 ```
 
-## ✨ 이점​
+### 3단계. 적용
 
-- 재현성: 어디서든 동일한 버전과 설정의 OpenClaw를 실행할 수 있습니다.
+```bash
+home-manager switch
+```
 
-- 자동 업데이트: Flake를 업데이트하는 것만으로 최신 버전을 유지할 수 있습니다.
+---
 
-- 시스템 통합: systemd 서비스로 자동 등록되어 관리됩니다.
+## ✨ 이점
 
-Docker 설치 가이드
-(/install/docker)다음
-Ansible을 이용한 배포
-(/install/ansible)
+| 항목 | 설명 |
+|------|------|
+| **재현성** | 어디서든 동일한 버전과 설정으로 실행 |
+| **선언적 관리** | 설정 파일 한 곳에서 전체 환경 정의 |
+| **자동 업데이트** | `nix flake update` 한 줄로 최신 버전 유지 |
+| **시스템 통합** | systemd 서비스로 자동 등록 및 관리 |
+| **롤백 가능** | 이전 버전으로 언제든 되돌릴 수 있음 |
 
-- ❄️ 설정 방법
-- 1. Flake 추가
+---
 
-- 2. Home Manager 모듈 활성화
+## 🔄 버전 업데이트
 
-- ✨ 이점
+```bash
+# Flake 입력 업데이트
+nix flake update
 
-Community
+# Home Manager 재적용
+home-manager switch
+```
 
-- Discord (https://discord.gg/openclaw)
+---
 
-- Twitter (https://twitter.com/openclaw)
+## 🩺 문제 해결
 
+```bash
+# systemd 서비스 상태 확인
+systemctl --user status openclaw
 
+# 로그 확인
+journalctl --user -u openclaw -f
+
+# 수동으로 openclaw 실행
+openclaw doctor
+```
+
+---
+
+> 관련 가이드: [설치 개요](/install/) | [Linux 플랫폼 가이드](/platforms/linux)

@@ -4,61 +4,38 @@ sidebar_label: Google Gemini
 sidebar_position: 4
 ---
 
-# Google Gemini 설정 가이드
+# Google Gemini
 
-Google Gemini는 매우 긴 컨텍스트 창(수백만 토큰)을 지원하여, 방대한 양의 문서나 코드 베이스를 한 번에 분석할 때 유리합니다.
+Google Gemini 제공자는 Google 생태계와 멀티모달 활용에서 강점이 있습니다. 최신 학습 기준에서는 과거 `gemini-1.5` 대신 **Gemini 3 계열** 중심으로 이해하면 됩니다.
 
-## 🛠️ 설정 방법​
+## 모델 이해
 
-### 1. API 키 발급​
+- **Gemini 3 계열**: 최신 기준 설명의 중심
+- 긴 컨텍스트와 멀티모달 활용에 유리
+- Google 서비스와 함께 운영하기 좋음
 
-Google AI Studio (https://aistudio.google.com/)에서 무료 또는 유료 API 키를 발급받을 수 있습니다.
+## 언제 적합한가
 
-### 2. OpenClaw 설정​
+- 긴 입력을 다뤄야 할 때
+- 텍스트 외에 이미지 등 멀티모달 활용이 필요할 때
+- Google 생태계와 함께 쓰고 싶을 때
 
-```
-openclaw configure set providers.google.apiKey "AIza..."
-openclaw configure set models.default "google/gemini-1.5-pro"
+## 설정 흐름
 
-```
+1. Google Gemini 사용에 필요한 프로젝트/인증 정보를 준비합니다.
+2. OpenClaw에서 Google 제공자를 활성화합니다.
+3. Gemini 3 계열 모델을 기본 또는 보조 모델로 배치합니다.
+4. 필요 시 다른 제공자와 fallback 체인을 구성합니다.
 
----
+## 운영 팁
 
-## 🚀 주요 특징​
+- 멀티모달 작업은 입력 크기와 응답 비용을 함께 관리하세요.
+- 긴 문서 처리에는 Anthropic과 역할을 나눠 비교해보는 것도 좋습니다.
+- 검색, 브라우저, 문서 처리 워크플로우와 결합하면 활용 범위가 넓습니다.
 
-- 1M+ 컨텍스트: 수십 권의 책 분량이나 긴 비디오 파일도 한 번에 입력으로 넣을 수 있습니다.
+## 함께 보면 좋은 문서
 
-- Google Search 통합: 에이전트가 최신 구글 검색 결과를 활용하여 답변하도록 설정할 수 있습니다.
-
-- 저렴한 비용: 성능 대비 토큰 당 가격이 매우 경쟁력 있습니다.
-
-## 🏢 Enterprise (Vertex AI)​
-
-기업용 환경인 Google Cloud Vertex AI를 연동하려면 추가적인 인증 및 프로젝트 설정이 필요합니다. 상세 설정은 Vertex AI 가이드 (https://cloud.google.com/vertex-ai)를 참고하세요.
-
-```
-openclaw configure set providers.google.useVertex true
-
-```
-
-OpenAI 설정 가이드
-(/providers/openai)다음
-OpenRouter 설정 가이드
-(/providers/openrouter)
-
-- 🛠️ 설정 방법
-- 1. API 키 발급
-
-- 2. OpenClaw 설정
-
-- 🚀 주요 특징
-
-- 🏢 Enterprise (Vertex AI)
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- [모델 제공자 개요](/providers/)
+- [Anthropic](/providers/anthropic)
+- [OpenAI](/providers/openai)
+- [FAQ](/help/faq)

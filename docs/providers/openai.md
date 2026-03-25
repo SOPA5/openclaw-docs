@@ -4,75 +4,54 @@ sidebar_label: OpenAI
 sidebar_position: 3
 ---
 
-# OpenAI 설정 가이드
+# OpenAI
 
-OpenAI의 GPT 모델은 OpenClaw에서 가장 범용적으로 사용되는 모델입니다.
+OpenAI는 범용성과 생태계 측면에서 매우 강력한 제공자입니다. 최신 학습 기준에서는 과거 `gpt-4o` 예시보다 **GPT-5 계열** 중심으로 이해하는 것이 맞습니다. 또한 OpenClaw에서는 **OAuth / Codex 인증 흐름**도 중요한 경로로 다룹니다.
 
-## 🛠️ 설정 방법​
+## 지원 인증 방식
 
-### 1. API 키 발급​
+### 1) OAuth / Codex 인증
 
-OpenAI Platform (https://platform.openai.com/)에서 `API Keys`를 생성합니다.
+OpenAI 계정 기반 인증을 사용하면 Codex 계열 워크플로우와 함께 운영하기 좋습니다.
 
-### 2. OpenClaw 설정​
+- 계정 중심 인증 흐름
+- 코딩 작업과의 궁합이 좋음
+- 사용자 입장에서 관리가 단순함
 
-```
-openclaw configure set providers.openai.apiKey "sk-..."
-openclaw configure set models.default "openai/gpt-4o"
+### 2) API key
 
-```
+서버 자동화나 조직 정책상 키 관리가 필요하면 API key도 사용할 수 있습니다.
 
----
+## 모델 이해
 
-## 🌟 주요 지원 모델​
+이 문서에서는 **GPT-5 계열**을 기준으로 이해합니다.
 
-- GPT-4o (Omni): 텍스트와 이미지를 동시에 처리하는 가장 진보된 모델입니다.
+- 범용 대화
+- 코딩 보조
+- 도구 호출 중심 에이전트 작업
+- 빠른 응답과 안정적 생태계 활용
 
-- GPT-4o-mini: 비용 효율적인 가벼운 모델로, 일반적인 비서 작업에 적합합니다.
+## 언제 적합한가
 
-- o1-preview / o1-mini: 추론 전용 모델로, 복잡한 수학이나 알고리즘 문제 해결 시 유용합니다.
+- 범용 기본 모델이 필요할 때
+- 코딩/자동화 흐름을 함께 쓸 때
+- OpenAI 생태계와 주변 도구 호환성이 중요할 때
 
-## ⚙️ 고급 설정​
+## 설정 흐름
 
-### 엔드포인트 커스텀 (Azure 등)​
+1. OpenAI 계정 또는 조직 계정을 준비합니다.
+2. 가능하면 OAuth / Codex 인증 경로를 먼저 검토합니다.
+3. 필요하면 API key를 추가해 서버형 구성을 만듭니다.
+4. 기본 모델, fallback 모델, 코딩용 모델을 분리합니다.
 
-Azure OpenAI 또는 프록시 서버를 사용하는 경우 `baseUrl`을 수정할 수 있습니다.
+## 운영 팁
 
-```
-openclaw configure set providers.openai.baseUrl "https://your-proxy.com/v1"
+- 일반 대화용과 코딩용 모델을 구분하면 비용·속도·품질 균형을 잡기 좋습니다.
+- 멀티 제공자 운영 시 Anthropic과 함께 fallback 체인을 구성하면 안정적입니다.
+- 응답 속도가 중요한 시나리오와 깊은 추론이 필요한 시나리오를 나눠 쓰는 편이 좋습니다.
 
-```
+## 함께 보면 좋은 문서
 
-### 조직(Organization) ID​
-
-여러 조직에 속해 있는 경우 특정 조직의 리소스를 사용하도록 지정할 수 있습니다.
-
-```
-openclaw configure set providers.openai.organization "org-..."
-
-```
-
-Anthropic 설정 가이드
-(/providers/anthropic)다음
-Google Gemini 설정 가이드
-(/providers/google-gemini)
-
-- 🛠️ 설정 방법
-- 1. API 키 발급
-
-- 2. OpenClaw 설정
-
-- 🌟 주요 지원 모델
-
-- ⚙️ 고급 설정
-- 엔드포인트 커스텀 (Azure 등)
-
-- 조직(Organization) ID
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- [Anthropic](/providers/anthropic)
+- [OpenRouter](/providers/openrouter)
+- [FAQ](/help/faq)

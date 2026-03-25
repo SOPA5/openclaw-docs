@@ -4,67 +4,35 @@ sidebar_label: LINE
 sidebar_position: 9
 ---
 
-# LINE 연결 가이드
+# LINE
 
-LINE은 한국과 일본을 포함한 아시아 지역에서 매우 강력한 채널입니다. OpenClaw는 LINE Messaging API를 완벽하게 지원합니다.
+LINE은 아시아권 사용자 접점이 중요한 서비스에서 유용한 채널입니다. 고객 알림, 상담 보조, 지역 특화 운영에 적합합니다.
 
-## 🛠️ 설정 방법​
+## 언제 쓰면 좋은가
 
-### 1. LINE Developers 계정 생성​
+- 아시아권 고객 대응
+- 알림·상담 보조
+- 지역 친화형 메시징 운영
 
-- LINE Developers (https://developers.line.biz/) 포털에 로그인합니다.
+## 설정 개요
 
-- `Messaging API` 채널을 새로 생성합니다.
+1. LINE Messaging API 관련 채널 정보를 준비합니다.
+2. OpenClaw 설정에서 LINE 채널 자격 증명을 입력합니다.
+3. 개인 대화 또는 제한된 테스트 환경에서 먼저 검증합니다.
 
-### 2. 채널 정보 복사​
+## 운영 팁
 
-- Channel Secret: `Basic settings` 탭에서 확인.
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-- Channel Access Token: `Messaging API` 탭 하단에서 'Issue' 클릭 후 복사.
+## 주의할 점
 
-### 3. Webhook 설정​
-
-- `Messaging API` 탭에서 `Webhook URL`을 OpenClaw 게이트웨이 주소로 설정합니다. (예: `https://your-domain.com/hooks/line`)
-
-- `Use webhook` 옵션을 활성화(ON)합니다.
-
-### 4. OpenClaw 설정​
-
-```
-openclaw configure set channels.line.enabled true
-openclaw configure set channels.line.secret "Channel Secret"
-openclaw configure set channels.line.token "Channel Access Token"
-
-```
-
----
-
-## 🎌 주요 활용처​
-
-- CS 봇: 고객의 질문에 대답하고 상품 정보를 제공하는 전문 상담 에이전트.
-
-- 리치 메뉴(Rich Menu): 봇과의 대화창 하단에 고정된 메뉴를 통해 주요 기능을 버튼 하나로 실행하세요.
-
-Microsoft Teams 연결 가이드
-(/channels/ms-teams)다음
-Matrix 연결 가이드
-(/channels/matrix)
-
-- 🛠️ 설정 방법
-- 1. LINE Developers 계정 생성
-
-- 2. 채널 정보 복사
-
-- 3. Webhook 설정
-
-- 4. OpenClaw 설정
-
-- 🎌 주요 활용처
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- 국가·지역별 운영 정책 차이를 먼저 확인하세요.
+- 고객 접점 채널은 자동 응답 톤과 범위를 명확히 해야 합니다.
+- 대량 발송형 운영은 플랫폼 정책과 충돌하지 않도록 주의하세요.
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

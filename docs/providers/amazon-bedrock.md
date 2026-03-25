@@ -4,62 +4,38 @@ sidebar_label: Amazon Bedrock
 sidebar_position: 6
 ---
 
-# Amazon Bedrock 설정 가이드
+# Amazon Bedrock
 
-기업 수준의 보안과 안정성이 필요한 경우 AWS의 Bedrock 서비스를 통해 Claude, Llama 등의 모델을 이용할 수 있습니다.
+Amazon Bedrock은 AWS 환경 안에서 다양한 기초 모델을 사용할 수 있게 해주는 엔터프라이즈 지향 제공자입니다. 보안, 계정 통제, 인프라 통합이 중요한 조직에서 특히 유리합니다.
 
-## 🛠️ 설정 방법​
+## 언제 적합한가
 
-### 1. IAM 권한 설정​
+- 이미 AWS를 중심 인프라로 운영할 때
+- 조직 보안·감사·권한 체계가 중요할 때
+- 여러 모델을 AWS 안에서 통합 관리하고 싶을 때
 
-AWS 계정에서 Bedrock 접근 권한이 있는 IAM 사용자 또는 역할을 생성합니다. `AmazonBedrockFullAccess` 정책이 필요합니다.
+## 장점
 
-### 2. 로컬 자격 증명 설정​
+- AWS 계정 정책과 연동하기 쉽습니다.
+- 조직용 거버넌스와 감사 요구에 맞추기 좋습니다.
+- 엔터프라이즈 표준 인프라에 자연스럽게 붙습니다.
 
-AWS CLI가 설치되어 있다면 `aws configure`를 통해 키를 설정하거나, 환경 변수를 사용합니다.
+## 주의할 점
 
-- `AWS_ACCESS_KEY_ID`
+- 개인용 빠른 시작보다는 조직용 설계에 가깝습니다.
+- IAM, 리전, 정책 설계가 익숙하지 않으면 초기 진입이 어렵게 느껴질 수 있습니다.
+- 실제 사용 가능한 모델 라인업은 AWS 계정 조건과 리전에 따라 다를 수 있습니다.
 
-- `AWS_SECRET_ACCESS_KEY`
+## 설정 흐름
 
-- `AWS_REGION` (예: `us-east-1`)
+1. AWS 계정과 Bedrock 접근 권한을 준비합니다.
+2. 필요한 IAM 정책과 리전 구성을 확인합니다.
+3. OpenClaw에 Amazon Bedrock 제공자를 연결합니다.
+4. 조직 정책에 맞게 모델 접근을 분리합니다.
 
-### 3. OpenClaw 설정​
+## 함께 보면 좋은 문서
 
-```
-openclaw configure set providers.bedrock.region "us-east-1"
-openclaw configure set models.default "bedrock/anthropic.claude-3-5-sonnet-v2:0"
-
-```
-
----
-
-## 🛡️ 엔터프라이즈 기능​
-
-- 데이터 프라이버시: 전송되는 데이터가 모델 학습에 사용되지 않음을 보장합니다.
-
-- 안정적인 인프라: AWS의 글로벌 인프라 위에서 가동되므로 높은 가용성을 제공합니다.
-
-- Private Link: VPC 내에서만 통신하도록 설정하여 보안을 극대화할 수 있습니다.
-
-OpenRouter 설정 가이드
-(/providers/openrouter)다음
-로컬 모델 (Ollama, LM Studio)
-(/providers/local-models)
-
-- 🛠️ 설정 방법
-- 1. IAM 권한 설정
-
-- 2. 로컬 자격 증명 설정
-
-- 3. OpenClaw 설정
-
-- 🛡️ 엔터프라이즈 기능
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- [모델 제공자 개요](/providers/)
+- [OpenRouter](/providers/openrouter)
+- [로컬 모델](/providers/local-models)
+- [FAQ](/help/faq)

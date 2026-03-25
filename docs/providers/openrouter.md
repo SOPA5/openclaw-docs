@@ -4,64 +4,38 @@ sidebar_label: OpenRouter
 sidebar_position: 5
 ---
 
-# OpenRouter 설정 가이드
+# OpenRouter
 
-OpenRouter는 수많은 LLM 제공자를 하나의 API 인터페이스로 통합해주는 서비스입니다. 이를 통해 DeepSeek, Llama 3, Mistral 등의 오픈 소스 모델을 쉽게 사용할 수 있습니다.
+OpenRouter는 여러 모델 제공자의 모델을 하나의 API 계층으로 접근하게 해주는 멀티모델 집선 제공자입니다. 여러 벤더를 빠르게 비교하거나, 특정 모델을 단일 인터페이스로 묶어 쓰고 싶을 때 유용합니다.
 
-## 🛠️ 설정 방법​
+## 언제 적합한가
 
-### 1. API 키 발급​
+- 여러 모델을 빠르게 바꿔가며 시험할 때
+- 하나의 연결 방식으로 여러 벤더를 쓰고 싶을 때
+- 메인 제공자 외에 실험용/보조용 모델 풀이 필요할 때
 
-OpenRouter.ai (https://openrouter.ai/)에서 계정을 만들고 API 키를 발급받습니다.
+## 장점
 
-### 2. OpenClaw 설정​
+- 모델 선택 폭이 넓습니다.
+- 벤더별 API를 각각 붙이지 않아도 됩니다.
+- 실험과 비교 평가가 편합니다.
 
-```
-openclaw configure set providers.openrouter.apiKey "sk-or-..."
+## 주의할 점
 
-```
+- 실제 과금·한도·지연 시간은 뒤에 있는 원 제공자 특성을 따릅니다.
+- 운영 안정성이 중요하면 핵심 모델은 원 제공자 직접 연결이 더 단순할 수 있습니다.
+- 모델 이름 표준화 방식이 다를 수 있으니 문서 기준 이름을 확인하세요.
 
-### 3. 모델 선택​
+## 설정 흐름
 
-OpenRouter에서 제공하는 모델 경로를 그대로 사용합니다.
+1. OpenRouter 계정과 인증 정보를 준비합니다.
+2. OpenClaw에 OpenRouter 제공자를 추가합니다.
+3. 사용할 모델을 목적별로 분리합니다.
+4. 주력 모델과 실험 모델을 나눠 운용합니다.
 
-```
-# DeepSeek 사용 예시
-openclaw configure set models.default "openrouter/deepseek/deepseek-chat"
+## 함께 보면 좋은 문서
 
-# Llama 3.1 사용 예시
-openclaw configure set models.default "openrouter/meta-llama/llama-3.1-70b-instruct"
-
-```
-
----
-
-## 💎 왜 OpenRouter인가요?​
-
-- 단일 API 키: 수십 개의 업체를 각각 가입할 필요가 없습니다.
-
-- 최저가 경쟁: 동일한 모델에 대해 가장 저렴한 제공자를 자동으로 선택해주는 기능을 제공합니다.
-
-- 다양한 모델: 공식 사이트에 출시되자마자 최신 오픈 소스 모델들이 가장 먼저 업데이트됩니다.
-
-Google Gemini 설정 가이드
-(/providers/google-gemini)다음
-Amazon Bedrock 설정 가이드
-(/providers/amazon-bedrock)
-
-- 🛠️ 설정 방법
-- 1. API 키 발급
-
-- 2. OpenClaw 설정
-
-- 3. 모델 선택
-
-- 💎 왜 OpenRouter인가요?
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- [모델 제공자 개요](/providers/)
+- [Anthropic](/providers/anthropic)
+- [OpenAI](/providers/openai)
+- [FAQ](/help/faq)

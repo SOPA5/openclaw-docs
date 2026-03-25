@@ -4,67 +4,41 @@ sidebar_label: BlueBubbles
 sidebar_position: 11
 ---
 
-# iMessage (BlueBubbles) 연결 가이드
+# BlueBubbles
 
-Apple의 iMessage를 통해 에이전트와 대화하고 싶다면 BlueBubbles를 사용하는 것이 가장 안정적이고 권장되는 방식입니다.
+BlueBubbles는 OpenClaw에서 iMessage 경험을 연결할 때 권장되는 경로입니다. 공식 기준에서도 Apple 메시지 사용자는 BlueBubbles를 우선 검토하도록 안내합니다.
 
-## 🏗️ 작동 원리​
+## 언제 쓰면 좋은가
 
-iMessage는 폐쇄적인 시스템이므로, 중간에서 가교 역할을 할 서버가 필요합니다.
+- Apple 생태계 사용자
+- iMessage 경험을 유지하고 싶을 때
+- macOS 기반 개인 비서 환경
 
-- macOS 기기: iMessage를 수신할 Mac (실제 맥 혹은 가상 머신).
+## 설정 개요
 
-- BlueBubbles Server: Mac 위에서 돌아가며 메시지를 API로 변환합니다.
+1. macOS 환경과 BlueBubbles 브리지 구성을 준비합니다.
+2. OpenClaw에서 BlueBubbles 채널을 연결합니다.
+3. Apple 메시지 흐름이 정상적으로 전달되는지 테스트합니다.
+4. 필요하면 원격 운영과 보안 정책을 추가로 점검합니다.
 
-- OpenClaw: BlueBubbles API를 통해 메시지를 주고받습니다.
+## 운영 팁
 
-## 🛠️ 설정 방법​
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-### 1. BlueBubbles 서버 설정​
+## 주의할 점
 
-- BlueBubbles 공식 문서 (https://docs.bluebubbles.app/)를 참고하여 Mac에 서버를 설치하고 실행합니다.
+- macOS 의존성이 있으므로 운영 장치 상태가 중요합니다.
+- Apple 메시지 접근 권한과 브리지 보안을 함께 점검해야 합니다.
+- 신규 구축은 legacy iMessage보다 BlueBubbles를 우선 선택하는 편이 좋습니다.
 
-- `Settings -> API` 메뉴에서 API Key를 활성화합니다.
+## iMessage와의 관계
 
-### 2. OpenClaw 설정​
+기존 레거시 경로는 [iMessage](/channels/imessage) 문서에 정리되어 있지만, 신규 설치와 장기 운영 관점에서는 BlueBubbles 우선이 더 안전합니다.
 
-```
-openclaw configure set channels.bluebubbles.enabled true
-openclaw configure set channels.bluebubbles.serverUrl "http://your-mac-ip:1234"
-openclaw configure set channels.bluebubbles.password "여러분의_API_Key"
-
-```
-
----
-
-## 🌟 BlueBubbles의 장점​
-
-- 풍부한 기능: 이모지 반응(Tapbacks), 답장(Replies), 타이핑 상태 확인 등이 지원됩니다.
-
-- 안정성: 단순 스크립트 기반 방식보다 연결 유지가 훨씬 강력합니다.
-
-- 아이클라우드 통합: 내 기존 전화번호나 Apple ID를 그대로 활용할 수 있습니다.
-
-레거시 방식(imsg) 보기 (/channels/imessage)
-
-Matrix 연결 가이드
-(/channels/matrix)다음
-iMessage (Legacy - imsg) 가이드
-(/channels/imessage)
-
-- 🏗️ 작동 원리
-
-- 🛠️ 설정 방법
-- 1. BlueBubbles 서버 설정
-
-- 2. OpenClaw 설정
-
-- 🌟 BlueBubbles의 장점
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

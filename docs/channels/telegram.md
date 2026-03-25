@@ -4,74 +4,42 @@ sidebar_label: Telegram
 sidebar_position: 3
 ---
 
-# Telegram 연결 가이드
+# Telegram
 
-Telegram은 설정이 가장 간단하고 API가 강력하여 OpenClaw 입문자에게 가장 추천하는 채널입니다.
+Telegram은 OpenClaw에서 가장 빠르게 시작하기 좋은 채널입니다. Bot API 기반이라 설정 난도가 낮고, 테스트와 운영 전환이 모두 쉽습니다.
 
-## 🛠️ 설정 방법​
+## 언제 쓰면 좋은가
 
-### 1. 봇 생성 (BotFather)​
+- 가장 빠른 PoC
+- 개발·테스트 환경
+- 개인 DM 기반 생산성 워크플로우
 
-- Telegram에서 @BotFather (https://t.me/botfather)를 검색하고 대화를 시작합니다.
+## 설정 개요
 
-- `/newbot`을 입력하고 안내에 따라 봇의 이름과 아이디를 정합니다.
+1. Telegram Bot을 만들고 Bot Token을 확보합니다.
+2. OpenClaw에 Telegram 채널 설정을 추가합니다.
+3. 봇과 DM을 시작한 뒤 페어링 절차를 완료합니다.
+4. 연결 후 간단한 질문을 보내 응답을 확인합니다.
 
-- 생성이 완료되면 제공되는 HTTP API Access Token을 복사합니다.
+## 운영 팁
 
-### 2. OpenClaw 설정​
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-확보한 토큰을 OpenClaw에 입력합니다.
+## 주의할 점
 
-```
-openclaw configure set channels.telegram.enabled true
-openclaw configure set channels.telegram.token "여러분의_토큰_입력"
+- 그룹에서 바로 시작하지 말고 DM에서 먼저 검증하세요.
+- 관리자 권한이 필요한 그룹 기능은 범위를 최소화하세요.
+- 허용 사용자 제한이 없으면 원치 않는 접근이 생길 수 있습니다.
 
-```
+## 함께 보면 좋은 문서
 
-### 3. 게이트웨이 재시작​
+- [Grammy](/channels/grammy)
+- [FAQ](/help/faq)
 
-```
-openclaw gateway restart
-
-```
-
----
-
-## 💬 대화 시작하기​
-
-작동 여부를 확인하려면 봇에게 `/start` 또는 간단한 인사를 보내보세요.
-
-### 그룹 메시지 설정​
-
-- 그룹에서 봇이 모든 메시지를 읽게 하려면 BotFather에서 Privacy Mode를 `Disabled`로 설정해야 합니다.
-
-- (추천) 봇의 관리자 권한을 부여하여 더 원활하게 동작하게 할 수 있습니다.
-
-## ⚙️ 상세 옵션 (Advanced)​
-
-OpenClaw는 내부적으로 `grammY` 프레임워크를 사용합니다. 폰트, 커스텀 명령어 등 세부 설정은 grammY 상세 가이드 (/channels/grammy)를 참고하세요.
-
-WhatsApp 연결 가이드
-(/channels/whatsapp)다음
-grammY (Telegram Framework)
-(/channels/grammy)
-
-- 🛠️ 설정 방법
-- 1. 봇 생성 (BotFather)
-
-- 2. OpenClaw 설정
-
-- 3. 게이트웨이 재시작
-
-- 💬 대화 시작하기
-- 그룹 메시지 설정
-
-- ⚙️ 상세 옵션 (Advanced)
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

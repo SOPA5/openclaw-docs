@@ -6,35 +6,50 @@ sidebar_position: 6
 
 # 쇼케이스 (Showcase)
 
-커뮤니티의 실제 프로젝트들입니다. 사람들이 OpenClaw로 무엇을 만들고 있는지 확인해보세요.
+커뮤니티에서 OpenClaw로 실제 만들어진 프로젝트들입니다. 사람들이 OpenClaw를 어떻게 활용하는지 확인해보세요.
 
-## 주요 하이라이트:​
+> ⚠️ 아래 사례들은 커뮤니티에서 공유된 내용을 기반으로 정리되었습니다. 각 사례에 **(출처 미확인)** 표시가 된 항목은 공식 검증되지 않은 커뮤니티 제보입니다.
 
-- PR 리뷰 → Telegram 피드백: OpenClaw가 diff를 리뷰하고 Telegram에서 제안 및 머지 판정을 답변합니다.
+---
 
-- 와인 셀러 스킬: CSV 내보내기를 사용하여 몇 분 만에 로컬 와인 셀러 스킬을 구축했습니다.
+## 🏆 주요 하이라이트
 
-- Tesco 쇼핑 오토파일럿: 브라우저 제어를 통해 매주 식단 계획에서 배송 예약까지 자동화합니다.
+### 🔀 PR 리뷰 → Telegram 피드백 (출처 미확인)
 
-- SNAG 스크린샷-투-마크다운: 단축키로 화면 영역을 캡처하여 Gemini 비전을 통해 즉시 마크다운으로 변환합니다.
+OpenClaw가 GitHub PR의 diff를 자동으로 리뷰하고, Telegram으로 코드 개선 제안과 머지 판정을 전송합니다. 코드 리뷰 속도를 크게 단축할 수 있습니다.
 
-- Telegram을 통한 iOS 앱 빌드: Telegram 채팅만으로 전체 iOS 앱을 빌드하고 TestFlight에 배포했습니다.
+### 🍷 와인 셀러 스킬 (출처 미확인)
 
-- Beeeper CLI: iMessage, WhatsApp 등 모든 채팅을 한곳에서 관리하는 에이전트 기반 도구입니다.
+CSV 내보내기 데이터를 활용해 개인 와인 셀러를 관리하는 커스텀 스킬을 몇 분 만에 구축한 사례입니다. 스킬 시스템의 확장성을 잘 보여줍니다.
 
-- Home Assistant 애드온: Home Assistant OS에서 실행되어 자연어로 기기를 제어하는 OpenClaw입니다.
+### 🛒 Tesco 쇼핑 오토파일럿 (출처 미확인)
 
-기기 페어링 (Pairing)
-(/start/pairing)다음
-OpenClaw로 개인용 어시스턴트 만들기
-(/start/openclaw)
+브라우저 자동화 도구를 활용해 매주 식단 계획에서 장보기 주문 및 배송 예약까지 전 과정을 자동화한 사례입니다.
 
-- 주요 하이라이트:
+### 📸 SNAG 스크린샷-투-마크다운 (출처 미확인)
 
-Community
+단축키로 화면의 특정 영역을 캡처하면 Gemini 비전을 통해 즉시 마크다운 텍스트로 변환해주는 워크플로우입니다.
 
-- Discord (https://discord.gg/openclaw)
+### 📱 Telegram을 통한 iOS 앱 빌드 (출처 미확인)
 
-- Twitter (https://twitter.com/openclaw)
+Telegram 채팅만으로 전체 iOS 앱을 빌드하고 TestFlight에 배포한 사례입니다. 에이전트가 코드 작성부터 빌드, 업로드까지 자동으로 처리합니다.
 
+### 💬 Beeeper CLI (출처 미확인)
 
+iMessage, WhatsApp 등 여러 메신저를 하나의 인터페이스에서 관리하는 에이전트 기반 도구입니다.
+
+### 🏠 Home Assistant 애드온 (출처 미확인)
+
+Home Assistant OS에 OpenClaw를 애드온으로 설치하여 자연어로 스마트 홈 기기를 제어하는 사례입니다. "거실 불 꺼줘"처럼 평소 말하듯 명령합니다.
+
+---
+
+## 🌟 더 많은 사례 탐색
+
+- [활용 사례 가이드](/start/use-cases) — 대표적인 활용 패턴 6가지
+- [OpenClaw로 어시스턴트 만들기](/start/openclaw) — 개인용 AI 비서 구축 가이드
+- [채널 목록](/channels/) — 20개 이상 지원 채널 확인
+
+---
+
+> 여러분의 사례를 공유하고 싶다면 커뮤니티 Discord를 통해 제보해주세요!

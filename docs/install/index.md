@@ -6,82 +6,119 @@ sidebar_position: 1
 
 # 설치 개요 (Install Overview)
 
-OpenClaw를 설치하고 실행하는 다양한 방법을 안내합니다. 대부분의 사용자는 빠르고 간편한 자동 설치 스크립트 사용을 권장합니다.
-
-## 시스템 요구 사양 (System Requirements)​
-
-- Node.js: v22 이상 (가장 중요)
-
-- 운영체제: macOS, Linux, 또는 Windows (WSL2 권장)
-
-- 메모리: 최소 4GB RAM 권장
-
-## 설치 방법 선택​
-
-방법추천 대상
-자동 스크립트 (권장)일반 사용자, 빠른 설정이 필요한 경우
-Docker인프라 격리 및 컨테이너 환경을 선호하는 경우
-Cloud (PaaS)자체 서버 없이 Fly.io, Railway 등에 배포하려는 경우
-Infrastructure as CodeNix 전문 사용자 또는 Ansible을 통한 서버 관리자
+OpenClaw v2026.3.23을 설치하고 실행하는 다양한 방법을 안내합니다. 대부분의 사용자는 **설치 스크립트 + `openclaw onboard --install-daemon`** 조합을 권장합니다.
 
 ---
 
-## 🏗️ 주요 설치 경로​
+## 📋 시스템 요구 사양
 
-### 1. 자동 설치 스크립트 (CLI)​
+| 항목 | 요구사항 |
+|------|---------|
+| **Node.js** | Node 24 권장, Node 22.16+ 호환 |
+| **운영체제** | macOS, Linux, Windows (WSL2 권장) |
+| **메모리** | 최소 4GB RAM 권장 |
 
-터미널에서 한 줄의 명령어로 핵심 구성 요소와 게이트웨이를 즉시 설정할 수 있습니다.
+```bash
+node --version
+# v24.x.x 또는 v22.16+ 이상
+```
 
-- 설치 스크립트 상세 내역 보기 (/install/installer)
+---
 
-### 2. Docker를 이용한 설치​
+## 🏗️ 설치 방법 선택
 
-컨테이너 환경에서 게이트웨이를 실행하거나, 에이전트 도구 실행을 위한 샌드박스로 활용합니다.
+| 방법 | 추천 대상 |
+|------|---------|
+| **설치 스크립트 (권장)** | 일반 사용자, 빠른 시작 |
+| **npm 직접 설치** | Node.js 환경이 이미 구성된 경우 |
+| **Docker** | 컨테이너 환경 선호, 인프라 격리 |
+| **Nix** | NixOS 또는 선언적 시스템 관리 |
+| **Ansible** | 다중 서버 관리, 자동화 배포 |
+| **Bun (실험적)** | Bun 런타임 환경, 빠른 부팅 |
 
-- Docker 가이드 바로가기 (/install/docker)
+---
 
-### 3. 서버/클라우드 배포​
+## 🚀 권장 설치 흐름
 
-개인 서버나 클라우드 환경에서 24시간 가동되는 에이전트를 구축합니다.
+### macOS / Linux / Windows WSL2
 
-- Fly.io 배포 (/install/)
+```bash
+# 1. 설치 스크립트 실행
+curl -fsSL https://openclaw.ai/install.sh | bash
 
-- GCP (Google Cloud) 가이드 (/install/)
+# 2. 온보딩 실행 (모델 + 채널 + 데몬 설정)
+openclaw onboard --install-daemon
 
-- Railway 배포 (/install/)
+# 3. 상태 확인
+openclaw gateway status
 
-- Render 배포 (/install/)
+# 4. 대시보드 열기
+openclaw dashboard
+```
 
-### 4. 고급 관리 도구​
+### Windows PowerShell (네이티브)
 
-- Nix (Home Manager) (/install/nix)
+```powershell
+# 1. 설치 스크립트 실행
+iwr -useb https://openclaw.ai/install.ps1 | iex
 
-- Ansible Playbook (/install/ansible)
+# 2. 온보딩
+openclaw onboard --install-daemon
+```
 
-- Bun (실험적) (/install/bun)
+### npm 직접 설치
 
-OpenClaw로 개인용 어시스턴트 만들기
-(/start/openclaw)다음
-설치 스크립트 정보 (Installer Internals)
-(/install/installer)
+```bash
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+```
 
-- 시스템 요구 사양 (System Requirements)
+### pnpm 사용
 
-- 설치 방법 선택
+```bash
+pnpm add -g openclaw@latest
+pnpm approve-builds -g
+openclaw onboard --install-daemon
+```
 
-- 🏗️ 주요 설치 경로
-- 1. 자동 설치 스크립트 (CLI)
+---
 
-- 2. Docker를 이용한 설치
+## 🔧 대체 설치 방법
 
-- 3. 서버/클라우드 배포
+### 소스에서 직접 빌드
 
-- 4. 고급 관리 도구
+```bash
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+pnpm install && pnpm ui:build && pnpm build
+pnpm link --global
+openclaw onboard --install-daemon
+```
 
-Community
+### main 브랜치 직접 설치 (최신 베타)
 
-- Discord (https://discord.gg/openclaw)
+```bash
+npm install -g github:openclaw/openclaw#main
+```
 
-- Twitter (https://twitter.com/openclaw)
+> ⚠️ main 브랜치는 `2026.3.24-beta.1` 등 베타 상태입니다. 안정 버전은 npm `latest` 태그(v2026.3.23)를 사용하세요.
 
+---
 
+## 🛠️ 고급 설치 옵션
+
+- [설치 스크립트 상세 내역](/install/installer) — 환경 변수, CI/CD 자동화 옵션
+- [Docker 가이드](/install/docker) — 컨테이너 실행 및 샌드박스 활용
+- [Nix (Home Manager)](/install/nix) — 선언적 재현 가능 설치
+- [Ansible](/install/ansible) — 다중 서버 자동화 배포
+- [Bun (실험적)](/install/bun) — Bun 런타임 기반 실행
+
+---
+
+## 🩺 설치 후 점검
+
+```bash
+openclaw doctor
+```
+
+설정 오류나 누락된 항목을 자동으로 진단하고 복구를 안내합니다.

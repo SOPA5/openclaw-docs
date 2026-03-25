@@ -6,73 +6,96 @@ sidebar_position: 2
 
 # 원격 접속 및 접근 관리
 
-집이나 사무실의 워크스테이션에서 실행 중인 OpenClaw 게이트웨이를 외부(모바일, 출장용 노트북 등)에서도 안전하게 사용할 수 있게 해주는 가이드입니다.
+원격 접근의 목표는 단순합니다. **집·사무실·서버에서 돌고 있는 Gateway를 외부 기기에서 안전하게 쓰는 것**입니다. 중요한 점은 Gateway를 바로 인터넷에 노출하는 것이 아니라, **loopback bind + 인증 + 안전한 프록시/터널** 조합으로 여는 것입니다.
 
-## 🏗️ 연결 개념​
+## 기본 원칙
 
-- Server (Gateway): 여러분의 메인 PC나 서버에 설치되어 24시간 도는 에이전트 본체입니다.
+원격 접근은 아래 순서로 설계하는 것이 가장 안전합니다.
 
-- Client: 게이트웨이에 접속하여 에이전트와 대화하는 기기입니다.
+1. Gateway는 먼저 **로컬(loopback)** 에만 바인딩합니다.
+2. `auth.mode`를 사용해 인증을 강제합니다.
+3. 외부 노출은 Tailscale Serve/Funnel 같은 안전한 경로로 붙입니다.
+4. 필요하면 `allowFrom`으로 접근 가능한 네트워크를 더 좁힙니다.
 
----
+이 방식은 “일단 0.0.0.0으로 열고 나중에 막는” 방식보다 훨씬 안전합니다.
 
-## 📡 주요 연결 방식​
+## 권장 원격 접근 방식
 
-### 1. SSH 터널링 (가장 범용적인 방식)​
+### 1. Tailscale Serve
 
-방화벽 뒤에 있는 서버에 접근할 때 가장 안전하고 표준적인 방법입니다.
+가장 권장되는 패턴입니다. Gateway는 로컬에 두고, Tailscale 네트워크 안에서만 접근하게 만듭니다.
 
-- 포트 포워딩: 로컬의 `18789` 포트를 원격 서버로 터널링합니다.
+이 방식의 장점:
 
-### 2. Tailscale (강력 추천)​
+- 공인 포트 직접 개방이 필요 없음
+- 기기 간 인증이 Tailscale 계층에서 한 번 더 걸림
+- 사설 tailnet 안에서 macOS 앱, 모바일 기기, 다른 노트북이 Gateway에 접근 가능
 
-복잡한 설정 없이 모든 기기를 하나의 가상 개인 네트워크(VPN)로 묶어줍니다.
+### 2. Tailscale Funnel
 
-- 서버와 클라이언트에 각각 Tailscale을 설치합니다.
+정말로 공개 인터넷에서 접근해야 할 때 쓰는 방식입니다. 다만 이 경우에도 **Gateway 자체는 loopback bind** 상태를 유지하고, 공개 URL은 Funnel이 대신 노출하도록 구성하는 것이 좋습니다.
 
-- 서버에 배정된 "MagicDNS" 주소나 IP를 통해 안전하게 게이트웨이에 접근합니다.
+### 3. 기타 프록시/터널
 
-### 3. Cloudflare Tunnel​
+리버스 프록시나 다른 터널링 계층을 쓸 수도 있지만, 공식 문서 흐름에서는 Tailscale 계열이 가장 깔끔한 기본값입니다.
 
-고정 IP가 없거나 도메인을 통해 접근하고 싶을 때 유용합니다.
+## 인증: `auth.mode`를 꼭 함께 봐야 합니다
 
-- 로컬 `18789` 포트를 HTTPS URL(예: `https://agent.yourdomain.com`)로 노출합니다.
+원격 연결은 URL만 있다고 끝나지 않습니다. Gateway는 **누가 붙을 수 있는지**를 `auth.mode`로 통제합니다.
 
-## 🔒 보안 설정​
+실무적으로는 다음 질문으로 이해하면 쉽습니다.
 
-원격 접속을 허용할 때는 반드시 **인증 토큰(Auth Token)**을 설정해야 합니다.
+- 인증을 완전히 끌 것인가?
+- 토큰/헤더 기반 인증을 강제할 것인가?
+- 채널 DM 페어링이나 node pairing과 어떻게 묶을 것인가?
 
+외부 접근을 허용할 때는 **무인증 공개 상태**를 피하는 것이 원칙입니다.
+
+## loopback bind를 기본으로 두는 이유
+
+Gateway를 `127.0.0.1` 같은 loopback 주소에 바인딩하면, 호스트 밖에서 직접 붙을 수 없습니다. 이 상태에서만:
+
+- Tailscale Serve
+- Funnel
+- 리버스 프록시
+- SSH 터널
+
+같은 상위 계층을 통해 필요한 만큼만 노출할 수 있습니다.
+
+즉, loopback bind는 “불편한 옵션”이 아니라 **가장 안전한 시작점**입니다.
+
+## `allowFrom`으로 네트워크 범위를 더 좁히기
+
+인증이 있어도, 가능한 출발지 자체를 제한하면 공격면이 줄어듭니다. `allowFrom`은 이런 상황에서 유용합니다.
+
+예:
+
+- 특정 tailnet 대역만 허용
+- 로컬 LAN만 허용
+- 신뢰된 프록시/게이트웨이 IP만 허용
+
+인증과 출발지 제한은 대체 관계가 아니라 **중첩 방어**입니다.
+
+## 모바일과 node 연결 시 생각할 점
+
+원격 접근은 단순 채팅만을 의미하지 않습니다. iOS/Android node, Web Control UI, 브라우저 기반 Control UI, macOS 앱도 모두 Gateway에 붙습니다. 따라서 원격 노출을 설계할 때는 다음도 함께 고려해야 합니다.
+
+- 앱이 어느 URL을 바라보는가
+- 토큰/인증 헤더를 어떻게 전달하는가
+- pairing이 DM 또는 로컬 승인 흐름과 충돌하지 않는가
+
+## 점검 명령
+
+```bash
+openclaw gateway status
+openclaw doctor
 ```
-openclaw configure set gateway.token "여러분의_강력한_비밀번호"
 
-```
+- `openclaw gateway status`: 현재 bind 주소와 서비스 상태를 빠르게 확인합니다.
+- `openclaw doctor`: 원격 접근 설정, 토큰, 노출 방식, 보안 위험을 함께 점검할 때 유용합니다.
 
-## 📱 앱 연동 (Client Setup)​
+## 함께 읽으면 좋은 문서
 
-모바일 앱이나 외부 도구에서 `Gateway URL`과 `Auth Token`을 입력하면 즉시 개인 비서와 대화를 이어갈 수 있습니다.
-
-게이트웨이 및 운영 (Gateway & Ops)
-(/gateway/)다음
-보안 감사 및 강화 (Security)
-(/gateway/security)
-
-- 🏗️ 연결 개념
-
-- 📡 주요 연결 방식
-- 1. SSH 터널링 (가장 범용적인 방식)
-
-- 2. Tailscale (강력 추천)
-
-- 3. Cloudflare Tunnel
-
-- 🔒 보안 설정
-
-- 📱 앱 연동 (Client Setup)
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- [게이트웨이 개요](/gateway/)
+- [보안](/gateway/security)
+- [API](/gateway/api)

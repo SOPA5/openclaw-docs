@@ -4,50 +4,95 @@ sidebar_label: 페어링
 sidebar_position: 5
 ---
 
-# 기기 페어링 (Pairing)
+# 채널 페어링 (Pairing)
 
-새로운 채팅 채널(WhatsApp, Slack 등)을 OpenClaw 게이트웨이와 연결하는 과정을 **페어링(Pairing)**이라고 합니다.
-
-## 🔗 페어링 방법​
-
-### 1. QR 코드 방식 (WhatsApp 등)​
-
-게이트웨이 실행 시 터미널에 나타나는 QR 코드를 모바일 앱의 '연결된 기기' 메뉴에서 스캔합니다.
-
-### 2. 인증 토큰 방식 (Telegram, Discord, Slack)​
-
-각 플랫폼의 개발자 콘솔에서 발급받은 API 토큰을 `openclaw configure` 명령어로 입력합니다.
-
-### 3. 코드 입력 방식​
-
-일부 채널은 8자리의 숫지 코드를 입력하여 페어링을 완료합니다.
+채팅 채널(Telegram, WhatsApp, Discord, Slack 등)을 OpenClaw Gateway에 연결하는 과정을 **페어링(Pairing)**이라고 합니다. OpenClaw는 20개 이상의 채널을 지원하며, 각 채널은 고유한 연결 방식을 사용합니다.
 
 ---
 
-## 🛡️ 페어링 보안​
+## 🔗 페어링 방법
 
-- 페어링된 정보는 `~/.openclaw` 폴더 내에 안전하게 저장됩니다.
+### 방법 1. 대화형 설정 (권장)
 
-- 새로운 기기를 연결하려면 기존 페어링을 해제(`openclaw pairing reset`)한 후 다시 시도하세요.
+온보딩 또는 `configure` 명령으로 채널을 선택하면 마법사가 단계별로 안내합니다.
 
-온보딩 (macOS 앱)
-(/start/onboarding)다음
-쇼케이스 (Showcase)
-(/start/showcase)
+```bash
+openclaw configure
+```
 
-- 🔗 페어링 방법
-- 1. QR 코드 방식 (WhatsApp 등)
+### 방법 2. QR 코드 방식 (WhatsApp, LINE 등)
 
-- 2. 인증 토큰 방식 (Telegram, Discord, Slack)
+게이트웨이 실행 시 터미널에 QR 코드가 표시됩니다. 모바일 앱의 '연결된 기기' 메뉴에서 스캔하세요.
 
-- 3. 코드 입력 방식
+```bash
+openclaw gateway start
+# 터미널에 QR 코드 출력됨
+```
 
-- 🛡️ 페어링 보안
+### 방법 3. API 토큰 방식 (Telegram, Discord, Slack 등)
 
-Community
+각 플랫폼의 개발자 콘솔에서 발급받은 Bot Token 또는 API Key를 설정합니다.
 
-- Discord (https://discord.gg/openclaw)
+```bash
+openclaw configure
+# 채널 선택 후 토큰 입력 프롬프트 안내
+```
 
-- Twitter (https://twitter.com/openclaw)
+**Telegram Bot 토큰 발급 방법:**
+1. Telegram에서 `@BotFather`에게 `/newbot` 명령 전송
+2. 봇 이름과 유저명 설정
+3. 발급받은 토큰을 openclaw configure에 입력
 
+### 방법 4. 숫자 코드 입력 방식
 
+일부 채널은 화면에 표시되는 8자리 코드를 모바일 앱에 입력하여 페어링을 완료합니다.
+
+---
+
+## 📋 지원 채널 목록
+
+OpenClaw v2026.3.23 기준 20개 이상의 채널을 지원합니다.
+
+| 채널 | 페어링 방식 |
+|------|------------|
+| Telegram | Bot Token |
+| Discord | Bot Token |
+| Slack | OAuth / API Token |
+| WhatsApp | QR 코드 (BlueBubbles 권장) |
+| iMessage | BlueBubbles (권장 경로) |
+| LINE | API Token |
+| Matrix | 계정 자격증명 |
+| Microsoft Teams | OAuth |
+| Google Chat | 서비스 계정 |
+| Signal | 계정 연결 |
+| Mattermost | Bot Token |
+| Nextcloud Talk | 계정 연결 |
+| IRC | 서버 설정 |
+| Feishu | App ID + Secret |
+| Nostr | 키 쌍 |
+| Synology Chat | Webhook |
+| Tlon | 계정 연결 |
+| Twitch | OAuth |
+| WebChat | 기본 내장 |
+| Voice Call | 기본 내장 |
+| Zalo / Zalo Personal | API Token |
+
+> 각 채널의 상세 설정 방법 → [채널 목록](/channels/)
+
+---
+
+## 🛡️ 페어링 보안
+
+- 페어링 정보는 `~/.openclaw/` 폴더에 암호화되어 저장됩니다.
+- `channels.{name}.allowFrom`을 설정하면 특정 사용자만 에이전트에 접근할 수 있습니다.
+- 페어링 초기화가 필요하면:
+
+```bash
+openclaw pairing reset
+```
+
+---
+
+## 🔄 여러 채널 동시 연결
+
+하나의 Gateway에 여러 채널을 동시에 연결할 수 있습니다. `openclaw configure`를 채널 수만큼 반복하거나, 설정 파일(`~/.openclaw/openclaw.json`)에서 직접 다중 채널을 구성할 수 있습니다.

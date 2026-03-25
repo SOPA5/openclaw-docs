@@ -4,63 +4,36 @@ sidebar_label: Slack
 sidebar_position: 6
 ---
 
-# Slack 연결 가이드
+# Slack
 
-Slack 채널은 기업 환경에서 업무 효율을 높이는 데 특화되어 있습니다. OpenClaw는 방화벽 설정이 필요 없는 Socket Mode를 기본으로 지원합니다.
+Slack은 업무용 협업 메시징에 최적화된 채널입니다. 팀 알림, 운영 자동화, 내부 업무 어시스턴트 시나리오에 잘 맞습니다.
 
-## 🛠️ 설정 방법​
+## 언제 쓰면 좋은가
 
-### 1. Slack App 생성​
+- 사내 업무 자동화
+- 운영 알림, 보고, 요약
+- 채널 중심 협업 흐름
 
-- Slack API (https://api.slack.com/apps) 페이지에서 `Create New App`을 클릭합니다.
+## 설정 개요
 
-- `From scratch`를 선택하고 이름을 입력합니다.
+1. Slack App을 만들고 Bot Token 등 필요한 자격 증명을 발급받습니다.
+2. 워크스페이스에 앱을 설치합니다.
+3. OpenClaw에 Slack 채널을 연결합니다.
+4. 비공개 테스트 채널에서 먼저 검증합니다.
 
-### 2. 권한 및 봇 설정​
+## 운영 팁
 
-- Socket Mode: `Settings -> Socket Mode`에서 활성화하고 `App-level Token`을 생성합니다. (`xapp-`으로 시작)
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-- Event Subscriptions: `App Home -> Event Subscriptions`에서 활성화하고 `app_mention`, `message.channels`, `message.im` 이벤트를 추가합니다.
+## 주의할 점
 
-- OAuth & Permissions: `Bot Token Scopes`에 `chat:write`, `im:history`, `app_mentions:read` 등을 추가하고 `Bot User OAuth Token`을 가져옵니다. (`xoxb-`으로 시작)
-
-### 3. OpenClaw 설정​
-
-```
-openclaw configure set channels.slack.enabled true
-openclaw configure set channels.slack.token "xoxb-..."
-openclaw configure set channels.slack.appToken "xapp-..."
-
-```
-
----
-
-## ⚡ 업무 자동화 활용​
-
-- DM 비서: 개인 메시지를 통해 일정 관리나 파일 요약을 요청하세요.
-
-- 채널 협업: 팀 채널에 초대하여 회의록 정리나 코드 리뷰를 에이전트에게 시킬 수 있습니다.
-
-- 멘션 반응: 에이전트 이름이 불릴 때만 똑똑하게 개입합니다.
-
-Discord 연결 가이드
-(/channels/discord)다음
-Google Chat 연결 가이드
-(/channels/google-chat)
-
-- 🛠️ 설정 방법
-- 1. Slack App 생성
-
-- 2. 권한 및 봇 설정
-
-- 3. OpenClaw 설정
-
-- ⚡ 업무 자동화 활용
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- 사내 보안 정책상 허용 사용자와 채널 범위를 명확히 해야 합니다.
+- 공개 채널 전체에서 바로 응답하게 두지 말고 파일럿 채널부터 시작하세요.
+- 민감한 업무 데이터는 접근 범위를 최소화하세요.
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

@@ -6,74 +6,74 @@ sidebar_position: 4
 
 # 도구 샌드박스 (Sandbox)
 
-보안과 시스템 안정성을 위해 에이전트가 어떤 도구를 어느 범위까지 사용할 수 있는지 제어하는 기능을 제공합니다.
+도구 샌드박스는 에이전트가 도구를 쓸 때의 **최신 tool policy 체계**를 설명하는 문서입니다. 핵심은 “허용/차단 목록 몇 개”가 아니라, **도구 종류·실행 환경·권한 상승·승인 경계**를 함께 설계하는 것입니다.
 
-## 🛡️ 도구 접근 제어​
+## 최신 관점의 핵심 용어
 
-사용자는 각 에이전트별로 도구 사용 권한을 세밀하게 설정할 수 있습니다.
+### tool policy
 
-### 1. 허용/차단 목록 (`allow` / `deny`)​
+어떤 도구를 허용할지, 어떤 파라미터를 제한할지, 어떤 실행이 승인 대상인지 정하는 정책 계층입니다.
 
-```
-agents:
-junior-dev:
-tools:
-allow:["read_file","grep_search"]
-deny:["run_command","delete_file"]
+### sandbox mode
 
-```
+도구를 로컬에서 실행할지, 더 격리된 환경에서 실행할지 정하는 계층입니다.
 
-위 설정은 'junior-dev' 에이전트가 파일 읽기와 검색은 할 수 있지만, 직접적인 명령어 실행이나 파일 삭제는 할 수 없도록 제한합니다.
+### elevated
 
----
+호스트에서 더 높은 권한으로 실행하는 경우를 가리킵니다. 일반 실행과 분리해서 봐야 합니다.
 
-## 🏗️ 실행 환경 격리 (Docker)​
+## tool policy가 막는 것
 
-가장 강력한 보안 방법은 에이전트의 모든 도구 실행을 Docker 컨테이너 내부로 한정하는 것입니다.
+- 무분별한 파일 쓰기/삭제
+- 고위험 셸 실행
+- 불필요한 네트워크 접근
+- 사용자 프로필/민감 자원 접근
+- 승인 없는 elevated 실행
 
-### 설정 활성화​
+## 정책을 설계하는 기본 질문
 
-```
-openclaw configure set sandbox.enabled true
-openclaw configure set sandbox.provider "docker"
+- 이 에이전트가 정말 `exec`가 필요한가?
+- `browser`는 격리 프로필만 써도 되는가?
+- `message`는 외부 발송 권한이 필요한가?
+- `write`와 `apply_patch` 중 어느 정도만 허용할 것인가?
+- elevated 실행은 완전히 막을 수 있는가?
 
-```
+이 질문이 곧 최소 권한 설계입니다.
 
-### 작동 원리​
+## 도구별로 체감 위험이 다릅니다
 
-- 에이전트가 '파일 생성' 도구를 호출합니다.
+낮은 편:
 
-- OpenClaw는 호스트 PC가 아닌, 즉석에서 생성된 Docker 컨테이너 내부에서 명령을 실행합니다.
+- `read`
+- `web_search`
+- `web_fetch`
 
-- 결과물만 호스트의 지정된 폴더(Workspace)로 동기화됩니다.
+중간:
 
-## 👥 사용자 정의 프로필​
+- `write`
+- `edit`
+- `browser`
+- `image`
 
-사용 목적에 따라 여러 에이전트에게 서로 다른 샌드박스 등급을 부여할 수 있습니다.
+높은 편:
 
-- Full Access: 신뢰하는 개인 프로젝트용 에이전트.
+- `exec`
+- `process`
+- `message`
+- 사용자 프로필을 쓰는 브라우저 자동화
+- `elevated` 실행
 
-- Strict Sandbox: 인터넷에서 받은 코드를 분석하거나 외부 툴을 실행할 때 사용하는 보안 에이전트.
+같은 에이전트라도 작업 목적에 따라 허용 집합을 다르게 두는 것이 좋습니다.
 
-Lobster: 규격화된 워크플로우 엔진
-(/tools/lobster)다음
-서브 에이전트 (Sub-agents)
-(/tools/subagents)
+## 운영 팁
 
-- 🛡️ 도구 접근 제어
-- 1. 허용/차단 목록 (`allow` / `deny`)
+- 기본은 좁게, 필요할 때만 넓히기
+- 공유 서버일수록 sandbox mode를 엄격하게
+- 외부 발송/삭제/권한 상승은 승인 경계 명확화
+- 정책은 Gateway 보안과 따로 보지 않기
 
-- 🏗️ 실행 환경 격리 (Docker)
-- 설정 활성화
+## 관련 문서
 
-- 작동 원리
-
-- 👥 사용자 정의 프로필
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- [게이트웨이 샌드박싱](/gateway/sandboxing)
+- [보안](/gateway/security)
+- [브라우저](/tools/browser)

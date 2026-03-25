@@ -6,44 +6,81 @@ sidebar_position: 1
 
 # 도구 및 기술 (Tools)
 
-OpenClaw 에이전트는 단순히 답변만 하는 것이 아니라, 다양한 **도구(Tools)**를 사용하여 여러분의 컴퓨터에서 직접 작업을 수행합니다.
+OpenClaw의 도구는 “모델이 외부 세계에 손을 뻗는 방법”입니다. 최신 기준에서 도구 체계는 몇 개의 유명 기능만 나열하는 방식보다, **실제 tool taxonomy**로 이해하는 것이 더 정확합니다.
 
-## 🛠️ 핵심 도구 상자​
+## 핵심 taxonomy
 
-도구기능주요 활용처
-Playwright Browser웹 사이트 자동 제어정보 검색, 자동 로그인, 데이터 수집
-CLI / Terminal명령어 실행패키지 설치, 서버 코드 실행, 테스트
-File Editor파일 읽기 및 수정소스 코드 작성, 설정 변경, 문서화
-Sub-agents병렬 독립 세션 실행복잡한 멀티태스킹, 프로젝트 분업
-Lobster규격화된 워크플로우반복적인 자동화 파이프라인
+### 파일 도구
 
----
+- `read`
+- `write`
+- `edit`
+- `apply_patch`
 
-## 🛡️ 안전하게 도구 사용하기 (Sandbox)​
+문서 작성, 코드 수정, 설정 변경, 패치 적용에 사용합니다.
 
-에이전트가 위험한 명령어를 실행하지 못하도록 다양한 안전 장치를 제공합니다.
+### 실행 도구
 
-- Confirmations (승인): 민감한 작업(파일 삭제, 이메일 발송 등)은 반드시 사용자의 승인을 거칩니다.
+- `exec`
+- `process`
 
-- Docker Sandbox: 에이전트의 모든 활동을 격리된 컨테이너 내부로 한정합니다.
+셸 명령 실행, 백그라운드 프로세스 관리, 긴 작업의 상태 추적을 담당합니다.
 
-- Tools Permissions: 각 에이전트별로 사용 가능한 도구의 목록을 세밀하게 제어할 수 있습니다.
+### 웹/브라우저 도구
 
-샌드박스 설정 가이보기 (/tools/sandbox)
+- `browser`
+- `web_search`
+- `web_fetch`
 
-기억 시스템 (Memory)
-(/concepts/memory)다음
-브라우저 도구 (Browser Tool)
-(/tools/browser)
+브라우저 자동화, 웹 검색, 페이지 본문 수집을 맡습니다.
 
-- 🛠️ 핵심 도구 상자
+### 커뮤니케이션 도구
 
-- 🛡️ 안전하게 도구 사용하기 (Sandbox)
+- `message`
+- `tts`
 
-Community
+채널 메시지 전송과 음성 출력 계층입니다.
 
-- Discord (https://discord.gg/openclaw)
+### 디바이스/시각 인터페이스 도구
 
-- Twitter (https://twitter.com/openclaw)
+- `canvas`
+- `nodes` 계열(환경에 따라 제공)
 
+페어링된 node의 Canvas나 장치 표면과 상호작용할 때 씁니다.
 
+### 미디어/문서 도구
+
+- `image`
+- `image_generate`
+- `pdf`
+
+이미지 분석·생성, PDF 이해를 다룹니다.
+
+### 세션/오케스트레이션 도구
+
+- `sessions_spawn`
+- `sessions_list`
+- `sessions_history`
+- `sessions_yield`
+
+세션 생성, 위임, 결과 회수를 다룹니다.
+
+## 중요한 해석
+
+OpenClaw에서 도구는 단순 플러그인이 아닙니다. Gateway가 제공하는 도구들은 세션, 권한, 샌드박스, API와 모두 연결되어 있습니다. 그래서 같은 `exec`라도 어떤 세션에서, 어떤 정책 아래, 어떤 승인 경계로 쓰느냐가 매우 중요합니다.
+
+## 도구·스킬·플러그인의 차이
+
+헷갈리기 쉬운 세 가지를 구분하면 다음과 같습니다.
+
+- **도구(Tool)**: 실제 함수/실행 인터페이스
+- **스킬(Skill)**: 언제 어떤 도구를 어떤 순서로 쓸지 알려주는 지침
+- **플러그인(Plugin)**: 도구/스킬/채널/제공자를 패키징하는 확장 단위
+
+## 자주 같이 읽는 문서
+
+- [브라우저](/tools/browser)
+- [Lobster](/tools/lobster)
+- [샌드박스](/tools/sandbox)
+- [서브에이전트](/tools/subagents)
+- [Apply Patch](/tools/apply-patch)

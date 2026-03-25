@@ -4,33 +4,39 @@ sidebar_label: Grammy
 sidebar_position: 4
 ---
 
-# grammY (Telegram Framework)
+# Grammy
 
-Telegram 채널은 내부적으로 grammY (https://grammy.dev/) 프레임워크를 사용하여 동작합니다.
+Grammy는 Telegram Bot 생태계에서 자주 쓰이는 프레임워크 기반 경로를 이해할 때 유용한 문서입니다. Telegram 확장 구현이나 구조 이해가 필요할 때 참고하면 좋습니다.
 
-## 🛠️ 고급 설정​
+## 언제 쓰면 좋은가
 
-에이전트의 텔레그램 봇 행동을 더 세밀하게 조정하고 싶다면 `grammY` 관련 설정을 활용할 수 있습니다.
+- Telegram 채널을 조금 더 세밀하게 확장하고 싶을 때
+- Bot 로직 구조를 이해하고 싶을 때
+- Telegram 기반 커스텀 경험을 설계할 때
 
-- 미들웨어: 커스텀 미들웨어를 추가하여 메시지 필터링이나 로그 기록을 강화할 수 있습니다.
+## 설정 개요
 
-- 키보드: 에이전트의 답변에 텔레그램 버튼(Inline Keyboard)을 포함시키도록 프롬프트를 조정할 수 있습니다.
+1. 기본 Telegram 연결 개념을 먼저 이해합니다.
+2. Grammy 기반 확장 또는 커스텀 동작이 필요한 경우 구조를 설계합니다.
+3. 실제 사용자 진입은 보통 [Telegram](/channels/telegram) 문서 흐름으로 시작합니다.
 
-- 웹훅 모드: 폴링(Polling) 방식 대신 웹훅 방식으로 전환하여 응답 성능을 높일 수 있습니다.
+## 운영 팁
 
-상세한 프로그래밍 가이드는 grammY 공식 문서를 참고하세요.
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-Telegram 연결 가이드
-(/channels/telegram)다음
-Discord 연결 가이드
-(/channels/discord)
+## 주의할 점
 
-- 🛠️ 고급 설정
+- 일반 사용자는 Telegram 문서만으로도 충분한 경우가 많습니다.
+- 프레임워크 선택보다 먼저 채널 요구사항과 권한 범위를 정하는 것이 중요합니다.
 
-Community
+## 참고
 
-- Discord (https://discord.gg/openclaw)
+실제 운영 입문은 보통 [Telegram](/channels/telegram)에서 시작하고, Grammy는 구현 이해용 보조 문서로 보면 됩니다.
 
-- Twitter (https://twitter.com/openclaw)
-
-
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

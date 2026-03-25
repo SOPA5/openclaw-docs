@@ -4,49 +4,40 @@ sidebar_label: iMessage
 sidebar_position: 12
 ---
 
-# iMessage (Legacy - imsg) 가이드
+# iMessage
 
-주의
+iMessage 문서는 legacy 경로를 설명하는 참고 문서입니다. 공식 기준에서는 신규 구성 시 [BlueBubbles](/channels/bluebubbles)를 권장 경로로 보는 편이 더 안전합니다.
 
-이 설치 방식은 레거시(Legacy) 방법이며, 더 이상 적극적으로 권장되지 않습니다. 더 풍부한 기능과 안정적인 연결을 위해 BlueBubbles 가이드 (/channels/bluebubbles)를 사용하시길 강력히 추천합니다.
+## 언제 쓰면 좋은가
 
-## 📋 레거시 방식 개요​
+- 기존 iMessage legacy 환경을 유지해야 할 때
+- 과거 설정을 이해하거나 이전할 때
+- BlueBubbles와의 차이를 파악할 때
 
-이 방식은 macOS의 `osascript` 또는 `imsg` 도구를 사용하여 iMessage 앱을 직접 제어합니다.
+## 설정 개요
 
-### 한계점​
+1. 먼저 [BlueBubbles](/channels/bluebubbles) 문서를 확인하세요.
+2. 기존 legacy 환경을 유지해야 할 때만 iMessage 경로를 검토합니다.
+3. 테스트는 반드시 제한된 환경에서 진행합니다.
 
-- macOS에서만 동작하며, iMessage 앱이 항상 켜져 있어야 합니다.
+## 운영 팁
 
-- 미디어 전송이나 반응(Tapback) 기능이 제한적입니다.
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-- 보안 설정(Full Disk Access)이 복잡합니다.
+## 주의할 점
 
-### 설정 방법 (필요한 경우)​
+- 신규 도입 관점에서는 권장 우선순위가 아닙니다.
+- macOS 권한, 연결 안정성, 유지보수 복잡도를 함께 고려해야 합니다.
+- 장기 운영 계획이 있다면 BlueBubbles 전환 검토가 유리합니다.
 
-터미널에서 레거시 브리지를 활성화합니다.
+## 권장 경로
 
-```
-openclaw configure set channels.imessage.enabled true
+새로 시작한다면 [BlueBubbles](/channels/bluebubbles)부터 보는 것을 권장합니다.
 
-```
-
-이후 시스템 설정 > 보안 및 개인정보 보호 > 전체 디스크 접근 권한에서 터미널 앱(또는 사용 중인 iTerm2 등)에 권한을 부여해야 합니다.
-
-iMessage (BlueBubbles) 연결 가이드
-(/channels/bluebubbles)다음
-모델 제공자 (Providers)
-(/providers/)
-
-- 📋 레거시 방식 개요
-- 한계점
-
-- 설정 방법 (필요한 경우)
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

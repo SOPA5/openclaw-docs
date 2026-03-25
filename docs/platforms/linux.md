@@ -4,75 +4,144 @@ sidebar_label: Linux
 sidebar_position: 3
 ---
 
-# Linux 설치 및 설정
+# Linux 가이드
 
-OpenClaw는 다양한 Linux 배포판에서 원활하게 동작하며, 특히 서버 환경에서 에이전트를 가동하는 데 최적화되어 있습니다.
+OpenClaw는 다양한 Linux 배포판에서 완전히 지원됩니다. 특히 **서버 환경에서 에이전트를 24시간 가동**하는 데 최적화되어 있습니다.
 
-## 📦 설치 패키지 종류​
+> Linux 네이티브 컴패니언 앱은 아직 계획 단계입니다. 현재는 CLI + Gateway + 브라우저 Control UI로 운영합니다.
 
-### 1. AppImage (권장)​
+---
 
-별도의 설치 과정 없이 실행 가능한 파일입니다.
+## 🚀 설치 방법
 
-- 실행 전 `fuse` 패키지가 설치되어 있어야 합니다.
+### 방법 1. 설치 스크립트 (권장)
 
-- `chmod +x OpenClaw.AppImage` 후 실행하세요.
-
-### 2. Debian/Ubuntu (`.deb`)​
-
-시스템에 직접 설치하고 업데이트를 관리하기 좋습니다.
-
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+openclaw onboard --install-daemon
 ```
-sudo dpkg -i openclaw.deb
 
+`--install-daemon` 옵션으로 **systemd 서비스**가 자동 등록됩니다.
+
+### 방법 2. npm 직접 설치
+
+```bash
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+```
+
+### 방법 3. 소스 빌드
+
+```bash
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+pnpm install && pnpm ui:build && pnpm build
+pnpm link --global
+openclaw onboard --install-daemon
 ```
 
 ---
 
-## ⚙️ 주요 설정 및 팁​
+## ⚙️ systemd 서비스 관리
 
-### 헤드리스(Headless) 모드​
+`openclaw onboard --install-daemon` 실행 시 systemd 서비스가 자동 등록됩니다.
 
-화면이 없는 서버 환경에서는 CLI 전용으로 게이트웨이를 실행하세요.
+```bash
+# 상태 확인
+systemctl --user status openclaw
+# 또는
+openclaw gateway status
 
+# 서비스 재시작
+systemctl --user restart openclaw
+
+# 서비스 시작/중지
+systemctl --user start openclaw
+systemctl --user stop openclaw
+
+# 로그 확인
+journalctl --user -u openclaw -f
 ```
-openclaw gateway --headless
 
+### 수동 서비스 등록
+
+자동 등록 대신 직접 설치하려면:
+
+```bash
+openclaw gateway install
 ```
 
-### 샌드박스 보안​
+---
 
-리눅스 에이전트가 코드를 실행할 때 호스트 시스템을 보호하기 위해 Docker 기반 샌드박스를 사용하는 것을 강력히 권장합니다.
+## 🖥️ 헤드리스(Headless) 모드
 
-- Docker 샌드박스 설정 (/install/docker)
+화면이 없는 서버 환경에서는 CLI 전용으로 게이트웨이를 실행합니다.
 
-## 🛠️ 문제 해결​
+```bash
+openclaw gateway start
+```
 
-- X11/Wayland: 브라우저 자동화 도구(Playwright) 사용 시 디스플레이 서버 설정이 필요할 수 있습니다.
+브라우저 자동화 도구(Playwright)를 서버에서 사용하려면 Xvfb 가상 디스플레이가 필요할 수 있습니다:
 
-- 권한: `/dev/null` 또는 특정 폴더 접근 권한 문제를 확인하세요.
+```bash
+# Ubuntu/Debian
+sudo apt-get install -y xvfb
+Xvfb :99 -screen 0 1280x720x24 &
+export DISPLAY=:99
+```
 
-macOS 가이드
-(/platforms/macos)다음
-Windows 설치 및 설정
-(/platforms/windows)
+---
 
-- 📦 설치 패키지 종류
-- 1. AppImage (권장)
+## 🛡️ 샌드박스 보안
 
-- 2. Debian/Ubuntu (`.deb`)
+에이전트가 코드를 실행할 때 호스트 시스템을 보호하기 위해 Docker 기반 샌드박스를 권장합니다.
 
-- ⚙️ 주요 설정 및 팁
-- 헤드리스(Headless) 모드
+```bash
+openclaw configure set sandbox.enabled true
+openclaw configure set sandbox.provider docker
+```
 
-- 샌드박스 보안
+→ [Docker 샌드박스 설정](/install/docker)
 
-- 🛠️ 문제 해결
+---
 
-Community
+## 📦 배포판별 추가 설정
 
-- Discord (https://discord.gg/openclaw)
+### Ubuntu / Debian
 
-- Twitter (https://twitter.com/openclaw)
+```bash
+# Node.js 24 설치 (nvm 사용 권장)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install 24
+nvm use 24
+```
 
+### Fedora / RHEL
 
+```bash
+# Node.js 24
+sudo dnf module install nodejs:24
+```
+
+### Arch Linux
+
+```bash
+sudo pacman -S nodejs npm
+```
+
+---
+
+## 🩺 문제 해결
+
+| 증상 | 해결 방법 |
+|------|---------|
+| 권한 오류 | `openclaw doctor` 실행 |
+| X11/Wayland 오류 | Xvfb 설치 또는 `DISPLAY` 환경변수 확인 |
+| Node.js 버전 오류 | `node --version` → Node 22.16+ 필요 |
+| systemd 실패 | `journalctl --user -u openclaw -xe` 로그 확인 |
+
+```bash
+openclaw doctor
+```
+
+> 관련 가이드: [플랫폼 개요](/platforms/) | [Docker 가이드](/install/docker) | [Ansible 배포](/install/ansible)

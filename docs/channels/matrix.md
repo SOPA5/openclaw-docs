@@ -4,52 +4,36 @@ sidebar_label: Matrix
 sidebar_position: 10
 ---
 
-# Matrix 연결 가이드
+# Matrix
 
-탈중앙화와 보안을 중시하는 사용자라면 Matrix 프로토콜을 사용하여 개인 서버(Homeserver)로 에이전트를 가동할 수 있습니다.
+Matrix는 분산형·자체 호스팅 친화적인 채널입니다. 프라이버시, 자율성, 인프라 통제권을 중시하는 팀에 잘 맞습니다.
 
-## 🛠️ 설정 방법​
+## 언제 쓰면 좋은가
 
-### 1. 계정 준비​
+- 자체 호스팅 환경
+- 프라이버시 중시 팀
+- 외부 SaaS 의존도를 낮추고 싶을 때
 
-에이전트가 사용할 전용 Matrix 계정을 생성합니다. (예: `matrix.org` 또는 자체 `Synapse` 서버)
+## 설정 개요
 
-### 2. OpenClaw 설정​
+1. Matrix 홈서버와 봇 연동 정보를 준비합니다.
+2. OpenClaw에 Matrix 채널을 연결합니다.
+3. 테스트 룸 또는 DM에서 응답 흐름을 먼저 검증합니다.
+4. 필요하면 자체 호스팅 인프라 정책에 맞춰 확장합니다.
 
-```
-openclaw configure set channels.matrix.enabled true
-openclaw configure set channels.matrix.homeserverUrl "https://matrix.org"
-openclaw configure set channels.matrix.userId "@bot:matrix.org"
-openclaw configure set channels.matrix.password "여러분의_비밀번호"
+## 운영 팁
 
-```
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
----
+## 주의할 점
 
-## 🔐 주요 특징​
-
-- 종단간 암호화(E2EE): Matrix의 강력한 암호화 환경에서 에이전트와 대화하세요 (일부 설정 필요).
-
-- 연합(Federation): 다른 서버에 있는 사용자와도 자유롭게 통신할 수 있습니다.
-
-- 오픈 소스: 완전히 개방된 표준 프로토콜을 사용하여 벤더 종속성을 줄입니다.
-
-LINE 연결 가이드
-(/channels/line)다음
-iMessage (BlueBubbles) 연결 가이드
-(/channels/bluebubbles)
-
-- 🛠️ 설정 방법
-- 1. 계정 준비
-
-- 2. OpenClaw 설정
-
-- 🔐 주요 특징
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- 홈서버 설정 상태가 채널 품질에 직접 영향을 줍니다.
+- 공개 룸 운영 전에는 권한·초대 정책을 정리하세요.
+- 멀티채널 운영 시 별칭과 사용자 식별 방식을 미리 정해두는 것이 좋습니다.
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정

@@ -6,64 +6,80 @@ sidebar_position: 1
 
 # 게이트웨이 및 운영 (Gateway & Ops)
 
-OpenClaw의 모든 통신과 에이전트 수명을 관리하는 게이트웨이(Gateway) 프로세스와 이를 안정적으로 운영하기 위한 환경 설정 가이드를 제공합니다.
+OpenClaw의 중심은 **Gateway**입니다. Gateway는 채널, 에이전트, 세션, 웹 UI, CLI, 모바일 node를 한곳에서 묶는 **단일 제어면(control plane)** 입니다. 사용자는 Telegram, Discord, WebChat, Control UI, macOS 앱, iOS/Android node처럼 서로 다른 진입점에서 OpenClaw를 만나지만, 실제 상태와 라우팅은 모두 Gateway가 관리합니다.
 
-## 🏗️ 게이트웨이란 무엇인가요?​
+## Gateway가 하는 일
 
-게이트웨이는 OpenClaw 시스템의 핵심 엔진이자 중앙 컨트롤 센터입니다.
+Gateway는 크게 다섯 가지를 맡습니다.
 
-- 항상 가동 (Daemon): 백그라운드에서 상주하며 메시징 채널(Slack 등)로부터 들어오는 요청을 기다립니다.
+- **채널 연결**: Telegram, WhatsApp, Discord 등 여러 채널에서 메시지를 받습니다.
+- **세션 제어**: 사용자별/대화방별 세션을 만들고 이어붙이고 정리합니다.
+- **에이전트 실행**: 메인 에이전트, 그룹 격리 세션, 서브에이전트, ACP 런타임 요청을 중계합니다.
+- **도구 노출**: 파일 편집, 셸 실행, 브라우저 자동화, 이미지/음성/문서 처리 같은 도구를 에이전트에 제공합니다.
+- **운영 진입점 제공**: CLI, Web Control UI, API, node pairing, doctor 진단을 같은 런타임 위에서 동작하게 합니다.
 
-- 상태 관리: 진행 중인 에이전트 세션, 메모리, 설정값의 일관성을 유지합니다.
+즉, OpenClaw는 “각 앱마다 따로 에이전트가 있는 구조”가 아니라, **하나의 Gateway 위에 여러 인터페이스가 붙는 구조**로 이해하면 가장 정확합니다.
 
-- 인터페이스 제공: CLI, 웹 대시보드, 그리고 외부 API가 소통할 수 있는 창구 역할을 합니다.
+## 설치와 운영의 최신 기본 흐름
 
----
+공식 문서 기준 권장 설치 흐름은 다음과 같습니다.
 
-## 🚀 주요 운영 섹션​
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+openclaw onboard --install-daemon
+openclaw gateway status
+```
 
-### 📡 원격 접속 및 활성화 (/gateway/remote)​
+운영 중 자주 쓰는 명령은 아래 세 가지입니다.
 
-로컬에 설치된 게이트웨이에 모바일 앱이나 외부 기기로부터 안전하게 연결하는 방법을 설명합니다.
+```bash
+openclaw gateway status
+openclaw gateway install
+openclaw doctor
+```
 
-### 🛡️ 보안 강화 (Security Audit) (/gateway/security)​
+- `openclaw gateway status`: Gateway가 살아 있는지, 어디에 바인딩되어 있는지 확인합니다.
+- `openclaw gateway install`: 서비스/daemon 설치를 직접 수행할 때 사용합니다.
+- `openclaw doctor`: 설정, 권한, 연결, 보안 상태를 점검하고 복구 방향을 안내합니다.
 
-인증 정보 유출 방지 및 시스템 권한 점검을 통해 안전한 운영 환경을 구축합니다.
+## 운영할 때 꼭 알아둘 포인트
 
-### 🐳 샌드박스 운영 (/gateway/sandboxing)​
+### 1. Gateway는 항상 켜져 있는 서비스로 보는 것이 맞습니다
 
-에이전트의 도구 실행을 Docker 등으로 완벽하게 격리하여 서버를 보호합니다.
+개발 중 잠깐 수동 실행할 수는 있지만, 실사용 환경에서는 daemon 또는 서비스로 설치해 두는 것이 기본입니다.
 
-### 🔌 API 및 프로토콜 (/gateway/api)​
+### 2. 로컬 우선, 원격은 명시적으로 여는 구조입니다
 
-REST API 및 MCP(Model Context Protocol)를 통해 외부 서비스를 연동하는 기술 스펙을 다룹니다.
+기본적으로는 loopback(예: `127.0.0.1`)에 바인딩하고, 외부 접근이 필요할 때만 인증과 프록시를 추가하는 방식이 안전합니다. 자세한 내용은 [원격 접근](/gateway/remote)에서 설명합니다.
 
-## ⚙️ 런타임 갱신 (Hot-reload)​
+### 3. 보안은 “토큰 하나”보다 정책 조합이 중요합니다
 
-OpenClaw 게이트웨이는 설정 파일(`config.yml`)의 변경 사항을 자동으로 감지합니다. 서비스를 껐다 켤 필요 없이 즉시 새로운 설정이 반영됩니다.
+실무에서는 다음 조합으로 보안을 봐야 합니다.
 
-게이트웨이 수명 주기 (Lifecycle)
-(/platforms/macos)다음
-원격 접속 및 접근 관리
-(/gateway/remote)
+- `auth.mode`
+- 채널별 페어링 정책
+- `allowFrom` 같은 IP/네트워크 제한
+- 도구 정책과 샌드박스
+- `openclaw doctor`를 통한 정기 감사
 
-- 🏗️ 게이트웨이란 무엇인가요?
+자세한 내용은 [보안](/gateway/security), [샌드박싱](/gateway/sandboxing) 문서를 참고하세요.
 
-- 🚀 주요 운영 섹션
-- 📡 원격 접속 및 활성화
+## Gateway 아래에 매달리는 구성요소
 
-- 🛡️ 보안 강화 (Security Audit)
+Gateway를 기준으로 보면 OpenClaw 문서의 큰 축이 자연스럽게 정리됩니다.
 
-- 🐳 샌드박스 운영
+- **원격 연결** → [원격 접근](/gateway/remote)
+- **보안/감사** → [보안](/gateway/security)
+- **도구 격리** → [샌드박싱](/gateway/sandboxing)
+- **플러그인/MCP 확장** → [MCP](/gateway/mcp)
+- **외부 연동** → [API](/gateway/api)
+- **제품 기능 개요** → [기능](/concepts/features)
+- **전체 구조** → [아키텍처](/concepts/architecture)
 
-- 🔌 API 및 프로토콜
+## 한 줄 요약
 
-- ⚙️ 런타임 갱신 (Hot-reload)
+OpenClaw를 이해하는 가장 좋은 출발점은 이것입니다.
 
-Community
+> **OpenClaw = self-hosted Gateway 중심의 멀티채널·멀티에이전트 제어면**
 
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+이 관점만 잡히면 채널, 세션, node, 도구, API, Web UI가 왜 한 제품 안에서 자연스럽게 연결되는지 훨씬 쉽게 보입니다.

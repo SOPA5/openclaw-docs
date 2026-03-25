@@ -6,70 +6,72 @@ sidebar_position: 5
 
 # MCP (Model Context Protocol) 연동
 
-OpenClaw는 최신 인공지능 도구 통합 표준인 **MCP (Model Context Protocol)**를 적극적으로 지원합니다. 이를 통해 수많은 서드파티 도구들을 에이전트의 능력(Skills)으로 즉시 가져올 수 있습니다.
+OpenClaw에서 MCP는 “도구를 하나 더 붙이는 별도 세계”가 아니라, **플러그인·스킬·내장 도구와 나란히 놓이는 확장 계층**입니다. 최신 구조를 이해할 때는 `plugins / skills / mcp` 세 축을 함께 보는 것이 가장 정확합니다.
 
-## 🏗️ mcporter 런타임​
+## 현재 구조: plugins / skills / mcp
 
-OpenClaw 내부에는 MCP 서버를 구동하고 통신을 중계하는 mcporter라는 전용 런타임이 포함되어 있습니다.
+### Plugins
 
-## 🛠️ MCP 서버 추가하기​
+플러그인은 OpenClaw 확장의 패키징 단위입니다. 채널, 제공자, 도구, 스킬, 워크플로우 같은 기능을 묶어 배포할 수 있습니다.
 
-### 1. 데스크탑 앱에서 추가 (추천)​
+### Skills
 
-- macOS 앱의 `Settings > Skills` 메뉴로 이동합니다.
+스킬은 모델에게 “이 상황에서 어떤 도구와 절차를 써야 하는지”를 알려주는 지침입니다. 즉, 스킬은 **행동 설계서**이고, 도구 그 자체는 아닙니다.
 
-- `Add Skill`을 누르고 MCP 서버의 주소(또는 npx 명령어)를 입력합니다.
-- 예시: `npx @modelcontextprotocol/server-github`
+### MCP
 
-### 2. CLI에서 추가​
+MCP는 외부 툴 생태계를 OpenClaw 안으로 가져오는 **표준 연결 방식**입니다. 데이터베이스, 브라우저, GitHub, 파일 시스템, 커스텀 사내 툴 등을 MCP 서버 형태로 붙일 수 있습니다.
 
-`config.yml`의 `mcp` 섹션을 직접 수정합니다.
+정리하면:
 
-```
-mcp:
-servers:
-github:
-command:"npx"
-args:["@modelcontextprotocol/server-github"]
-env:
-GITHUB_PERSONAL_ACCESS_TOKEN:"..."
+- **Plugin** = 기능 묶음/배포 단위
+- **Skill** = 사용 지침
+- **MCP** = 외부 기능 연결 표준
 
-```
+## MCP를 어디에 쓰나
 
----
+대표 시나리오는 다음과 같습니다.
 
-## 🔌 주요 활용 시나리오​
+- GitHub 이슈/PR/코드 탐색
+- 브라우저/개발자 도구 연결
+- 사내 API 또는 데이터베이스 질의
+- 로컬/원격 파일 시스템 연결
+- 문서 검색기, 티켓 시스템, 지식베이스 연동
 
-- GitHub 연동: 이슈 관리, 코드 다운로드, 풀 리퀘스트 분석.
+## MCP가 Gateway 안에서 보이는 방식
 
-- 브라우저 제어: MCP 표준에 맞춘 외부 브라우저 엔진 통합.
+MCP 서버를 붙이면, 에이전트는 이를 **도구 집합**처럼 인식합니다. 다만 실제 실행과 권한 경계는 여전히 Gateway가 쥐고 있습니다. 즉, MCP는 우회 채널이 아니라 **Gateway가 통제하는 확장 경로**입니다.
 
-- 데이터베이스 조회: SQL 쿼리를 직접 실행하는 DB 도구 연결.
+이 점이 중요합니다. MCP를 붙였다고 해서 보안 정책이 사라지는 것이 아니라, 오히려:
 
-## 🌐 MCP 클라이언트 기능​
+- 어떤 MCP 서버를 허용할지
+- 어떤 환경 변수/비밀값을 줄지
+- 어느 에이전트가 이 도구를 볼지
+- 샌드박스/정책을 어떻게 적용할지
 
-OpenClaw는 단순한 MCP 호스트를 넘어, 다른 MCP 클라이언트에 기능을 제공하거나 서로 소통할 수 있는 기능(Bridging)을 확장하고 있습니다.
+를 운영자가 더 명확히 설계해야 합니다.
 
-운영 환경에서의 샌드박싱 (Sandboxing)
-(/gateway/sandboxing)다음
-REST API 및 프로토콜 (API)
-(/gateway/api)
+## 실무 해석
 
-- 🏗️ mcporter 런타임
+OpenClaw에서 기능을 추가하는 경로는 보통 아래 셋 중 하나입니다.
 
-- 🛠️ MCP 서버 추가하기
-- 1. 데스크탑 앱에서 추가 (추천)
+1. **기본 내장 도구 사용**
+2. **스킬로 절차 강화**
+3. **플러그인 또는 MCP로 새 기능 연결**
 
-- 2. CLI에서 추가
+즉, “MCP냐 스킬이냐”는 경쟁 관계가 아닙니다. 많은 경우 **MCP로 기능을 연결하고, 스킬로 사용법을 가르치는 조합**이 가장 좋습니다.
 
-- 🔌 주요 활용 시나리오
+## 보안 관점의 체크포인트
 
-- 🌐 MCP 클라이언트 기능
+MCP도 결국 외부 실행 경로이므로 다음을 확인해야 합니다.
 
-Community
+- 어떤 서버를 신뢰하는가
+- 어떤 비밀값을 주입하는가
+- 도구 목록이 과도하게 넓지 않은가
+- 민감한 작업에 human approval이 필요한가
 
-- Discord (https://discord.gg/openclaw)
+## 함께 읽기
 
-- Twitter (https://twitter.com/openclaw)
-
-
+- [게이트웨이 개요](/gateway/)
+- [API](/gateway/api)
+- [도구 개요](/tools/)

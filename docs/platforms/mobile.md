@@ -4,58 +4,123 @@ sidebar_label: 모바일
 sidebar_position: 5
 ---
 
-# 모바일(Mobile) 사용 가이드
+# 모바일(Mobile) 가이드
 
-OpenClaw는 스마트폰이나 태블릿에서도 에이전트와 실시간으로 소통할 수 있는 환경을 제공합니다.
-
-## 📱 주요 접근 방법​
-
-### 1. PWA (Progressive Web App)​
-
-별도의 앱 설치 없이 브라우저에서 바로 앱처럼 사용할 수 있습니다.
-
-- 모바일 브라우저에서 여러분의 게이트웨이 주소(예: `https://my-openclaw.dev`)에 접속합니다.
-
-- 브라우저 메뉴에서 **'홈 화면에 추가'**를 선택합니다.
-
-- 홈 화면의 아이콘을 누르면 네이티브 앱과 유사한 인터페이스로 열립니다.
-
-### 2. 공식 모바일 앱​
-
-App Store와 Google Play Store를 통해 배포되는 공식 클라이언트를 사용하면 푸시 알림과 시스템 위젯 등의 기능을 활용할 수 있습니다. (출시 예정)
+iOS와 Android 기기를 OpenClaw **node**로 페어링하면 기기의 카메라, 마이크, 화면 등 하드웨어 기능을 에이전트에서 직접 활용할 수 있습니다.
 
 ---
 
-## 🔗 원격 연결 설정​
+## 📱 지원 현황
 
-집이나 사무실의 PC에서 돌아가는 OpenClaw 게이트웨이에 모바일로 안전하게 접속하려면 다음 도구들을 확인하세요.
+| 플랫폼 | 지원 방식 | 주요 기능 |
+|--------|---------|---------|
+| **iOS** | node로 페어링 | Canvas, Voice (Wake/Talk Mode), Camera, Screen Recording |
+| **Android** | node로 페어링 | Canvas, Voice, Camera, 기기 명령 (device commands) |
 
-- Tailscale (권장): 복잡한 네트워크 설정 없이 개인 VPN망을 통해 안전하게 연결합니다.
+> 모바일 기기는 Gateway를 직접 실행하지 않습니다. 기존 Gateway(데스크탑/서버)에 **node로 페어링**하여 기기 기능을 확장하는 방식입니다.
 
-- Cloudflare Tunnel: 도메인을 구매하여 HTTPS 보안 연결을 구축합니다.
+---
 
-## 🎤 음성 명령 활용​
+## 🔗 node 페어링 방법
 
-모바일 에이전트 UI에서는 마이크 아이콘을 눌러 음성으로 작업을 지시할 수 있습니다. (STT/TTS 긴밀한 통합 진행 중)
+### 사전 조건
 
-Windows 설치 및 설정
-(/platforms/windows)다음
-macOS 로그 관리 (Logging)
-(/platforms/macos)
+- 데스크탑 또는 서버에 OpenClaw Gateway가 실행 중이어야 합니다.
+- 모바일 기기와 Gateway가 동일 네트워크에 있거나, Tailscale/Cloudflare Tunnel로 원격 접속이 가능해야 합니다.
 
-- 📱 주요 접근 방법
-- 1. PWA (Progressive Web App)
+### 페어링 단계
 
-- 2. 공식 모바일 앱
+1. Gateway에서 node 페어링 코드 생성:
+   ```bash
+   openclaw nodes pair
+   ```
 
-- 🔗 원격 연결 설정
+2. 모바일 앱에서 QR 코드 또는 페어링 코드 입력
 
-- 🎤 음성 명령 활용
+3. 페어링 완료 후 node 목록 확인:
+   ```bash
+   openclaw nodes list
+   ```
 
-Community
+---
 
-- Discord (https://discord.gg/openclaw)
+## 🍎 iOS
 
-- Twitter (https://twitter.com/openclaw)
+iOS 기기를 node로 페어링하면 다음 기능을 에이전트에서 활용할 수 있습니다.
 
+| 기능 | 설명 |
+|------|------|
+| **Canvas** | 에이전트가 iOS 화면에 UI를 렌더링 |
+| **Voice Wake Mode** | 웨이크워드로 에이전트 호출 |
+| **Talk Mode** | 음성 대화 모드 |
+| **Camera** | 카메라로 이미지 캡처 후 에이전트에 전달 |
+| **Screen Recording** | 화면 공유를 통한 컨텍스트 제공 |
 
+---
+
+## 🤖 Android
+
+Android 기기를 node로 페어링하면 다음 기능을 활용할 수 있습니다.
+
+| 기능 | 설명 |
+|------|------|
+| **Canvas** | 에이전트가 Android 화면에 UI를 렌더링 |
+| **Voice** | 음성 명령 및 TTS 응답 |
+| **Camera** | 카메라 이미지 캡처 |
+| **Device Commands** | 기기 설정 변경, 앱 제어 등 |
+
+---
+
+## 🌐 원격 접속 설정
+
+외부 네트워크에서 모바일로 안전하게 Gateway에 접속하려면:
+
+### Tailscale (권장)
+
+```bash
+# Gateway 서버에 Tailscale 설치
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+
+# openclaw.json에서 Tailscale 주소로 바인드
+```
+
+복잡한 네트워크 설정 없이 개인 VPN망으로 안전하게 연결됩니다.
+
+### Cloudflare Tunnel
+
+도메인을 통한 HTTPS 보안 접속:
+
+```bash
+cloudflared tunnel --url http://localhost:18789
+```
+
+---
+
+## 🔔 모바일 채팅 채널 연결
+
+모바일에서 에이전트와 소통하는 가장 간편한 방법은 **기존 메신저 앱을 채팅 채널로 연결**하는 것입니다.
+
+- **Telegram**: 가장 빠른 셋업 — Telegram 앱에서 봇과 대화
+- **WhatsApp**: QR 코드 페어링 — 기존 WhatsApp 앱 사용
+- **Discord**: 모바일 Discord 앱에서 봇과 대화
+
+별도 앱 설치 없이 익숙한 메신저로 에이전트에 접근할 수 있습니다.
+
+> 채팅 채널 설정 방법 → [채널 페어링](/start/pairing)
+
+---
+
+## 🌍 Web Control UI (브라우저 접속)
+
+모바일 브라우저에서 Gateway Web UI에 접속하여 에이전트를 제어할 수 있습니다.
+
+```
+http://{gateway-주소}:18789/
+```
+
+Safari 또는 Chrome에서 홈 화면에 추가하면 앱처럼 사용할 수 있습니다 (PWA 방식).
+
+---
+
+> 관련 가이드: [플랫폼 개요](/platforms/) | [채널 페어링](/start/pairing) | [시작하기](/start/getting-started)

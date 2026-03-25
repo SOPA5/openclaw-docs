@@ -6,74 +6,108 @@ sidebar_position: 2
 
 # 아키텍처 개요 (Architecture)
 
-OpenClaw는 효율적인 에이전트 실행과 원격 관리 기능을 위해 설계된 모듈형 분산 시스템 구조를 가지고 있습니다.
+OpenClaw 아키텍처를 이해하는 가장 쉬운 방법은 **Gateway 중심 구조**로 보는 것입니다. 채널, 앱, node, CLI, API는 모두 Gateway에 붙고, Gateway는 세션·에이전트·도구·정책을 한곳에서 조정합니다.
 
-## 🏗️ 3대 핵심 구성 요소​
+## 핵심 관점
 
-OpenClaw의 엔진은 다음 세 개의 층(Layer)으로 나뉩니다.
+> OpenClaw는 여러 UI가 각각 따로 AI를 부르는 구조가 아니라, **하나의 Gateway를 공유하는 멀티채널 agent platform**입니다.
 
-### 1. 게이트웨이 (Gateway) - '소통 창구'​
+## 구조 다이어그램
 
-메시징 서비스(Slack, Telegram 등)와 직접 연결되는 최외곽 레이어입니다.
+```mermaid
+flowchart TD
+    U[사용자 / 외부 시스템] --> C1[Telegram / Discord / WhatsApp / WebChat]
+    U --> C2[CLI / Web Control UI / macOS app]
+    U --> C3[iOS / Android nodes]
+    U --> C4[External API clients]
 
-- 역할: 메시지 수신, 에이전트 답변 전송, 인증 및 페어링 관리.
+    C1 --> G[OpenClaw Gateway
+Single Control Plane]
+    C2 --> G
+    C3 --> G
+    C4 --> G
 
-### 2. 허브 (Hub) - '두뇌 및 컨트롤러'​
+    G --> S[Sessions & Context Engine]
+    G --> A[Agent Runtime & Routing]
+    G --> T[Tools & Policies]
+    G --> P[Plugins / Skills / MCP]
+    G --> M[Memory & Search]
 
-시스템의 중앙에서 에이전트의 상태를 관리하고 명령을 중계합니다.
+    A --> LLM[Model Providers]
+    T --> Host[Workspace / Browser / Exec / Canvas / Message]
+    P --> Ext[External services & MCP servers]
+    M --> Files[MEMORY.md / memory/ / flushed summaries]
+```
 
-- 역할: 에이전트 런타임 생성, 메시지 라우팅, 설정 오케스트레이션.
+## 구성요소 설명
 
-### 3. 에이전트 (Agent) - '작업 수행자'​
+### Gateway
 
-허브에 의해 생성되어 실제로 AI 모델과 대화하며 작업을 수행합니다.
+모든 진입점이 만나는 **단일 제어면**입니다.
 
-- 역할: AI 생각(Reasoning) 처리, 도구(Browser, CLI) 실행, 결과 보고.
+- 채널 연결
+- 인증
+- 세션 생성/복구
+- 에이전트 라우팅
+- 도구 노출
+- 웹/API/노드 연결
 
----
+### Sessions & Context Engine
 
-## 🔄 데이터 흐름 예시​
+현재 대화와 작업 상태를 유지합니다.
 
-사용자가 Telegram에서 메시지를 보낼 때 일어나는 일입니다.
+- 메인/그룹 격리
+- 최근 히스토리 유지
+- compaction
+- pruning
+- 요약 및 context flush
 
-- Telegram -> Gateway: 사용자의 의도가 담긴 발화가 게이트웨이에 도착합니다.
+### Agent Runtime & Routing
 
-- Gateway -> Hub: 게이트웨이가 허브에 특정 에이전트와 세션의 활성화를 요청합니다.
+사용자의 요청을 어떤 에이전트가 처리할지 결정하고, 필요하면 서브에이전트나 ACP 런타임으로 분기합니다.
 
-- Hub -> Agent: 허브가 필요한 컨텍스트(과거 기억, 현재 파일 상태)를 에이전트에게 주입합니다.
+### Tools & Policies
 
-- Agent -> AI Model: 에이전트가 "AI 모델"과 대화하여 어떤 작업을 할지 결정합니다.
+실제 행동 계층입니다.
 
-- Agent -> Tools: 필요 시 브라우저를 열거나 파일을 수정(Tool Use)합니다.
+- 파일 읽기/쓰기/편집
+- 셸 실행 및 프로세스 관리
+- 브라우저 자동화
+- 메시지 전송
+- Canvas 제어
+- 이미지/PDF 처리
 
-- Agent -> User: 최종 결과를 다시 게이트웨이를 통해 사용자에게 전달합니다.
+이 계층 위에 sandbox mode, tool policy, elevated 경계가 적용됩니다.
 
-## ✨ 기술적 특징​
+### Plugins / Skills / MCP
 
-- 확장성: 하나의 게이트웨이로 수십 명의 에이전트를 동시에 돌릴 수 있습니다.
+기능 확장 계층입니다.
 
-- 플랫폼 독립: 에이전트가 돌고 있는 환경(macOS, Linux)에 관계없이 게이트웨이는 동일한 인터페이스를 제공합니다.
+- Plugins: 확장 패키지
+- Skills: 도구 사용 지침
+- MCP: 외부 기능 연결 표준
 
-주요 특징 (Highlights)
-(/concepts/features)다음
-에이전트 런타임 (Agent Runtime)
-(/concepts/agent)
+### Memory & Search
 
-- 🏗️ 3대 핵심 구성 요소
-- 1. 게이트웨이 (Gateway) - '소통 창구'
+지속 기억 계층입니다.
 
-- 2. 허브 (Hub) - '두뇌 및 컨트롤러'
+- `MEMORY.md`
+- `memory/` 폴더
+- flush된 요약
+- 검색 및 회수(retrieval)
 
-- 3. 에이전트 (Agent) - '작업 수행자'
+## 왜 이 구조가 중요한가
 
-- 🔄 데이터 흐름 예시
+이 아키텍처 덕분에 OpenClaw는 다음을 동시에 만족합니다.
 
-- ✨ 기술적 특징
+- 채널이 달라도 같은 기억과 세션 철학을 유지
+- 도구 호출과 모델 응답을 같은 제어면에서 관리
+- 모바일 node와 서버 도구를 한 제품 안에서 연결
+- API, UI, 메신저가 모두 같은 런타임을 바라봄
 
-Community
+## 관련 문서
 
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- [기능](/concepts/features)
+- [에이전트](/concepts/agent)
+- [컨텍스트](/concepts/context)
+- [게이트웨이 개요](/gateway/)

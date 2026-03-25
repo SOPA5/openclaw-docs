@@ -6,61 +6,110 @@ sidebar_position: 1
 
 # 주요 특징 (Highlights)
 
-- 채널: 단일 게이트웨이로 WhatsApp, Telegram, Discord, iMessage 지원.
+OpenClaw는 단순 채팅 봇이 아닙니다. **self-hosted Gateway**를 중심으로 채널, 에이전트, 도구, 모바일 node, 음성, 웹 UI를 한 제품 안에 묶은 운영 플랫폼입니다.
 
-- 플러그인: 확장을 통해 Mattermost 등 추가 지원.
+## 한눈에 보는 최신 기능
 
-- 라우팅: 격리된 세션을 통한 멀티 에이전트 라우팅.
+- **20개+ 채널 지원**
+- **34개+ 모델 제공자 지원**
+- **iOS / Android node 지원**
+- **Canvas, Camera, Voice, TTS 지원**
+- **브라우저 자동화, 셸 실행, 파일 편집 같은 실제 작업 도구 제공**
+- **멀티에이전트 라우팅과 격리 세션 지원**
+- **Web Control UI / WebChat / macOS companion app 지원**
 
-- 미디어: 이미지, 오디오, 문서의 송수신 지원.
+공식 features 문서에서는 공급자 수를 35+로 요약하기도 합니다. 실무적으로는 “30개를 훨씬 넘는 폭넓은 제공자 디렉터리”로 이해하면 됩니다.
 
-- 앱 및 UI: 웹 컨트롤 UI 및 macOS 컴패니언 앱 제공.
+## 채널
 
-- 모바일 노드: Canvas를 지원하는 iOS 및 Android 노드 페어링.
+OpenClaw는 하나의 Gateway로 매우 다양한 채널을 동시에 붙일 수 있습니다. 대표 예시는 다음과 같습니다.
 
-# 전체 기능 목록
+- Telegram
+- WhatsApp
+- Discord
+- Slack
+- Signal
+- LINE
+- Matrix
+- Mattermost
+- Microsoft Teams
+- Google Chat
+- IRC
+- Twitch
+- WebChat
+- Voice Call
+- Zalo / Zalo Personal
+- BlueBubbles 기반 iMessage 경로
 
-- WhatsApp Web(Baileys)을 통한 WhatsApp 통합
+핵심은 “많은 채널을 지원한다”보다, **모든 채널이 하나의 Gateway와 세션 체계에 연결된다**는 점입니다.
 
-- Telegram 봇 지원(grammY)
+## 모델 제공자
 
-- Discord 봇 지원(discord.js)
+지원 범위가 넓습니다. Anthropic, OpenAI, Google, Groq, Ollama, OpenRouter, Bedrock, vLLM, SGLang, Perplexity, xAI 등 다양한 제공자를 같은 제품 안에서 다룰 수 있습니다.
 
-- Mattermost 봇 지원(플러그인)
+이 구조 덕분에 OpenClaw는 다음을 모두 지원하기 쉽습니다.
 
-- 로컬 imsg CLI를 통한 iMessage 통합 (macOS)
+- 구독형/OAuth 기반 모델 사용
+- self-hosted 모델 백엔드 연결
+- 팀별/에이전트별 모델 라우팅
+- 장애 대비 fallback 구성
 
-- 도구 스트리밍을 지원하는 RPC 모드의 Pi 에이전트 브리지
+## 모바일 node와 디바이스 확장
 
-- 긴 응답에 대한 스트리밍 및 청킹 지원
+OpenClaw는 서버만 다루는 제품이 아닙니다. **iOS와 Android를 node처럼 페어링**해 실제 디바이스 기능을 끌어올 수 있습니다.
 
-- 워크스페이스 또는 발신자별 격리된 세션을 위한 멀티 에이전트 라우팅
+대표 기능:
 
-- OAuth를 통한 Anthropic 및 OpenAI 구독 인증
+- Canvas
+- Camera
+- Voice / Talk Mode
+- Screen Recording
+- 기기 명령 실행
 
-- 세션: 개별 채팅은 공유 메인으로 통합되며, 그룹은 격리됨
+즉, OpenClaw는 “메신저 에이전트”를 넘어 **장치 연결형 agent runtime**으로 확장됩니다.
 
-- 멘션 기반 활성화를 통한 그룹 채팅 지원
+## 멀티모달 입출력
 
-- 이미지, 오디오, 문서 미디어 지원
+텍스트만 처리하는 구조가 아닙니다.
 
-- 선택적 음성 메모 전송 스크립트 후크
+- 이미지 분석
+- 이미지 생성
+- 오디오 입력
+- 음성 노트 전사
+- 문서/PDF 처리
+- TTS
+- Voice 인터랙션
 
-- 웹 채팅 및 macOS 메뉴 바 앱
+이 기능들은 [도구 개요](/tools/)와 연결되어 실제 작업 흐름으로 이어집니다.
 
-- 페어링 및 Canvas 화면을 지원하는 iOS 노드
+## 에이전트와 자동화
 
-- 페어링, Canvas, 채팅, 카메라를 지원하는 Android 노드
+OpenClaw는 멀티에이전트 구조를 기본적으로 지원합니다.
 
-REST API 및 프로토콜 (API)
-(/gateway/api)다음
-아키텍처 개요 (Architecture)
-(/concepts/architecture)
+- 메인 에이전트
+- 그룹 격리 세션
+- 서브에이전트
+- ACP 기반 외부 코딩 런타임
+- 스킬 기반 절차화
+- 스케줄링/heartbeat/cron
 
-Community
+그래서 “대화”와 “작업 실행”이 분리되지 않고 같은 플랫폼 안에서 이어집니다.
 
-- Discord (https://discord.gg/openclaw)
+## UI와 운영 진입점
 
-- Twitter (https://twitter.com/openclaw)
+사용자는 여러 방식으로 같은 Gateway에 붙을 수 있습니다.
 
+- CLI
+- Web Control UI
+- WebChat
+- macOS companion app
+- iOS / Android node
+- 각종 채팅 채널
 
+이 구조 덕분에 하나의 OpenClaw 인스턴스를 개인 비서, 운영 봇, 자동화 허브처럼 다양하게 활용할 수 있습니다.
+
+## 다음에 읽으면 좋은 문서
+
+- [아키텍처](/concepts/architecture)
+- [에이전트](/concepts/agent)
+- [도구 개요](/tools/)

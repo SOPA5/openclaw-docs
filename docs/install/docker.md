@@ -6,88 +6,110 @@ sidebar_position: 3
 
 # Docker 설치 가이드
 
-OpenClaw를 Docker 환경에서 사용하는 방법은 크게 두 가지입니다: 게이트웨이 자체를 컨테이너로 실행하거나, 에이전트의 도구 실행을 위한 샌드박스로 활용하는 것입니다.
+OpenClaw를 Docker 환경에서 사용하는 방법은 두 가지입니다:
 
-## 1. 게이트웨이 컨테이너 실행​
+1. **Gateway를 컨테이너로 실행** — 서버 환경에서 격리된 상태로 운영
+2. **에이전트 도구 샌드박스로 활용** — 코드 실행 시 호스트 시스템 보호
 
-서버 환경에서 격리된 상태로 OpenClaw 게이트웨이를 띄우고 싶을 때 사용합니다.
+---
 
-### 빠른 실행​
+## 1. Gateway 컨테이너 실행
 
-```
+서버 환경에서 OpenClaw Gateway를 Docker로 띄울 때 사용합니다.
+
+### 빠른 실행
+
+```bash
 docker run -d \
---name openclaw-gateway \
--p 18789:18789 \
--v ~/.openclaw:/root/.openclaw \
-openclaw/gateway:latest
-
+  --name openclaw-gateway \
+  -p 18789:18789 \
+  -v ~/.openclaw:/root/.openclaw \
+  openclaw/gateway:latest
 ```
 
-### Docker Compose 사용 (권장)​
+### Docker Compose 사용 (권장)
 
-```
+```yaml
+# docker-compose.yml
 services:
-gateway:
-image: openclaw/gateway:latest
-ports:
--"18789:18789"
-volumes:
-- ~/.openclaw:/root/.openclaw
-restart: always
+  gateway:
+    image: openclaw/gateway:latest
+    ports:
+      - "18789:18789"
+    volumes:
+      - ~/.openclaw:/root/.openclaw
+    restart: always
+```
 
+```bash
+docker compose up -d
+```
+
+### 특정 버전 고정
+
+```yaml
+image: openclaw/gateway:2026.3.23
 ```
 
 ---
 
-## 2. 에이전트 샌드박스로 활용 (Safe Execution)​
+## 2. 에이전트 샌드박스로 활용 (Safe Execution)
 
 에이전트가 코드를 실행하거나 브라우저를 제어할 때, 호스트 시스템을 보호하기 위해 Docker를 샌드박스로 사용할 수 있습니다.
 
-### 설정 방법​
+### 샌드박스 활성화
 
-OpenClaw 설정 파일(`config.yml`) 또는 온보딩 과정에서 샌드박스 모드를 활성화하세요.
-
-```
+```bash
 openclaw configure set sandbox.enabled true
 openclaw configure set sandbox.provider docker
-
 ```
 
-### 주요 이점​
+또는 `~/.openclaw/openclaw.json`에서 직접 설정:
 
-- 격리된 환경: 에이전트가 실행하는 코드가 내 메인 OS에 영향을 주지 않습니다.
+```json
+{
+  "sandbox": {
+    "enabled": true,
+    "provider": "docker"
+  }
+}
+```
 
-- 일관성: 어느 OS에서든 동일한 리눅스 기반 샌드박스 환경에서 도구가 돌아갑니다.
+### 주요 이점
 
-- 자동 정리: 작업이 끝난 후 컨테이너가 자동으로 삭제되도록 설정할 수 있습니다.
+- **격리된 환경**: 에이전트가 실행하는 코드가 메인 OS에 영향을 주지 않음
+- **일관성**: 어느 OS에서든 동일한 Linux 기반 샌드박스에서 도구 실행
+- **자동 정리**: 작업 완료 후 컨테이너 자동 삭제
 
-## 🐳 이미지 정보​
+---
 
-- `openclaw/gateway`: 핵심 서비스 엔진 포함.
+## 🐳 이미지 정보
 
-- `openclaw/sandbox`: 도구 실행에 필요한 런타임(Node, Python, Playwright) 포함.
+| 이미지 | 포함 내용 |
+|--------|---------|
+| `openclaw/gateway:latest` | 핵심 Gateway 서비스 엔진 |
+| `openclaw/sandbox:latest` | 도구 실행용 런타임 (Node, Python, Playwright) |
 
-설치 스크립트 정보 (Installer Internals)
-(/install/installer)다음
-Nix (Home Manager) 설치
-(/install/nix)
+---
 
-- 1. 게이트웨이 컨테이너 실행
-- 빠른 실행
+## 🔧 헬스체크 설정
 
-- Docker Compose 사용 (권장)
+```yaml
+services:
+  gateway:
+    image: openclaw/gateway:latest
+    ports:
+      - "18789:18789"
+    volumes:
+      - ~/.openclaw:/root/.openclaw
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18789/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+```
 
-- 2. 에이전트 샌드박스로 활용 (Safe Execution)
-- 설정 방법
+---
 
-- 주요 이점
-
-- 🐳 이미지 정보
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+> 관련 가이드: [설치 개요](/install/) | [Gateway 보안](/gateway/security)

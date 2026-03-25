@@ -4,74 +4,36 @@ sidebar_label: Discord
 sidebar_position: 5
 ---
 
-# Discord 연결 가이드
+# Discord
 
-Discord는 커뮤니티 관리나 팀 프로젝트에서 OpenClaw 에이전트를 활용하기에 최적화된 플랫폼입니다.
+Discord는 커뮤니티 운영, 스레드 기반 협업, 봇 명령 자동화에 강한 채널입니다. 서버 단위 운영이 필요한 경우 특히 유용합니다.
 
-## 🛠️ 설정 방법​
+## 언제 쓰면 좋은가
 
-### 1. 개발자 포털에서 앱 생성​
+- 커뮤니티 서버 운영
+- 팀 협업 및 알림 자동화
+- 역할/채널 분리를 활용한 운영
 
-- Discord Developer Portal (https://discord.com/developers/applications)에 접속합니다.
+## 설정 개요
 
-- `New Application`을 클릭하여 봇을 생성합니다.
+1. Discord Developer Portal에서 앱과 봇을 생성합니다.
+2. 필요한 토큰과 권한 범위를 준비합니다.
+3. OpenClaw에 Discord 채널을 연결합니다.
+4. 테스트 서버에서 DM 또는 제한된 채널로 먼저 검증합니다.
 
-- Bot 메뉴에서 `Reset Token`을 눌러 토큰을 발급받고 복사합니다.
+## 운영 팁
 
-### 2. 특권 인텐트(Privileged Intents) 활성화​
+- 설치와 서비스 구성은 `openclaw onboard --install-daemon` 흐름을 우선 사용하세요.
+- 연결 후에는 `openclaw gateway status`로 Gateway가 정상인지 먼저 확인하세요.
+- 첫 테스트는 DM에서 짧은 메시지로 시작하면 문제를 가장 빨리 분리할 수 있습니다.
+- 여러 채널을 동시에 붙여도 되지만, 초기 검증은 한 채널씩 순서대로 하는 편이 안전합니다.
 
-에이전트가 메시지를 읽고 반응하려면 다음 항목을 반드시 켜야 합니다.
+## 주의할 점
 
-- Presence Intent
-
-- Server Members Intent
-
-- Message Content Intent (가장 중요)
-
-### 3. OpenClaw 설정​
-
-```
-openclaw configure set channels.discord.enabled true
-openclaw configure set channels.discord.token "여러분의_토큰_입력"
-
-```
-
----
-
-## 🔗 서버에 초대하기​
-
-- 개발자 포털의 `OAuth2 -> URL Generator` 메뉴로 이동합니다.
-
-- `bot` 스코프와 필요한 권한(Administrator 권한 추천)을 선택합니다.
-
-- 생성된 URL을 브라우저에 입력하여 여러분의 서버에 봇을 초대하세요.
-
-## 🚀 활용 팁​
-
-- 스레드(Threads): 에이전트는 스레드를 감지하고 문맥에 맞는 대화를 이어갈 수 있습니다.
-
-- 멘션(@Bots): 특정 멘션에만 반응하도록 설정하여 서버의 소음을 줄일 수 있습니다.
-
-grammY (Telegram Framework)
-(/channels/grammy)다음
-Slack 연결 가이드
-(/channels/slack)
-
-- 🛠️ 설정 방법
-- 1. 개발자 포털에서 앱 생성
-
-- 2. 특권 인텐트(Privileged Intents) 활성화
-
-- 3. OpenClaw 설정
-
-- 🔗 서버에 초대하기
-
-- 🚀 활용 팁
-
-Community
-
-- Discord (https://discord.gg/openclaw)
-
-- Twitter (https://twitter.com/openclaw)
-
-
+- 과도한 권한을 가진 봇은 보안 리스크가 큽니다.
+- 공개 서버에서는 응답 범위와 트리거 조건을 먼저 제한하세요.
+- 특정 채널 전용으로 시작한 뒤 점진적으로 넓히는 편이 안전합니다.
+## 🔒 보안 설정
+- **DM 페어링**: 개인 메시지로 봇과 1:1 연결
+- **allowFrom**: 허용된 사용자만 접근 가능하도록 설정
+- **그룹 정책**: 그룹 채팅 시 mention/reply 규칙 설정
