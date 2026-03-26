@@ -54,7 +54,7 @@ openclaw onboard --install-daemon
 ```
 
 확인 순서:
-1. Node 버전이 **Node 24 권장 / Node 22.16+ 지원** 범위인지 확인
+1. Node 버전이 **Node 24 권장 / Node 22.14+ 지원** 범위인지 확인
 2. 설치 후 `openclaw gateway status` 실행
 3. 문제가 있으면 `openclaw doctor` 실행
 

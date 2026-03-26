@@ -155,35 +155,38 @@ nvm은 엔진 버전을 쉽게 바꾸는 **리모컨** 같은 도구예요.
 
 이제 OpenClaw를 설치합니다.
 
+### 방법 1. npm으로 직접 설치 (공식 1순위) ⭐
+
 터미널에서 아래 명령어를 **복사해서 붙여넣고 Enter**를 누르세요.
-
-```bash
-curl -fsSL https://openclaw.ai/install.sh | bash
-```
-
-### install.sh가 해주는 일
-이 스크립트는 보통 자동으로 다음을 시도합니다.
-- 현재 환경 확인
-- Node.js 버전 확인
-- OpenClaw CLI 설치
-- 다음 단계 안내
-
-### 자동 설치가 잘 안 될 때: 수동 설치 방법
-아래 명령어로 직접 설치할 수도 있습니다.
 
 ```bash
 npm install -g openclaw@latest
 ```
 
-설치가 끝나면 아래 명령어로 확인하세요.
+### 방법 2. 설치 스크립트 (공식 스크립트가 제공되는 경우)
+
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+:::tip 💡 스크립트는 언제 쓰나요?
+`install.sh`는 Node.js, Git이 아직 없을 때 자동으로 설치를 시도합니다.
+Node.js가 이미 설치된 경우라면 **npm 직접 설치가 더 깔끔**합니다.
+단, **스크립트가 실제로 제공되는지 공식 사이트에서 먼저 확인**하세요.
+:::
+
+설치가 끝나면 아래 **검증 3단계**로 확인하세요.
 
 ```bash
 openclaw --version
+openclaw doctor
+openclaw gateway status
 ```
 
-:::tip 쉬운 비유
-`install.sh`는 **자동 조립 도우미**예요.
-가능한 건 스스로 해주고, 안 되면 우리가 수동으로 이어서 하면 됩니다.
+:::tip ✅ 성공하면 이렇게 보입니다
+- `openclaw --version` → 버전 번호 출력
+- `openclaw doctor` → 주요 항목 통과
+- `openclaw gateway status` → `running` 표시
 :::
 
 ### ✅ 성공하면 이렇게 보입니다

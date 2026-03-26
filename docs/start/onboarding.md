@@ -81,6 +81,20 @@ macOS 앱에서 npm 또는 pnpm을 통해 글로벌 CLI를 함께 설치할 수 
 npm install -g openclaw@latest
 ```
 
+설치 후 **검증 3단계**로 확인하세요:
+
+```bash
+openclaw --version
+openclaw doctor
+openclaw gateway status
+```
+
+:::tip ✅ 성공하면 이렇게 보입니다
+- `openclaw --version` → 버전 번호 출력
+- `openclaw doctor` → 주요 항목 통과
+- `openclaw gateway status` → `running` 표시
+:::
+
 ### 5단계. 온보딩 채팅 시작
 
 설정이 완료되면 에이전트가 자신을 소개하고 다음 단계를 안내하는 전용 온보딩 세션이 시작됩니다.

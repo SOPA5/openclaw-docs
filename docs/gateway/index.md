@@ -54,10 +54,24 @@ Gateway는 크게 다섯 가지를 맡습니다.
 
 아래 명령어를 터미널에 입력하세요:
 ```bash
-curl -fsSL https://openclaw.ai/install.sh | bash
+# 1. npm으로 설치 (공식 기본 방법)
+npm install -g openclaw@latest
+
+# 2. 온보딩
 openclaw onboard --install-daemon
+
+# 3. 설치 검증 3단계
+openclaw --version
+openclaw doctor
 openclaw gateway status
 ```
+
+:::tip 💡 설치 스크립트를 쓰는 경우
+공식 설치 스크립트가 제공되는 경우, 아래 방법도 사용할 수 있습니다:
+```bash
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+:::
 
 운영 중 자주 쓰는 명령은 아래 세 가지입니다.
 

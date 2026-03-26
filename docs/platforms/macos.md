@@ -25,21 +25,27 @@ sidebar_position: 2
 
 ---
 
-## ⚡ 빠른 설치 (자동)
+## ⚡ 빠른 설치
 
-:::tip 💡 시간이 없다면?
-아래 한 줄만 실행하면 Homebrew, Git, Node.js, OpenClaw를 **자동으로** 한 번에 설치합니다.
-아래 명령어가 익숙하지 않다면, 바로 아래에 있는 **단계별 설치** 섹션을 따라가세요!
+:::tip 💡 공식 권장 방법은?
+**npm 직접 설치가 1순위**입니다. Node.js(5단계)만 먼저 설치했다면 바로 실행하세요:
+
+```bash
+npm install -g openclaw@latest
+```
+
+Node.js가 아직 없는 분, 또는 스크립트로 한방에 하고 싶은 분은 아래 **단계별 설치** 섹션을 따라가세요!
 :::
 
-터미널에서 아래 명령어를 복사해서 붙여넣은 뒤 **Enter**를 누르세요:
+**대안: 설치 스크립트 (공식 스크립트가 제공되는 경우)**
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
 > 이 스크립트는 Homebrew, Git, Node.js가 없으면 자동으로 설치를 시도합니다.
-> 하지만 직접 하나씩 확인하며 설치하고 싶은 분은 아래 **단계별 설치** 를 따라가세요.
+> 단, **스크립트가 실제로 제공되는지 공식 사이트에서 먼저 확인**하세요.
+> 직접 하나씩 확인하며 설치하고 싶은 분은 아래 **단계별 설치** 를 따라가세요.
 
 ---
 
@@ -220,9 +226,17 @@ v24.x.x
 ## 6단계. OpenClaw 설치 🐾
 
 이제 드디어 OpenClaw를 설치할 차례입니다!
-아래 세 가지 방법 중 하나를 선택하세요. **방법 A를 가장 권장합니다.**
+세 가지 방법이 있어요. **방법 A가 공식 1순위**입니다!
 
-### 방법 A. 설치 스크립트 (가장 권장) ⭐
+### 방법 A. npm으로 직접 설치 (공식 1순위) ⭐
+
+터미널에 아래 명령어를 복사해서 붙여넣은 뒤 **Enter**를 누르세요:
+
+```bash
+npm install -g openclaw@latest
+```
+
+### 방법 B. 설치 스크립트 (공식 스크립트가 제공되는 경우)
 
 터미널에 아래 명령어를 복사해서 붙여넣은 뒤 **Enter**를 누르세요:
 
@@ -231,9 +245,9 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
 > 이 스크립트는 앞 단계에서 설치한 Homebrew, Git, Node.js를 자동으로 확인하고, 없으면 설치를 시도합니다.
-> 이미 설치된 경우에는 건너뜁니다.
+> 단, **스크립트가 실제로 제공되는지 공식 사이트에서 먼저 확인**하세요.
 
-### 방법 B. Homebrew로 설치
+### 방법 C. Homebrew로 설치 (macOS 전용)
 
 터미널에 아래 명령어를 복사해서 붙여넣은 뒤 **Enter**를 누르세요:
 
@@ -241,24 +255,19 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 brew install --cask openclaw
 ```
 
-### 방법 C. npm으로 직접 설치
-
-터미널에 아래 명령어를 복사해서 붙여넣은 뒤 **Enter**를 누르세요:
-
-```bash
-npm install -g openclaw@latest
-```
-
-✅ **성공하면 이렇게 보입니다**
+✅ **설치 검증 3단계 — 꼭 확인하세요!**
 
 ```bash
 openclaw --version
+openclaw doctor
+openclaw gateway status
 ```
 
-```
-openclaw x.x.x
-```
-버전 숫자가 출력되면 설치 완료입니다!
+:::tip 성공하면 이렇게 보입니다
+- `openclaw --version` → 버전 번호 출력
+- `openclaw doctor` → 주요 항목 통과
+- `openclaw gateway status` → `running` 표시
+:::
 
 ---
 

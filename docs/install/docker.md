@@ -58,29 +58,53 @@ docker run -d \
 
 ### Docker Compose 사용 (권장)
 
+:::tip 💡 왜 Compose를 쓰나요?
+`docker run` 한 줄보다 **설정 파일로 관리**하면 나중에 수정, 재시작, 버전 교체가 훨씬 쉽습니다.
+:::
+
 아래 예시 설정을 참고하세요:
 ```yaml
 # docker-compose.yml
 services:
   gateway:
     image: openclaw/gateway:latest
+    container_name: openclaw-gateway
     ports:
       - "18789:18789"
     volumes:
       - ~/.openclaw:/root/.openclaw
-    restart: always
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18789/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 ```
 
 ```bash
+# 컨테이너 시작
 docker compose up -d
+
+# 로그 확인
+docker compose logs -f gateway
+
+# 상태 확인
+docker compose ps
 ```
 
 ### 특정 버전 고정
 
-아래 예시 설정을 참고하세요:
 ```yaml
 image: openclaw/gateway:2026.3.23-2
 ```
+
+:::tip 💡 버전 고정 권장
+프로덕션 환경에서는 `latest` 대신 **특정 버전을 고정**하는 것을 강력히 권장합니다.
+예상치 못한 업데이트로 인한 장애를 예방할 수 있습니다.
+:::
 
 ---
 
@@ -98,7 +122,6 @@ openclaw configure set sandbox.provider docker
 
 또는 `~/.openclaw/openclaw.json`에서 직접 설정:
 
-아래 예시 설정을 참고하세요:
 ```json
 {
   "sandbox": {
@@ -125,24 +148,30 @@ openclaw configure set sandbox.provider docker
 
 ---
 
-## 🔧 헬스체크 설정
+## ✅ 성공 확인 3단계
 
-아래 예시 설정을 참고하세요:
-```yaml
-services:
-  gateway:
-    image: openclaw/gateway:latest
-    ports:
-      - "18789:18789"
-    volumes:
-      - ~/.openclaw:/root/.openclaw
-    restart: always
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:18789/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+Docker로 실행 후 반드시 아래 3단계로 동작을 확인하세요:
+
+```bash
+# 1. 컨테이너 상태 확인
+docker compose ps
+# NAME                STATUS        PORTS
+# openclaw-gateway    Up (healthy)  0.0.0.0:18789->18789/tcp
+
+# 2. 헬스체크 확인
+curl http://localhost:18789/health
+# {"status":"ok"}
+
+# 3. CLI로 연결 확인
+openclaw gateway status
+# running
 ```
+
+:::tip ✅ 성공하면 이렇게 보입니다
+- `docker compose ps` → `Up (healthy)` 상태
+- `curl http://localhost:18789/health` → `{"status":"ok"}` 응답
+- `openclaw gateway status` → `running` 표시
+:::
 
 ---
 
