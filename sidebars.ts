@@ -4,7 +4,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  * OpenClaw 학습 가이드 사이드바
  *
  * 유저 플로우 기준 배치:
- * 소개 → 설치 → 초기 설정 → 채널 연결 → 시작하기 → 에이전트 → 고급 → 참고
+ * 소개 → 설치 → 초기 설정 → 채널 연결 → 시작하기 → 에이전트 → 고급 → 자동화 → 참고
  */
 const sidebars: SidebarsConfig = {
   docsSidebar: [
@@ -29,7 +29,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: false,
       items: [
-        'install/index',         // 설치 개요 (환경별 분기)
+        'install/index',         // 설치 개요
         'install/installer',     // 원클릭 설치
         'install/docker',        // Docker
         'install/nix',           // Nix
@@ -85,7 +85,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
-        'start/pairing',         // 채널 페어링 (첫 연결)
+        'start/pairing',         // 채널 페어링
         'channels/index',        // 채널 개요
         'channels/telegram',
         'channels/whatsapp',
@@ -108,7 +108,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
-        'start/getting-started', // 빠른 시작 (첫 질문까지)
+        'start/getting-started', // 빠른 시작
         'start/use-cases',       // 활용 사례
       ],
     },
@@ -121,8 +121,11 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'concepts/agent',        // 에이전트란?
+        'concepts/multi-agent',  // 멀티 에이전트
         'concepts/sessions',     // 세션
         'concepts/memory',       // 메모리
+        'concepts/memory-compaction', // 메모리와 컴팩션
+        'concepts/skills',       // 스킬 시스템
         'concepts/context',      // 컨텍스트
         'concepts/system-prompt', // 시스템 프롬프트
         'tools/subagents',       // 서브에이전트
@@ -141,15 +144,30 @@ const sidebars: SidebarsConfig = {
         'tools/lobster',         // Lobster
         'tools/sandbox',         // 샌드박스
         'tools/apply-patch',     // 파일 패치
-        'gateway/security',      // 보안
+        'tools/voice-talk',      // Voice / Talk Mode
+        'tools/canvas',          // Canvas / A2UI
+        'gateway/security',      // 보안 기본
+        'gateway/security-advanced', // 보안 상세
         'gateway/sandboxing',    // 게이트웨이 샌드박싱
         'gateway/mcp',           // MCP
         'gateway/api',           // API
         'gateway/remote',        // 원격 접속
+        'gateway/tailscale',     // Tailscale
       ],
     },
 
-    // ─── 8. 참고 / 도움말 ─────────────────────────────────────
+    // ─── 8. 자동화 ────────────────────────────────────────────
+    {
+      type: 'category',
+      label: '⚡ 자동화',
+      collapsible: true,
+      collapsed: true,
+      items: [
+        'gateway/automation',    // Cron/Webhook/Heartbeat/Hooks
+      ],
+    },
+
+    // ─── 9. 참고 / 도움말 ─────────────────────────────────────
     {
       type: 'category',
       label: '📚 참고 / 도움말',
@@ -157,6 +175,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'concepts/architecture', // 아키텍처
+        'gateway/config-reference', // 설정 레퍼런스
         'help/faq',              // FAQ
       ],
     },

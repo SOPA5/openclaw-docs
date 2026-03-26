@@ -1,5 +1,22 @@
 # changelog
 
+## 2026-03-26 (개념 문서 3종 추가: Skills / Multi-agent / Memory Compaction)
+
+### P1 — 개념 학습 문서 확장
+- **problem**: concepts 섹션에 스킬 시스템, 멀티 에이전트 구조, 메모리 컴팩션을 설명하는 전용 문서가 없어 초보 사용자가 핵심 개념을 연결해서 이해하기 어려웠습니다.
+- **cause**: 기존 문서가 에이전트, 세션, 메모리의 기본 개념까지만 다루고 있었고, 실제 운영에서 자주 쓰는 skills / multi-agent / compaction 설명이 별도 페이지로 분리되지 않았습니다.
+- **fix**:
+  - `docs/concepts/skills.md` 신규 생성 — 스킬 개념, ClawHub, 설치/목록 명령, `SKILL.md` + YAML frontmatter, workspace skills vs ClawHub skills, 실전 예시 추가
+  - `docs/concepts/multi-agent.md` 신규 생성 — 멀티 에이전트 필요성, `openclaw agents list`, `openclaw agents add`, workspace 격리, main vs worker 라우팅, `sessions_spawn`, ACP 런타임, 실전 팀 구조 추가
+  - `docs/concepts/memory-compaction.md` 신규 생성 — 세션 메모리, `MEMORY.md`, `memory/*.md`, 컴팩션 개념, `mode`, `model`, `reserveTokensFloor`, memory flush, 장기 기억 팁 추가
+  - `sidebars.ts` 업데이트 — 새 문서 3개를 에이전트 섹션에 노출
+- **effect**: 사용자가 OpenClaw의 학습 흐름에서 "스킬로 능력 확장 → 여러 에이전트로 역할 분담 → 긴 대화는 메모리와 컴팩션으로 유지"라는 큰 그림을 더 쉽게 이해할 수 있게 되었습니다.
+- **verification**:
+  - `docs/concepts/skills.md` 생성 확인
+  - `docs/concepts/multi-agent.md` 생성 확인
+  - `docs/concepts/memory-compaction.md` 생성 확인
+  - `sidebars.ts`에 새 문서 3개 연결 확인
+
 ## 2026-03-26 (P0 설치 명령 정렬 + Node 버전 + Docker 문서)
 
 ### P0 — 설치 명령 공식 기준 정렬 + Node.js 버전 + Docker 문서 개선
