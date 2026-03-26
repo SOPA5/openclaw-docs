@@ -8,33 +8,33 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   docsSidebar: [
-    // ─── 1. 소개 (OpenClaw란?) ──────────────────────────────
+    // ─── 1. 소개 ──────────────────────────────────────────────
     {
       type: 'category',
       label: '🏠 소개',
       collapsible: true,
       collapsed: false,
       items: [
-        'start/openclaw',        // OpenClaw란?
-        'concepts/features',     // 주요 기능
-        'start/use-cases',       // 활용 사례
-        'start/showcase',        // 쇼케이스
+        'start/openclaw',
+        'concepts/features',
+        'start/use-cases',
+        'start/showcase',
       ],
     },
 
-    // ─── 2. 설치 ─────────────────────────────────────────────
+    // ─── 2. 설치 ──────────────────────────────────────────────
     {
       type: 'category',
       label: '📦 설치',
       collapsible: true,
       collapsed: false,
       items: [
-        'install/index',         // 설치 개요
-        'install/installer',     // 원클릭 설치
-        'install/docker',        // Docker
-        'install/nix',           // Nix
-        'install/ansible',       // Ansible
-        'install/bun',           // Bun
+        'install/index',
+        'install/installer',
+        'install/docker',
+        'install/nix',
+        'install/ansible',
+        'install/bun',
         {
           type: 'category',
           label: '플랫폼별 가이드',
@@ -57,9 +57,9 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
-        'start/wizard',          // 설정 마법사
-        'start/onboarding',      // 온보딩 가이드
-        'gateway/index',         // 게이트웨이 설정
+        'start/wizard',
+        'start/onboarding',
+        'gateway/index',
         {
           type: 'category',
           label: 'AI 모델 설정',
@@ -73,6 +73,24 @@ const sidebars: SidebarsConfig = {
             'providers/openrouter',
             'providers/amazon-bedrock',
             'providers/local-models',
+            {
+              type: 'category',
+              label: '추가 제공자',
+              collapsible: true,
+              collapsed: true,
+              items: [
+                'providers/deepseek',
+                'providers/groq',
+                'providers/ollama',
+                'providers/vllm',
+                'providers/together',
+                'providers/fireworks',
+                'providers/mistral',
+                'providers/perplexity',
+                'providers/cohere',
+                'providers/xai',
+              ],
+            },
           ],
         },
       ],
@@ -85,98 +103,124 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
-        'start/pairing',         // 채널 페어링
-        'channels/index',        // 채널 개요
-        'channels/telegram',
-        'channels/whatsapp',
-        'channels/discord',
-        'channels/slack',
-        'channels/google-chat',
-        'channels/ms-teams',
-        'channels/line',
-        'channels/matrix',
-        'channels/bluebubbles',
-        'channels/imessage',
-        'channels/grammy',
+        'start/pairing',
+        'channels/index',
+        {
+          type: 'category',
+          label: '주요 채널',
+          collapsible: true,
+          collapsed: false,
+          items: [
+            'channels/telegram',
+            'channels/whatsapp',
+            'channels/discord',
+            'channels/slack',
+            'channels/google-chat',
+            'channels/ms-teams',
+            'channels/line',
+            'channels/matrix',
+          ],
+        },
+        {
+          type: 'category',
+          label: '추가 채널',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            'channels/signal',
+            'channels/irc',
+            'channels/nostr',
+            'channels/rocket-chat',
+            'channels/mattermost',
+            'channels/zulip',
+            'channels/twilio-sms',
+            'channels/webhook',
+            'channels/bluebubbles',
+            'channels/imessage',
+            'channels/grammy',
+          ],
+        },
       ],
     },
 
-    // ─── 5. 시작하기 (첫 사용) ────────────────────────────────
+    // ─── 5. 시작하기 ─────────────────────────────────────────
     {
       type: 'category',
       label: '🚀 시작하기',
       collapsible: true,
       collapsed: true,
       items: [
-        'start/getting-started', // 빠른 시작
-        'start/use-cases',       // 활용 사례
+        'start/getting-started',
+        'start/use-cases',
       ],
     },
 
-    // ─── 6. 에이전트 이해하기 ─────────────────────────────────
+    // ─── 6. 에이전트 ─────────────────────────────────────────
     {
       type: 'category',
       label: '🤖 에이전트',
       collapsible: true,
       collapsed: true,
       items: [
-        'concepts/agent',        // 에이전트란?
-        'concepts/multi-agent',  // 멀티 에이전트
-        'concepts/sessions',     // 세션
-        'concepts/memory',       // 메모리
-        'concepts/memory-compaction', // 메모리와 컴팩션
-        'concepts/skills',       // 스킬 시스템
-        'concepts/context',      // 컨텍스트
-        'concepts/system-prompt', // 시스템 프롬프트
-        'tools/subagents',       // 서브에이전트
+        'concepts/agent',
+        'concepts/multi-agent',
+        'concepts/sessions',
+        'concepts/memory',
+        'concepts/memory-compaction',
+        'concepts/skills',
+        'concepts/nodes',
+        'concepts/context',
+        'concepts/system-prompt',
+        'tools/subagents',
       ],
     },
 
-    // ─── 7. 고급 기능 ─────────────────────────────────────────
+    // ─── 7. 고급 기능 ────────────────────────────────────────
     {
       type: 'category',
       label: '🔧 고급 기능',
       collapsible: true,
       collapsed: true,
       items: [
-        'tools/index',           // 도구 개요
-        'tools/browser',         // 브라우저
-        'tools/lobster',         // Lobster
-        'tools/sandbox',         // 샌드박스
-        'tools/apply-patch',     // 파일 패치
-        'tools/voice-talk',      // Voice / Talk Mode
-        'tools/canvas',          // Canvas / A2UI
-        'gateway/security',      // 보안 기본
-        'gateway/security-advanced', // 보안 상세
-        'gateway/sandboxing',    // 게이트웨이 샌드박싱
-        'gateway/mcp',           // MCP
-        'gateway/api',           // API
-        'gateway/remote',        // 원격 접속
-        'gateway/tailscale',     // Tailscale
+        'tools/index',
+        'tools/browser',
+        'tools/lobster',
+        'tools/sandbox',
+        'tools/apply-patch',
+        'tools/voice-talk',
+        'tools/canvas',
+        'tools/plugin-sdk',
+        'gateway/security',
+        'gateway/security-advanced',
+        'gateway/sandboxing',
+        'gateway/mcp',
+        'gateway/api',
+        'gateway/remote',
+        'gateway/tailscale',
       ],
     },
 
-    // ─── 8. 자동화 ────────────────────────────────────────────
+    // ─── 8. 자동화 ───────────────────────────────────────────
     {
       type: 'category',
       label: '⚡ 자동화',
       collapsible: true,
       collapsed: true,
       items: [
-        'gateway/automation',    // Cron/Webhook/Heartbeat/Hooks
+        'gateway/automation',
       ],
     },
 
-    // ─── 9. 참고 / 도움말 ─────────────────────────────────────
+    // ─── 9. 참고 / 도움말 ────────────────────────────────────
     {
       type: 'category',
       label: '📚 참고 / 도움말',
       collapsible: true,
       collapsed: true,
       items: [
-        'concepts/architecture', // 아키텍처
-        'gateway/config-reference', // 설정 레퍼런스
-        'help/faq',              // FAQ
+        'concepts/architecture',
+        'gateway/config-reference',
+        'help/faq',
       ],
     },
   ],
