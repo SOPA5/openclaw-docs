@@ -1,7 +1,6 @@
 ---
 title: 원격 접근
 sidebar_label: 원격 접근
-sidebar_position: 2
 ---
 
 ## 🧭 학습 메타

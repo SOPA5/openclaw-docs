@@ -1,7 +1,6 @@
 ---
 title: 기능
 sidebar_label: 기능
-sidebar_position: 1
 ---
 
 ## 🧭 학습 메타

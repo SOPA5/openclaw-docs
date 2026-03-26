@@ -1,7 +1,6 @@
 ---
 title: MCP
 sidebar_label: MCP
-sidebar_position: 5
 ---
 
 ## 🧭 학습 메타

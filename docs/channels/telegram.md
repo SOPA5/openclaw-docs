@@ -1,7 +1,6 @@
 ---
 title: Telegram
 sidebar_label: Telegram
-sidebar_position: 3
 ---
 
 ## 🧭 학습 메타

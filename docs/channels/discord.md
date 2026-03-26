@@ -1,7 +1,6 @@
 ---
 title: Discord
 sidebar_label: Discord
-sidebar_position: 5
 ---
 
 ## 🧭 학습 메타

@@ -1,7 +1,6 @@
 ---
 title: 페어링
 sidebar_label: 페어링
-sidebar_position: 5
 ---
 
 ## 🧭 학습 메타

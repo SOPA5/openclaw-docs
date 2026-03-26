@@ -1,7 +1,6 @@
 ---
 title: 시작하기
 sidebar_label: 시작하기
-sidebar_position: 1
 ---
 
 ## 🧭 학습 메타

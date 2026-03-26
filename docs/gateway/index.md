@@ -1,7 +1,6 @@
 ---
 title: 게이트웨이 개요
 sidebar_label: 게이트웨이 개요
-sidebar_position: 1
 ---
 
 ## 🧭 학습 메타

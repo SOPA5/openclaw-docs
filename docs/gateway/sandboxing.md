@@ -1,7 +1,6 @@
 ---
 title: 샌드박싱
 sidebar_label: 샌드박싱
-sidebar_position: 4
 ---
 
 ## 🧭 학습 메타

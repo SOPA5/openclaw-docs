@@ -1,7 +1,6 @@
 ---
 title: Linux
 sidebar_label: Linux
-sidebar_position: 3
 ---
 
 ## 🧭 학습 메타

@@ -1,7 +1,6 @@
 ---
 title: macOS
 sidebar_label: macOS
-sidebar_position: 2
 ---
 
 ## 🧭 학습 메타

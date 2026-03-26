@@ -1,7 +1,6 @@
 ---
 title: 보안
 sidebar_label: 보안
-sidebar_position: 3
 ---
 
 ## 🧭 학습 메타

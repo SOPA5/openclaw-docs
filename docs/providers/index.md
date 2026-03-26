@@ -14,105 +14,60 @@ sidebar_position: 1
 | 현재 위치 | `providers/index` |
 
 :::tip 학습 팁
-이 문서는 **혼자 읽어도 이해되게** 정리되어 있지만, 처음이면 문서 끝의 **다음 단계** 링크까지 이어서 보는 게 가장 빠릅니다.
+처음에는 **제일 좋아 보이는 모델**을 찾으려 하기보다, **내 환경에 맞는 제공자 종류**를 먼저 고르세요. 그래야 선택이 훨씬 쉬워집니다.
 :::
 
 # 모델 제공자 (Providers)
 
-이 문서는 OpenClaw에 **어떤 두뇌를 붙일지 고르는 곳**입니다. 같은 OpenClaw라도 어떤 Provider를 연결하느냐에 따라 응답 스타일, 비용 구조, 속도, 운영 방식이 크게 달라집니다.
-
-OpenClaw는 공식 기준상 **35개 이상 모델 제공자**를 지원합니다. 클라우드 모델, 게이트웨이형 집선 제공자, 자체 호스팅 추론 서버, 로컬 모델 런타임까지 하나의 Gateway 안에서 함께 운영할 수 있습니다.
-
-처음이라면 모든 제공자를 다 비교하려고 하기보다, **구독/OAuth 기반으로 바로 쓸 수 있는 경로**와 **로컬·집선·엔터프라이즈 경로**를 먼저 구분해 보는 것이 훨씬 쉽습니다.
+Provider는 OpenClaw에 붙는 **AI 두뇌를 공급하는 회사나 서비스**입니다. 쉽게 말해, 채널이 대화창이라면 Provider는 **생각을 만드는 엔진**입니다.
 
 ## 📌 이 문서에서 바로 정하는 것
-- 핵심 선택 기준
-- 지원 제공자 전체 목록
-- 최신 모델명 기준
+- 가장 쉬운 시작 경로
+- 비용과 속도를 어떻게 볼지
+- 회사용·로컬용·멀티모델용 경로
+- 다음에 읽을 세부 문서
 
-
-:::tip 💡 쉽게 이해하기
-**Provider**는 AI 모델을 제공하는 회사나 서비스예요. 예를 들어 OpenAI나 Anthropic 같은 곳이 여기에 들어갑니다.
+:::tip 쉽게 이해하기
+같은 자동차라도 어떤 엔진을 넣느냐에 따라 힘, 연비, 소리가 달라지죠. Provider도 비슷합니다. 같은 OpenClaw라도 어떤 Provider를 고르느냐에 따라 응답 스타일과 운영 방식이 달라집니다.
 :::
 
-## 핵심 선택 기준
+## 가장 먼저 나누는 5가지 선택
 
-- **가장 간편한 구독형 사용**: [Anthropic](/providers/anthropic), [OpenAI](/providers/openai)
-- **멀티모델 집선**: [OpenRouter](/providers/openrouter)
-- **기업 AWS 환경**: [Amazon Bedrock](/providers/amazon-bedrock)
-- **로컬/자체 호스팅**: [로컬 모델](/providers/local-models)
-- **Google 생태계 및 Gemini 사용**: [Google Gemini](/providers/google-gemini)
-
-## 지원 제공자 전체 목록
-
-공식 Provider Directory 기준 주요 제공자는 아래와 같습니다.
-
-| 제공자 | 분류 | 비고 |
+| 상황 | 먼저 볼 문서 | 이유 |
 |---|---|---|
-| Anthropic | 구독/OAuth + API key | Claude 4 계열 중심 |
-| OpenAI | OAuth/Codex + API key | GPT-5 계열 중심 |
-| Google (Gemini) | 클라우드 | Gemini 3 계열 중심 |
-| OpenRouter | 멀티모델 집선 | 여러 벤더 모델을 한 API로 접근 |
-| Amazon Bedrock | 엔터프라이즈 클라우드 | AWS 보안/거버넌스 통합 |
-| Ollama | 로컬 런타임 | 가장 대중적인 로컬 실행 경로 |
-| vLLM | 자체 호스팅 서버 | 고성능 서빙 |
-| SGLang | 자체 호스팅 서버 | 구조화된 추론/서빙 |
-| Cloudflare AI Gateway | 게이트웨이형 | 라우팅·관측성 강화 |
-| DeepSeek | 클라우드 | 추론/가성비 계열 |
-| GitHub Copilot | 개발자 도구형 | 코딩 워크플로우 친화적 |
-| GLM | 클라우드 | 다국어 활용 가능 |
-| Groq | 고속 추론 | 저지연 응답 강점 |
-| Hugging Face (Inference) | 허브/추론 API | 오픈 모델 접근성 우수 |
-| Kilocode | 특화 제공자 | 커뮤니티/실험적 용도 |
-| LiteLLM | 집선 레이어 | 여러 모델 백엔드 연결 |
-| MiniMax | 클라우드 | 멀티모달 계열 |
-| Mistral | 클라우드 | 유럽계 모델 제공자 |
-| Model Studio (Alibaba Cloud) | 엔터프라이즈 클라우드 | Alibaba Cloud 연계 |
-| Moonshot AI | 클라우드 | Kimi 계열 생태계 |
-| NVIDIA | 가속기/클라우드 | NVIDIA 추론 생태계 |
-| OpenCode | 에이전트/모델 경로 | 코딩 워크플로우 연계 |
-| OpenCode Go | 에이전트/모델 경로 | OpenCode 계열 확장 |
-| Perplexity | 검색 결합형 | 답변+검색 활용 |
-| Qianfan | Baidu 계열 | 중국권 인프라 연계 |
-| Qwen | 모델 계열 | Qwen 모델 접근 |
-| Synthetic | 실험/합성 계열 | 특수 목적 제공자 |
-| Together AI | 멀티모델 호스팅 | 오픈 모델 폭넓게 제공 |
-| Venice | 특화 클라우드 | 선택형 제공자 |
-| Vercel AI Gateway | 게이트웨이형 | 앱 스택 연계 용이 |
-| Volcengine (Doubao) | 클라우드 | ByteDance 계열 |
-| xAI | 클라우드 | Grok 계열 |
-| Xiaomi | 클라우드 | 생태계 연계형 |
-| Z.AI | 클라우드 | 신흥 제공자 |
-| Deepgram | 전사(STT) | 음성 전사 전용 |
-| Claude Max API Proxy | 커뮤니티 도구 | 보조/우회 운영용 |
+| 가장 간단하게 시작하고 싶다 | [OpenAI](/providers/openai), [Anthropic](/providers/anthropic) | 구독/OAuth 기반으로 시작하기 쉽습니다. |
+| 여러 모델을 한곳에서 고르고 싶다 | [OpenRouter](/providers/openrouter) | 모델 선택 폭이 넓습니다. |
+| 회사 AWS 환경에 맞추고 싶다 | [Amazon Bedrock](/providers/amazon-bedrock) | 보안·조직 정책과 맞추기 좋습니다. |
+| 내 컴퓨터나 서버에서 직접 돌리고 싶다 | [로컬 모델](/providers/local-models) | 데이터 통제와 실험 자유도가 큽니다. |
+| Google 생태계와 같이 쓰고 싶다 | [Google Gemini](/providers/google-gemini) | Gemini 계열 모델과 연결됩니다. |
 
-## 최신 모델명 기준
+## 고를 때 보는 기준
+- **인증 방식**: OAuth, 구독, API key, 클라우드 계정
+- **운영 위치**: 클라우드, 게이트웨이, 로컬 서버
+- **목적**: 일반 대화, 코딩, 멀티모달, 기업 보안
+- **확장성**: 한 제공자만 쓸지, fallback을 함께 둘지
 
-과거 예시였던 `claude-3-5-sonnet`, `gpt-4o`, `gemini-1.5` 같은 표기는 현재 기준 문서에서는 권장하지 않습니다. 학습 게시판 문서에서는 아래 기준으로 이해하면 됩니다.
+## 실전 추천 조합
+- **처음 시작**: OpenAI 또는 Anthropic 한 개만 먼저 연결
+- **안정성 강화**: 주 제공자 1개 + fallback 1개
+- **여러 모델 비교**: OpenRouter
+- **사내 보안 우선**: Amazon Bedrock
+- **실험과 비용 통제**: 로컬 모델
 
-- Anthropic: **Claude 4 계열**
-- OpenAI: **GPT-5 계열**
-- Google: **Gemini 3 계열**
+## ✅ 성공 확인
+- 제공자 인증이 정상 완료됩니다.
+- 기본 모델을 하나 지정할 수 있습니다.
+- 간단한 질문에 응답이 돌아옵니다.
+- 실패 시 fallback 모델이 준비되어 있으면 더 안정적입니다.
 
-## 공통 설정 흐름
+## 자주 생기는 실수
+- 처음부터 제공자를 너무 많이 붙임
+- 대화용 모델과 코딩용 모델을 안 나눔
+- 회사 정책이 있는데 개인용 API 방식부터 시작함
+- 로컬 모델 성능 요구를 너무 가볍게 봄
 
-1. 원하는 제공자에서 인증 정보를 준비합니다.
-2. `openclaw onboard --install-daemon`으로 기본 설정을 시작합니다.
-3. 필요하면 제공자별 설정 문서를 보고 세부 옵션을 조정합니다.
-4. 기본 모델과 fallback 모델을 분리해 두면 운영이 안정적입니다.
-
-## 다음에 보면 좋은 문서
-
-- [Anthropic](/providers/anthropic)
-- [OpenAI](/providers/openai)
-- [Google Gemini](/providers/google-gemini)
-- [OpenRouter](/providers/openrouter)
-- [Amazon Bedrock](/providers/amazon-bedrock)
-- [로컬 모델](/providers/local-models)
-- [FAQ](/help/faq)
-
-## 🎯 다음 단계
-
-- 다음으로 [Anthropic](/providers/anthropic) 문서를 읽어보세요.
-- 다음으로 [OpenAI](/providers/openai) 문서를 읽어보세요.
-- 다음으로 [OpenRouter](/providers/openrouter) 문서를 읽어보세요.
+## ➡️ 다음 단계
+- 기본 클라우드 경로: [OpenAI](/providers/openai), [Anthropic](/providers/anthropic)
+- 멀티모델 경로: [OpenRouter](/providers/openrouter)
+- 기업 AWS 경로: [Amazon Bedrock](/providers/amazon-bedrock)
+- 로컬 실행 경로: [로컬 모델](/providers/local-models)

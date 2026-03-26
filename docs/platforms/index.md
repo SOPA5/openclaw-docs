@@ -1,110 +1,116 @@
 ---
 title: 플랫폼 개요
 sidebar_label: 플랫폼 개요
-sidebar_position: 1
 ---
-
-## 🧭 학습 메타
-
-| 항목 | 내용 |
-|---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 환경 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
-| 현재 위치 | `platforms/index` |
-
-:::tip 학습 팁
-이 문서는 **혼자 읽어도 이해되게** 정리되어 있지만, 처음이면 문서 끝의 **다음 단계** 링크까지 이어서 보는 게 가장 빠릅니다.
-:::
 
 # 지원 플랫폼 (Platforms)
 
-이 문서에서는 운영체제별로 OpenClaw를 사용하는 방법을 배웁니다.
+OpenClaw는 한 운영체제에서만 쓰는 도구가 아닙니다.
+macOS, Linux, Windows는 물론이고, iPhone과 Android 같은 모바일 기기와도 연결해서 쓸 수 있습니다.
 
-## 📌 이 문서에서 배우는 것
-- 💻 데스크탑 플랫폼
-- 📱 모바일 플랫폼
-- 🏗️ 아키텍처 개요
+이 문서는 “내 환경에서도 쓸 수 있을까?”를 빠르게 판단하게 도와줍니다.
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
-
-
-OpenClaw v2026.3.23-2은 macOS, Linux, Windows, iOS, Android를 지원합니다. 단일 Gateway가 모든 플랫폼을 연결하는 중앙 제어면 역할을 합니다.
-
----
-
-
-:::tip 💡 쉽게 이해하기
-**Gateway**는 쉽게 말해 "교환대"예요. 여러 앱과 도구, AI 모델 사이를 이어주는 중앙 통로라고 생각하면 이해하기 쉽습니다.
+:::tip 쉬운 비유
+플랫폼 개요는 놀이공원 **전체 지도**와 비슷해요.
+어떤 구역이 있는지 먼저 보고, 그다음 내가 갈 놀이기구 문서로 들어가면 훨씬 덜 헤맵니다.
 :::
 
-## 💻 데스크탑 플랫폼
+## 이 문서에서 하는 일
 
-| 플랫폼 | 지원 상태 | 주요 특징 |
-|--------|---------|---------|
-| **macOS** | ✅ 완전 지원 | 컴패니언 앱, 메뉴바, TCC 권한, Canvas/Camera |
-| **Linux** | ✅ 완전 지원 | Gateway (중앙 통로) + CLI, headless 서버 운영 최적화 |
-| **Windows WSL2** | ✅ 권장 경로 | 전체 기능 안정적 지원, Linux 호환 |
-| **Windows Native** | ✅ 지원됨 | core CLI/Gateway, Scheduled Task 방식 |
+- 어떤 운영체제가 지원되는지 보기
+- 데스크탑과 모바일이 어떻게 역할을 나누는지 이해하기
+- 다음에 어떤 상세 문서로 가야 할지 정하기
 
----
+## 먼저 알아두기
 
-## 📱 모바일 플랫폼
+설치 명령은 여기서 길게 반복하지 않겠습니다.
+자세한 내용은 [설치 개요](/install/)를 참고하세요.
 
-| 플랫폼 | 지원 상태 | 주요 특징 |
-|--------|---------|---------|
-| **iOS** | ✅ node 페어링 | Canvas, Voice, Camera, Screen Recording |
-| **Android** | ✅ node 페어링 | Canvas, Voice, Camera, 기기 명령 |
+## OpenClaw는 어떻게 이어질까요?
 
-모바일 기기는 독립 실행이 아니라 **Gateway에 node로 페어링**하여 사용합니다.
+OpenClaw는 보통 하나의 중심 통로가 있고, 여러 기기와 채널이 거기에 붙는 구조입니다.
 
----
-
-## 🏗️ 아키텍처 개요
-
-아래 예시를 참고하세요:
-```
+```text
 macOS 앱 ──────────────────────────────────────┐
 iOS / Android node ────────────────────────────┤
 CLI / Web Control UI ──────────────────────────┤──▶ Gateway ◀──▶ AI 제공자
 채팅 앱 (Telegram, WhatsApp, Discord...) ──────┘
 ```
 
-- **Gateway (중앙 통로)**: 단일 프로세스로 모든 클라이언트와 채널을 연결
-- **Node**: iOS/Android/macOS 기기를 연결하여 로컬 기능(카메라, 음성 등) 활용
-- **Self-hosted**: 사용자의 장치 또는 서버에서 직접 실행
+핵심은 이것입니다.
+
+- **Gateway**: 중심 통로
+- **데스크탑**: 설치와 운영의 중심
+- **모바일**: 보조 기기 또는 확장 입력 장치
+- **채팅 앱**: 실제로 말을 거는 창
+
+## 데스크탑 플랫폼
+
+| 플랫폼 | 상태 | 한 줄 설명 |
+|---|---|---|
+| **macOS** | ✅ 완전 지원 | 앱 중심 경험이 좋고, 권한 설정과 GUI 흐름이 강합니다. |
+| **Linux** | ✅ 완전 지원 | 서버 운영, 자동화, 백그라운드 실행에 특히 강합니다. |
+| **Windows WSL2** | ✅ 권장 경로 | Windows에서 안정적으로 전체 기능을 쓰는 가장 추천되는 방법입니다. |
+| **Windows Native** | ✅ 지원 | 기본 기능은 가능하지만, 문서 기준으로는 WSL2가 더 권장됩니다. |
+
+### 간단히 고르면
+- **Mac 사용자** → macOS 가이드부터
+- **서버/개발 환경 사용자** → Linux 가이드부터
+- **Windows 사용자** → 보통 Windows + WSL2 경로부터
+
+## 모바일 플랫폼
+
+| 플랫폼 | 상태 | 한 줄 설명 |
+|---|---|---|
+| **iOS** | ✅ node 페어링 | 카메라, 음성, 화면 관련 흐름에 강합니다. |
+| **Android** | ✅ node 페어링 | 카메라, 음성, 기기 기능 연결에 유리합니다. |
+
+중요한 점은 모바일이 보통 **혼자서 모든 걸 다 하는 본체**가 아니라,
+OpenClaw의 중심 환경에 연결되는 **node** 역할을 한다는 것입니다.
+
+즉, 휴대폰은 OpenClaw의 눈, 귀, 손이 될 수 있습니다.
+
+## 어떤 플랫폼으로 시작하면 좋을까요?
+
+처음이라면 보통 아래처럼 생각하면 쉽습니다.
+
+### macOS
+앱 기반으로 쉽게 시작하고 싶다면 좋습니다.
+
+### Linux
+서버처럼 오래 켜두고 자동화를 돌리고 싶다면 좋습니다.
+
+### Windows WSL2
+Windows를 쓰지만 Linux 방식의 안정적인 흐름도 함께 쓰고 싶다면 가장 추천됩니다.
+
+### 모바일
+메인 설치 환경이라기보다, 이미 있는 OpenClaw에 기능을 더 붙이는 방향으로 생각하면 쉽습니다.
+
+## ✅ 성공하면 이렇게 보입니다
+
+- “내 운영체제에서도 되는지”가 헷갈리지 않습니다.
+- 어떤 문서를 다음에 읽어야 할지 바로 정할 수 있습니다.
+- 특히 Windows 사용자는 “WSL2가 왜 권장인지” 감이 잡히고,
+  모바일 사용자는 “휴대폰은 연결형 node구나”를 이해하게 됩니다.
+
+## 빠른 선택 가이드
+
+- 앱처럼 쉽게 시작 → [macOS 가이드](/platforms/macos)
+- 서버/자동화 중심 → [Linux 가이드](/platforms/linux)
+- Windows에서 안정적으로 시작 → [Windows 가이드](/platforms/windows)
+- 휴대폰 연결 확장 → [모바일 가이드](/platforms/mobile)
 
 ---
 
-## 🛠️ 플랫폼별 가이드
+## 다음 단계
 
-- [macOS 가이드](/platforms/macos) — 컴패니언 앱, TCC 권한, 메뉴바
-- [Linux 가이드](/platforms/linux) — 서버 설정, systemd, headless 운영
-- [Windows 가이드](/platforms/windows) — WSL2 권장 흐름, 네이티브 설치
-- [모바일 가이드](/platforms/mobile) — iOS/Android node 페어링
+- Mac 사용자라면 [macOS 가이드](/platforms/macos)
+- Linux 사용자라면 [Linux 가이드](/platforms/linux)
+- Windows 사용자라면 [Windows 가이드](/platforms/windows)
+- 휴대폰 연결을 보려면 [모바일 가이드](/platforms/mobile)
 
----
+## 막히면 여기로
 
-## 🚀 공통 설치 흐름
-
-모든 데스크탑 플랫폼에서 권장하는 기본 흐름은 동일합니다:
-
-아래 명령어를 터미널에 입력하세요:
-```bash
-# 1. 설치 (플랫폼별 명령은 각 가이드 참조)
-curl -fsSL https://openclaw.ai/install.sh | bash  # macOS/Linux/WSL2
-
-# 2. 온보딩
-openclaw onboard --install-daemon
-
-# 3. 상태 확인
-openclaw gateway status
-```
-
-> 플랫폼별 차이가 있는 내용(서비스 등록 방식, 권한 설정 등)은 각 가이드에서 설명합니다.
-
-## 🎯 다음 단계
-
-- 다음으로 [macOS 가이드](/platforms/macos) 문서를 읽어보세요.
-- 다음으로 [Linux 가이드](/platforms/linux) 문서를 읽어보세요.
-- 다음으로 [Windows 가이드](/platforms/windows) 문서를 읽어보세요.
+- 설치 전체 흐름: [설치 개요](/install/)
+- 처음 설정 시작: [설정 마법사](/start/wizard)
+- 채널 연결 시작: [채널 페어링](/start/pairing)

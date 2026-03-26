@@ -1,7 +1,6 @@
 ---
 title: 모바일
 sidebar_label: 모바일
-sidebar_position: 5
 ---
 
 ## 🧭 학습 메타

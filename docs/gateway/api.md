@@ -1,7 +1,6 @@
 ---
 title: API
 sidebar_label: API
-sidebar_position: 6
 ---
 
 ## 🧭 학습 메타

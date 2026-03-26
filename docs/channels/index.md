@@ -1,7 +1,6 @@
 ---
 title: 채널 개요
 sidebar_label: 채널 개요
-sidebar_position: 1
 ---
 
 ## 🧭 학습 메타
@@ -14,26 +13,24 @@ sidebar_position: 1
 | 현재 위치 | `channels/index` |
 
 :::tip 학습 팁
-이 문서는 **혼자 읽어도 이해되게** 정리되어 있지만, 처음이면 문서 끝의 **다음 단계** 링크까지 이어서 보는 게 가장 빠릅니다.
+처음엔 **“내가 어디서 OpenClaw랑 대화할까?”**만 정하면 충분합니다. 복잡한 설정은 각 채널 문서에서 하나씩 따라가면 됩니다.
 :::
 
 # 메시징 채널 (Channels)
 
-어떤 채팅 앱을 OpenClaw의 **실제 대화 창**으로 쓸지 정하는 문서입니다. 설치가 끝났다면 이제 기술 스택보다 사용 습관이 더 중요합니다. 혼자 빠르게 테스트할지, 팀과 같이 쓸지, Apple 생태계를 살릴지에 따라 선택이 달라집니다.
+채널은 OpenClaw가 **어느 채팅창에 들어갈지** 정하는 단계입니다. 쉽게 말해, AI의 머리를 고르는 게 Providers라면, 채널은 **AI가 들어갈 문**을 고르는 일입니다.
 
 <ProgressPill level="Core" progress={48} label="핵심 실습 · 실제 대화 채널 선택" />
 
 <InfoCard title="이 문서의 역할" icon="💬" tone="indigo">
-설치가 끝난 뒤, OpenClaw를 어디에서 대화할지 고르는 문서입니다. 즉, 사용자의 실제 접점을 정하는 단계입니다.
+설치를 마친 뒤, 내 사용 방식에 맞는 대화 창을 고르게 도와주는 문서입니다. 혼자 쓰는지, 팀이 같이 쓰는지, Apple 기기를 쓰는지에 따라 선택이 달라집니다.
 </InfoCard>
 
-OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해, 같은 에이전트를 다양한 대화 창에서 사용할 수 있게 해줍니다. 빠른 시작은 보통 [Telegram](/channels/telegram)이나 [WhatsApp](/channels/whatsapp)에서 하고, Apple 생태계는 [BlueBubbles](/channels/bluebubbles)를 우선 검토하면 됩니다.
-
 ## 📌 이 문서에서 바로 정하는 것
-- 한눈에 보는 채널 전략
-- 지원 채널 전체 목록
-- 공통 설정 흐름
-- 내 상황에 맞는 채널 선택
+- 어떤 채널이 내 상황에 맞는지
+- 빠른 테스트용 채널은 무엇인지
+- 회사/팀용 채널은 무엇인지
+- Apple·자체 호스팅 환경은 무엇을 보면 되는지
 
 <LearningPath
   title="채널 연결 경로"
@@ -45,111 +42,59 @@ OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해,
   ]}
 />
 
-:::tip 💡 쉽게 이해하기
-**Channel**은 쉽게 말해 여러분이 OpenClaw와 대화하는 채팅 창이에요. Telegram, Discord, Slack 같은 앱이 모두 Channel이 될 수 있습니다.
+:::tip 쉽게 이해하기
+채널은 **전화기 종류**가 아니라 **전화를 받는 앱**이라고 생각하면 쉽습니다. 같은 사람이라도 메신저가 다르면 만나는 창도 달라지듯, OpenClaw도 여러 채널로 만날 수 있습니다.
 :::
 
-## 한눈에 보는 채널 전략
+## 한눈에 보는 추천
 
-<ComparisonGrid
-  left={{
-    title: '처음 시작하는 사람',
-    badge: '쉬운 선택',
-    children: (
-      <ul>
-        <li>Telegram: 가장 빠른 테스트</li>
-        <li>WhatsApp: 일상 사용 흐름과 연결</li>
-        <li>BlueBubbles: Apple 메시지 경험</li>
-      </ul>
-    ),
-  }}
-  right={{
-    title: '팀/운영 환경',
-    badge: '운영형 선택',
-    children: (
-      <ul>
-        <li>Discord / Slack: 협업과 커뮤니티</li>
-        <li>Google Chat / Teams: 업무용 그룹웨어</li>
-        <li>Matrix / Mattermost: 자체 호스팅 지향</li>
-      </ul>
-    ),
-  }}
-/>
-
-- **가장 빠른 테스트**: Telegram
-- **글로벌 메신저 운영**: WhatsApp
-- **커뮤니티/서버형 협업**: Discord, Slack
-- **업무용 그룹웨어**: Google Chat, Microsoft Teams
-- **자체 호스팅·개인화**: Matrix
-- **Apple 사용자**: BlueBubbles 우선, iMessage legacy는 호환용 참고
-
-## 지원 채널 전체 목록
-
-공식 채널 인덱스 기준 지원 채널은 아래와 같습니다.
-
-| 채널 | 성격 | 비고 |
+| 상황 | 추천 채널 | 이유 |
 |---|---|---|
-| WhatsApp | 대중형 메신저 | 멀티 디바이스 운영에 적합 |
-| Telegram | 가장 빠른 시작 경로 | Bot API 기반, 테스트 친화적 |
-| Discord | 커뮤니티/스레드형 | 서버 운영, 협업, 알림에 적합 |
-| Slack | 업무 협업형 | 팀 자동화와 업무 알림에 강함 |
-| Google Chat | Google Workspace 연동형 | 조직 내부 워크플로우에 적합 |
-| Microsoft Teams | 엔터프라이즈 협업형 | Microsoft 365 환경과 궁합이 좋음 |
-| LINE | 아시아권 메신저 | 지역 기반 고객 접점에 유용 |
-| Matrix | 분산형/자체 호스팅형 | 프라이버시와 유연성 중시 |
-| BlueBubbles | iMessage 권장 경로 | macOS 기반 Apple 메시지 브리지 |
-| iMessage (legacy) | 레거시 경로 | 신규 구성은 BlueBubbles 우선 |
-| Grammy | Telegram Bot 프레임워크 기반 | Telegram 확장 구현 시 참고 |
-| Feishu | 협업 메신저 | 중국권/기업 협업 환경 |
-| IRC | 전통 채팅 네트워크 | 경량 텍스트 환경 |
-| Mattermost | 자체 호스팅 협업형 | Slack 대안 |
-| Nextcloud Talk | Nextcloud 연계형 | 자체 인프라 친화적 |
-| Nostr | 탈중앙 소셜/메시징 계열 | 실험적·개방형 생태계 |
-| Signal | 보안 중심 메신저 | 프라이버시 지향 |
-| Synology Chat | NAS 협업 채널 | Synology 환경 연계 |
-| Tlon | 전용 커뮤니티형 | 특수 목적 채널 |
-| Twitch | 라이브 스트리밍 채팅 | 방송 연동 자동화 |
-| Voice Call | 음성 통화형 | 음성 인터페이스 시나리오 |
-| WebChat | 웹 임베드형 | 사이트 내 채팅 위젯 용도 |
-| Zalo | 베트남 메신저 | 지역 특화 운영 |
-| Zalo Personal | 개인 계정형 Zalo | 개인화 사용 사례 |
+| 가장 빨리 테스트하고 싶다 | [Telegram](/channels/telegram) | 봇 연결과 개인 DM 테스트가 빠릅니다. |
+| 실제 일상 메신저처럼 쓰고 싶다 | [WhatsApp](/channels/whatsapp) | 알림·고객 응대·실사용 흐름과 잘 맞습니다. |
+| 회사 팀과 같이 쓰고 싶다 | [Slack](/channels/slack), [Google Chat](/channels/google-chat), [Microsoft Teams](/channels/ms-teams) | 업무 채널, 멘션, 알림 흐름에 익숙합니다. |
+| Apple 메시지 경험이 중요하다 | [BlueBubbles](/channels/bluebubbles) | 신규 구성에서는 iMessage보다 권장 경로입니다. |
+| 직접 서버를 운영하고 싶다 | [Matrix](/channels/matrix) | 분산형·자체 호스팅에 잘 맞습니다. |
+
+## 채널 선택 체크리스트
+
+### 1) 혼자 빨리 시작하는 경우
+- Telegram이 제일 쉽습니다.
+- WhatsApp은 실제 생활 메시지 흐름과 비슷합니다.
+
+### 2) 팀과 같이 쓰는 경우
+- Slack: 빠른 협업과 알림
+- Google Chat: Google Workspace 중심 조직
+- Microsoft Teams: Microsoft 365 중심 조직
+
+### 3) 특별한 환경이 필요한 경우
+- BlueBubbles: Apple 메시지와 연결하고 싶을 때
+- Matrix: 자체 호스팅과 프라이버시를 챙기고 싶을 때
+- LINE: 특정 지역 사용자 접점이 중요할 때
 
 ## 공통 설정 흐름
 
-1. 채널 제공자 콘솔에서 봇/앱/연동 앱을 생성합니다.
-2. 발급받은 토큰·시크릿·앱 ID를 준비합니다.
-3. `openclaw onboard --install-daemon` 또는 설정 UI에서 채널을 연결합니다.
-4. [페어링 가이드](/start/pairing)를 따라 DM 또는 안전한 승인 흐름으로 연결합니다.
-5. 연결 후 `openclaw gateway status`로 Gateway 상태를 확인합니다.
+1. 채널 서비스에서 봇 또는 앱을 만듭니다.
+2. 토큰, 시크릿, 앱 ID 같은 연결 정보를 준비합니다.
+3. OpenClaw에 채널 정보를 넣습니다.
+4. DM이나 테스트 방에서 첫 메시지를 보내 연결을 확인합니다.
+5. 문제가 없으면 실제 운영 채널로 넓혀 갑니다.
 
-## 채널 선택 가이드
+:::tip 실전 팁
+처음부터 여러 채널을 한꺼번에 붙이지 마세요. **하나를 먼저 성공시키고**, 그다음 두 번째 채널을 붙이는 편이 훨씬 덜 헷갈립니다.
+:::
 
-### 개인용으로 시작할 때
-- **Telegram**: 가장 빠르게 붙일 수 있고 설정 난도가 낮습니다.
-- **WhatsApp**: 실제 일상 사용 흐름과 연결하기 좋습니다.
+## ✅ 성공 확인
+- 테스트 메시지를 보냈을 때 OpenClaw가 답장합니다.
+- 채널별 봇 또는 앱이 정상 온라인 상태로 보입니다.
+- DM 또는 테스트 룸에서 기본 질의응답이 됩니다.
 
-### 팀/커뮤니티용으로 운영할 때
-- **Discord**: 커뮤니티, 스레드, 역할 기반 운영에 적합합니다.
-- **Slack / Google Chat / Microsoft Teams**: 회사 업무 자동화에 적합합니다.
-
-### 프라이버시/자체 호스팅을 중시할 때
-- **Matrix**: 자체 서버와 연동하기 좋습니다.
-- **Mattermost / Nextcloud Talk**: 사내 인프라와 붙이기 좋습니다.
-
-### Apple 메시지 경험이 필요할 때
-- **BlueBubbles**를 우선 검토하세요.
-- **iMessage (legacy)** 문서는 기존 환경 유지·이해용으로만 참고하세요.
-## ✅ 이 문서를 읽고 나면
-- 어떤 채널이 내 사용 방식에 맞는지 판단하고, 가장 쉬운 테스트 경로를 선택할 수 있습니다.
+## 자주 생기는 선택 실수
+- **너무 무거운 채널부터 시작**: 처음엔 Telegram처럼 쉬운 경로가 좋습니다.
+- **개인용과 팀용을 섞음**: 개인 비서는 개인 채널, 업무 자동화는 팀 채널로 나누는 편이 안전합니다.
+- **Apple 사용인데 legacy 문서부터 읽음**: 신규 구성은 iMessage보다 BlueBubbles를 먼저 보세요.
 
 ## ➡️ 다음 단계
-- 가장 빠른 테스트를 원하면 [Telegram](/channels/telegram), 실제 연결 절차는 [채널 페어링](/start/pairing)으로 이어가세요.
-
-## 🆘 막히면 여기로
-- 채널 연결이 안 되거나 검색으로 관련 문서를 못 찾으면 [FAQ](/help/faq)와 [피드백 허브](pathname:///feedback)를 활용하세요.
-
-
-## 📝 도움이 안 됐나요?
-
-문서를 읽고도 막히는 부분이 있다면 [피드백 허브](pathname:///feedback)에서 알려주세요. 설치 문제, 검색 실패, 용어 혼란을 모아서 다음 개선에 반영합니다.
-
+- 빠른 시작은 [Telegram](/channels/telegram)
+- 실제 연결 절차는 [채널 페어링](/start/pairing)
+- Apple 메시지 계열은 [BlueBubbles](/channels/bluebubbles)

@@ -1,7 +1,6 @@
 ---
 title: Windows
 sidebar_label: Windows
-sidebar_position: 4
 ---
 
 ## 🧭 학습 메타
