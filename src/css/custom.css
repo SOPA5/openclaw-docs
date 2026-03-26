@@ -115,6 +115,8 @@ body {
   background: var(--bg-gradient);
   background-attachment: fixed;
   min-height: 100vh;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 :where(a, button, input, select, textarea, [tabindex='0']):focus-visible {
@@ -329,6 +331,7 @@ article {
   padding: 2.5rem;
   box-shadow: var(--neo-shadow-sm);
   margin: 1rem;
+  overflow: visible;
 }
 
 [data-theme='dark'] article {
@@ -389,6 +392,9 @@ code:not([class*='language-']) {
   -webkit-backdrop-filter: var(--glass-blur-sm);
   box-shadow: var(--neo-shadow-sm);
   border-left-width: 4px !important;
+  overflow: visible;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .admonition-note {
@@ -547,6 +553,8 @@ table {
   overflow: hidden;
   box-shadow: var(--neo-shadow-sm);
   border: 1px solid var(--glass-border);
+  width: 100%;
+  table-layout: auto;
 }
 
 thead tr {
@@ -561,6 +569,8 @@ th {
 
 td {
   border-bottom: 1px solid var(--glass-border);
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 tr:hover td {
