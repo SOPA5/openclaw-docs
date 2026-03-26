@@ -153,6 +153,18 @@ function QuickStartSection() {
   );
 }
 
+function SearchHintSection() {
+  return (
+    <section className={styles.searchHintSection}>
+      <div className={styles.searchHintBox}>
+        <strong>🔎 원하는 문서를 바로 찾으세요</strong>
+        <p>문서 제목이나 기능 키워드를 검색하면 관련 문서로 바로 이동할 수 있습니다. 예: 설치, Telegram, OAuth, subagents</p>
+        <p><kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>K</kbd> 로 언제든 검색창을 열 수 있습니다.</p>
+      </div>
+    </section>
+  );
+}
+
 function PersonaPathsSection() {
   return (
     <section className={styles.pathSection}>
@@ -231,6 +243,7 @@ export default function Home(): ReactNode {
       <HeroSection />
       <main className={styles.mainContent}>
         <QuickStartSection />
+        <SearchHintSection />
         <PersonaPathsSection />
         <LearningRoutesSection />
         <BottomCTA />

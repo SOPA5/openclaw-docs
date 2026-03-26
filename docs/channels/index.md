@@ -19,7 +19,7 @@ sidebar_position: 1
 
 # 메시징 채널 (Channels)
 
-이 문서에서는 OpenClaw를 다양한 채팅 앱과 연결하는 방법을 배웁니다.
+어떤 채팅 앱을 OpenClaw의 **실제 대화 창**으로 쓸지 정하는 문서입니다. 설치가 끝났다면 이제 기술 스택보다 사용 습관이 더 중요합니다. 혼자 빠르게 테스트할지, 팀과 같이 쓸지, Apple 생태계를 살릴지에 따라 선택이 달라집니다.
 
 <ProgressPill level="Core" progress={48} label="핵심 실습 · 실제 대화 채널 선택" />
 
@@ -27,15 +27,13 @@ sidebar_position: 1
 설치가 끝난 뒤, OpenClaw를 어디에서 대화할지 고르는 문서입니다. 즉, 사용자의 실제 접점을 정하는 단계입니다.
 </InfoCard>
 
-## 📌 이 문서에서 배우는 것
+OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해, 같은 에이전트를 다양한 대화 창에서 사용할 수 있게 해줍니다. 빠른 시작은 보통 [Telegram](/channels/telegram)이나 [WhatsApp](/channels/whatsapp)에서 하고, Apple 생태계는 [BlueBubbles](/channels/bluebubbles)를 우선 검토하면 됩니다.
+
+## 📌 이 문서에서 바로 정하는 것
 - 한눈에 보는 채널 전략
 - 지원 채널 전체 목록
 - 공통 설정 흐름
-- 채널 선택 가이드
-
-걱정하지 마세요. 처음엔 Telegram 같은 쉬운 채널 하나만 붙여도 충분합니다.
-
-OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해, 같은 에이전트를 다양한 대화 창에서 사용할 수 있게 해줍니다. 빠른 시작은 보통 [Telegram](/channels/telegram)이나 [WhatsApp](/channels/whatsapp)에서 하고, Apple 생태계는 [BlueBubbles](/channels/bluebubbles)를 우선 검토하면 됩니다.
+- 내 상황에 맞는 채널 선택
 
 <LearningPath
   title="채널 연결 경로"
@@ -141,6 +139,16 @@ OpenClaw는 하나의 Gateway에 여러 메신저 채널을 동시에 연결해,
 ### Apple 메시지 경험이 필요할 때
 - **BlueBubbles**를 우선 검토하세요.
 - **iMessage (legacy)** 문서는 기존 환경 유지·이해용으로만 참고하세요.
+## ✅ 이 문서를 읽고 나면
+- 어떤 채널이 내 사용 방식에 맞는지 판단하고, 가장 쉬운 테스트 경로를 선택할 수 있습니다.
+
+## ➡️ 다음 단계
+- 가장 빠른 테스트를 원하면 [Telegram](/channels/telegram), 실제 연결 절차는 [채널 페어링](/start/pairing)으로 이어가세요.
+
+## 🆘 막히면 여기로
+- 채널 연결이 안 되거나 검색으로 관련 문서를 못 찾으면 [FAQ](/help/faq)와 [피드백 허브](/feedback)를 활용하세요.
+
+
 ## 📝 도움이 안 됐나요?
 
 문서를 읽고도 막히는 부분이 있다면 [피드백 허브](/feedback)에서 알려주세요. 설치 문제, 검색 실패, 용어 혼란을 모아서 다음 개선에 반영합니다.

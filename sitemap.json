@@ -1,5 +1,5 @@
 {
-  "base": "https://openclaw-wheat.vercel.app",
+  "base": "https://openclaw-docs-pied.vercel.app",
   "categories": {
     "시작하기": [
       "/start/getting-started",

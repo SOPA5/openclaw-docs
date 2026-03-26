@@ -88,7 +88,7 @@ OpenClaw는 단순 채팅 봇이 아닙니다. **self-hosted Gateway (중앙 통
 - **멀티에이전트 라우팅과 격리 세션 지원**
 - **Web Control UI / WebChat / macOS companion app 지원**
 
-공식 features 문서에서는 공급자 수를 35+로 요약하기도 합니다. 실무적으로는 “30개를 훨씬 넘는 폭넓은 제공자 디렉터리”로 이해하면 됩니다.
+공식 features 문서에서는 공급자 수를 34+로 정리합니다. 현재 34개 이상의 AI 모델 제공자를 지원합니다.
 
 ## 채널
 

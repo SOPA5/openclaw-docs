@@ -2,7 +2,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 /**
  * OpenClaw 종합 학습 게시판 사이드바 설정
- * 원본 사이트(https://openclaw-wheat.vercel.app) 구조 기반
+ * 원본 사이트(https://openclaw-docs-pied.vercel.app) 구조 기반
  */
 const sidebars: SidebarsConfig = {
   docsSidebar: [
@@ -14,11 +14,10 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'start/getting-started',
-        'start/use-cases',
         'start/wizard',
         'start/onboarding',
         'start/pairing',
-        'start/showcase',
+        'start/use-cases',
         'start/openclaw',
       ],
     },
@@ -39,6 +38,30 @@ const sidebars: SidebarsConfig = {
       ],
     },
 
+    // ─── 설정 (Configuration) ──────────────────────────────
+    {
+      type: 'category',
+      label: '설정',
+      collapsible: true,
+      collapsed: true,
+      items: [
+        'gateway/index',
+        'providers/index',
+        'providers/anthropic',
+        'providers/openai',
+        'providers/google-gemini',
+        'providers/openrouter',
+        'providers/amazon-bedrock',
+        'providers/local-models',
+        'platforms/index',
+        'platforms/macos',
+        'platforms/linux',
+        'platforms/windows',
+        'platforms/mobile',
+        'gateway/remote',
+      ],
+    },
+
     // ─── 채널 (Channels) ───────────────────────────────────
     {
       type: 'category',
@@ -47,9 +70,8 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'channels/index',
-        'channels/whatsapp',
         'channels/telegram',
-        'channels/grammy',
+        'channels/whatsapp',
         'channels/discord',
         'channels/slack',
         'channels/google-chat',
@@ -58,78 +80,30 @@ const sidebars: SidebarsConfig = {
         'channels/matrix',
         'channels/bluebubbles',
         'channels/imessage',
+        'channels/grammy',
       ],
     },
 
-    // ─── 모델 (Models / Providers) ─────────────────────────
+    // ─── 에이전트 (Agents) ─────────────────────────────────
     {
       type: 'category',
-      label: '모델',
+      label: '에이전트',
       collapsible: true,
       collapsed: true,
       items: [
-        'providers/index',
-        'providers/anthropic',
-        'providers/openai',
-        'providers/google-gemini',
-        'providers/openrouter',
-        'providers/amazon-bedrock',
-        'providers/local-models',
-      ],
-    },
-
-    // ─── 플랫폼 (Platforms) ────────────────────────────────
-    {
-      type: 'category',
-      label: '플랫폼',
-      collapsible: true,
-      collapsed: true,
-      items: [
-        'platforms/index',
-        'platforms/macos',
-        'platforms/linux',
-        'platforms/windows',
-        'platforms/mobile',
-      ],
-    },
-
-    // ─── 게이트웨이 (Gateway) ──────────────────────────────
-    {
-      type: 'category',
-      label: '게이트웨이',
-      collapsible: true,
-      collapsed: true,
-      items: [
-        'gateway/index',
-        'gateway/remote',
-        'gateway/security',
-        'gateway/sandboxing',
-        'gateway/mcp',
-        'gateway/api',
-      ],
-    },
-
-    // ─── 개념 (Concepts) ───────────────────────────────────
-    {
-      type: 'category',
-      label: '개념',
-      collapsible: true,
-      collapsed: true,
-      items: [
-        'concepts/features',
-        'concepts/architecture',
         'concepts/agent',
-        'concepts/context',
-        'concepts/system-prompt',
         'concepts/sessions',
         'concepts/memory',
+        'tools/subagents',
+        'concepts/context',
+        'concepts/system-prompt',
       ],
     },
 
-    // ─── 도구 (Tools) ──────────────────────────────────────
+    // ─── 고급 기능 (Advanced Features) ─────────────────────
     {
       type: 'category',
-      label: '도구',
+      label: '고급 기능',
       collapsible: true,
       collapsed: true,
       items: [
@@ -137,18 +111,24 @@ const sidebars: SidebarsConfig = {
         'tools/browser',
         'tools/lobster',
         'tools/sandbox',
-        'tools/subagents',
         'tools/apply-patch',
+        'gateway/security',
+        'gateway/sandboxing',
+        'gateway/mcp',
+        'gateway/api',
       ],
     },
 
-    // ─── 도움말 (Help) ─────────────────────────────────────
+    // ─── 레퍼런스 / 도움말 (Reference / Help) ───────────────
     {
       type: 'category',
-      label: '도움말',
+      label: '레퍼런스 / 도움말',
       collapsible: true,
       collapsed: true,
       items: [
+        'concepts/features',
+        'concepts/architecture',
+        'start/showcase',
         'help/faq',
       ],
     },

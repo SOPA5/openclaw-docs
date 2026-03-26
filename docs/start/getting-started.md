@@ -35,16 +35,14 @@ sidebar_position: 1
 | 2 | `openclaw onboard --install-daemon` 실행 | [설정 마법사](/start/wizard) |
 | 3 | 상태 확인 후 첫 질문 보내기 | [채널 페어링](/start/pairing) |
 
-이 문서에서는 OpenClaw를 처음 시작할 때 필요한 핵심 흐름을 배웁니다.
+이 문서는 **설치 직후부터 첫 질문을 보내기 전까지** 막히지 않게 이어주는 출발선입니다. 복잡한 개념 설명보다, 지금 당장 무엇을 실행하면 되는지에 집중합니다.
 
-## 📌 이 문서에서 배우는 것
-- 📋 필수 준비물
-- 🚀 빠른 시작 (Quick Setup)
-- 💬 첫 질문까지 이어지는 흐름
+OpenClaw v2026.3.23-2 기준으로 **설치 확인 → 온보딩 → 상태 점검 → 첫 대화**까지 가장 짧은 흐름만 추려 안내합니다.
 
-걱정하지 마세요. 하나씩 따라하면 됩니다.
-
-OpenClaw v2026.3.23을 설치하고 AI 에이전트와 첫 대화를 나누기까지의 전 과정을 안내합니다.
+## 📌 이 문서에서 바로 하는 것
+- 📋 설치 전제 확인
+- 🚀 첫 실행 명령 따라가기
+- 💬 채널 연결 전 마지막 점검
 
 ---
 
@@ -101,8 +99,8 @@ openclaw onboard --install-daemon
 
 온보딩 마법사가 다음 항목을 순서대로 설정해줍니다:
 
-- **모델 제공자**: Anthropic, OpenAI, Google, Ollama 등 30개 이상 지원
-- **채팅 채널**: Telegram, Discord, Slack, WhatsApp 등 20개 이상 지원
+- **모델 제공자**: Anthropic, OpenAI, Google, Ollama 등 34개 이상 지원
+- **채팅 채널**: Telegram, Discord, Slack, WhatsApp 등 23개 이상 지원
 - **게이트웨이**: 포트, 인증, Tailscale 노출 여부
 - **데몬 서비스**: macOS LaunchAgent 또는 Linux systemd 자동 등록
 
@@ -155,6 +153,16 @@ openclaw dashboard
 | 활용 사례 확인 | [활용 사례](/start/use-cases) |
 | 플랫폼별 상세 설정 | [플랫폼 가이드](/platforms/) |
 | 설치 방법 비교 | [설치 개요](/install/) |
+## ✅ 이 문서를 읽고 나면
+- OpenClaw를 설치한 뒤 첫 실행, 상태 확인, 첫 질문까지 이어지는 전체 흐름을 이해하게 됩니다.
+
+## ➡️ 다음 단계
+- [채널 페어링](/start/pairing)으로 이동해 실제 대화 채널을 연결하세요.
+
+## 🆘 막히면 여기로
+- 설치나 검색이 헷갈리면 [FAQ](/help/faq)와 [피드백 허브](/feedback)에서 바로 확인하고 알려주세요.
+
+
 ## 📝 도움이 안 됐나요?
 
 문서를 읽고도 막히는 부분이 있다면 [피드백 허브](/feedback)에서 알려주세요. 설치 문제, 검색 실패, 용어 혼란을 모아서 다음 개선에 반영합니다.

@@ -11,7 +11,7 @@ sidebar_position: 5
 | 현재 단계 | **Beginner** |
 | 읽는 목적 | 입문 이해와 실전 연결 |
 | 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
-| 현재 위치 | `start/getting-started` |
+| 현재 위치 | `start/pairing` |
 
 :::tip 학습 팁
 이 문서는 **혼자 읽어도 이해되게** 정리되어 있지만, 처음이면 문서 끝의 **다음 단계** 링크까지 이어서 보는 게 가장 빠릅니다.
@@ -29,7 +29,7 @@ sidebar_position: 5
 걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
 
 
-채팅 채널(Telegram, WhatsApp, Discord, Slack 등)을 OpenClaw Gateway에 연결하는 과정을 **페어링(Pairing)**이라고 합니다. OpenClaw는 20개 이상의 채널을 지원하며, 각 채널은 고유한 연결 방식을 사용합니다.
+채팅 채널(Telegram, WhatsApp, Discord, Slack 등)을 OpenClaw Gateway에 연결하는 과정을 **페어링(Pairing)**이라고 합니다. OpenClaw는 23개 이상의 채널을 지원하며, 각 채널은 고유한 연결 방식을 사용합니다.
 
 ---
 
@@ -82,7 +82,7 @@ openclaw configure
 
 ## 📋 지원 채널 목록
 
-OpenClaw v2026.3.23 기준 20개 이상의 채널을 지원합니다.
+OpenClaw v2026.3.23-2 기준 23개 이상의 채널을 지원합니다.
 
 | 채널 | 페어링 방식 |
 |------|------------|

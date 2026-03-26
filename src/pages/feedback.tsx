@@ -53,7 +53,7 @@ export default function FeedbackPage(): ReactNode {
           <div style={{display:'flex', gap:'0.75rem', flexWrap:'wrap', marginTop:'1rem'}}>
             <Link className="neo-button button button--primary" to="/start/getting-started">다시 시작하기</Link>
             <Link className="neo-button button button--secondary" to="/install/">설치 개요 보기</Link>
-            <Link className="neo-button button button--secondary" to="/guides">가이드 보기</Link>
+            <Link className="neo-button button button--secondary" to="/help/faq">FAQ 보기</Link>
           </div>
         </div>
       </main>

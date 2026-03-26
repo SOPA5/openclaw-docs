@@ -11,7 +11,7 @@ sidebar_position: 3
 | 현재 단계 | **Beginner** |
 | 읽는 목적 | 입문 이해와 실전 연결 |
 | 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
-| 현재 위치 | `start/getting-started` |
+| 현재 위치 | `start/wizard` |
 
 :::tip 학습 팁
 이 문서는 **혼자 읽어도 이해되게** 정리되어 있지만, 처음이면 문서 끝의 **다음 단계** 링크까지 이어서 보는 게 가장 빠릅니다.
@@ -53,10 +53,10 @@ openclaw onboard --install-daemon
 
 | 단계 | 내용 |
 |------|------|
-| **모델 / 인증** | Anthropic API 키, OAuth, OpenAI, Google Gemini 등 30개 이상의 제공자 중 선택 |
+| **모델 / 인증** | Anthropic API 키, OAuth, OpenAI, Google Gemini 등 34개 이상의 제공자 중 선택 |
 | **워크스페이스** | 에이전트 파일 위치 설정 (기본값: `~/.openclaw/workspace`) |
 | **게이트웨이** | 포트(기본 18789), 바인드 주소, 인증 모드, Tailscale 노출 여부 |
-| **채널** | Telegram, Discord, Slack, WhatsApp 등 20개 이상의 채널 중 선택 및 구성 |
+| **채널** | Telegram, Discord, Slack, WhatsApp 등 23개 이상의 채널 중 선택 및 구성 |
 | **데몬 서비스** | macOS LaunchAgent 또는 Linux systemd 자동 설치 |
 | **스킬** | 권장 스킬 및 의존성 설치 |
 

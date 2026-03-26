@@ -11,7 +11,7 @@ sidebar_position: 7
 | 현재 단계 | **Beginner** |
 | 읽는 목적 | 입문 이해와 실전 연결 |
 | 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
-| 현재 위치 | `start/getting-started` |
+| 현재 위치 | `start/openclaw` |
 
 :::tip 학습 팁
 이 문서는 **혼자 읽어도 이해되게** 정리되어 있지만, 처음이면 문서 끝의 **다음 단계** 링크까지 이어서 보는 게 가장 빠릅니다.
@@ -29,7 +29,7 @@ sidebar_position: 7
 걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
 
 
-OpenClaw는 **자기 호스팅(self-hosted) Gateway (중앙 통로)** 기반의 AI 에이전트 플랫폼입니다. Telegram, WhatsApp, Discord 등 20개 이상의 채팅 채널과 Anthropic, OpenAI, Google 등 30개 이상의 AI 모델 제공자를 하나의 Gateway로 통합합니다.
+OpenClaw는 **자기 호스팅(self-hosted) Gateway (중앙 통로)** 기반의 AI 에이전트 플랫폼입니다. Telegram, WhatsApp, Discord 등 23개 이상의 채팅 채널과 Anthropic, OpenAI, Google 등 34개 이상의 AI 모델 제공자를 하나의 Gateway로 통합합니다.
 
 ---
 

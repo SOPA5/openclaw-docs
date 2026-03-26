@@ -22,6 +22,7 @@ const config: Config = {
         searchBarShortcut: true,
         searchBarShortcutHint: true,
         searchResultLimits: 8,
+        searchResultContextMaxLength: 80,
         explicitSearchResultPath: true,
         ignoreFiles: ['/search'],
       },
@@ -29,13 +30,13 @@ const config: Config = {
   ],
 
   // Vercel 배포용 URL
-  url: 'https://openclaw-docs.vercel.app',
+  url: 'https://openclaw-docs-pied.vercel.app',
   baseUrl: '/',
 
   organizationName: 'SOPA5',
   projectName: 'openclaw-docs',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
@@ -72,7 +73,7 @@ const config: Config = {
     announcementBar: {
       id: 'search-shortcut-tip',
       content:
-        '찾는 문서가 안 보이면 <strong>상단 검색</strong>을 누르거나 <strong>Ctrl/⌘ + K</strong>를 눌러 바로 검색하세요.',
+        '문서 제목이나 기능 키워드를 검색하면 관련 문서로 바로 이동합니다. <strong>상단 검색</strong> 또는 <strong>Ctrl/⌘ + K</strong>를 사용하세요.',
       backgroundColor: '#eef2ff',
       textColor: '#312e81',
       isCloseable: true,

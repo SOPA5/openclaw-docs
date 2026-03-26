@@ -11,7 +11,7 @@ sidebar_position: 5
 | 현재 단계 | **Beginner** |
 | 읽는 목적 | 설치 이해와 실전 연결 |
 | 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
-| 현재 위치 | `install/index` |
+| 현재 위치 | `install/ansible` |
 
 :::tip 학습 팁
 이 문서는 **혼자 읽어도 이해되게** 정리되어 있지만, 처음이면 문서 끝의 **다음 단계** 링크까지 이어서 보는 게 가장 빠릅니다.
@@ -59,7 +59,7 @@ server2.example.com ansible_user=ubuntu
 
 아래 예시 설정을 참고하세요:
 ```yaml
-openclaw_version: "2026.3.23"
+openclaw_version: "2026.3.23-2"
 openclaw_port: 18789
 openclaw_workspace: "/home/ubuntu/.openclaw/workspace"
 ```

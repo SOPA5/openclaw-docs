@@ -29,7 +29,7 @@ sidebar_position: 1
 걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
 
 
-OpenClaw v2026.3.23은 macOS, Linux, Windows, iOS, Android를 지원합니다. 단일 Gateway가 모든 플랫폼을 연결하는 중앙 제어면 역할을 합니다.
+OpenClaw v2026.3.23-2은 macOS, Linux, Windows, iOS, Android를 지원합니다. 단일 Gateway가 모든 플랫폼을 연결하는 중앙 제어면 역할을 합니다.
 
 ---
 
