@@ -8,8 +8,8 @@ sidebar_label: API
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Advanced** |
-| 읽는 목적 | 운영 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | 외부 서비스와 연결할 때 API 관점을 잡기 |
+| 추천 환경 | API 호출을 테스트할 수 있는 개발 환경 |
 | 현재 위치 | `gateway/api` |
 
 :::tip 학습 팁
@@ -25,7 +25,7 @@ sidebar_label: API
 - 2. OpenAI 호환 API
 - 3. OpenResponses API
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 
 OpenClaw Gateway는 채팅 앱용 백엔드일 뿐 아니라, **프로그래밍 방식으로 호출 가능한 제어면 API**도 제공합니다. 최신 기준에서 중요한 API 축은 세 가지입니다.

@@ -9,8 +9,8 @@ sidebar_position: 3
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Beginner** |
-| 읽는 목적 | 설치 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | Docker로 깔끔하게 설치하고 격리해서 운영하기 |
+| 추천 환경 | Docker Desktop 또는 Docker Engine 사용 가능 환경 |
 | 현재 위치 | `install/docker` |
 
 :::tip 학습 팁
@@ -26,7 +26,7 @@ sidebar_position: 3
 - 빠른 실행
 - Docker Compose 사용 (권장)
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 
 OpenClaw를 Docker 환경에서 사용하는 방법은 두 가지입니다:

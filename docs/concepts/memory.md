@@ -7,9 +7,9 @@ sidebar_label: 메모리
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 개념 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | 메모리 기능이 어떻게 이어서 도와주는지 이해하기 |
+| 추천 환경 | - |
 | 현재 위치 | `concepts/memory` |
 
 :::tip 학습 팁

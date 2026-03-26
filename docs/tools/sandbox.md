@@ -8,8 +8,8 @@ sidebar_label: 샌드박스
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Advanced** |
-| 읽는 목적 | 실전 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | 도구 실행 공간을 안전하게 나누는 이유를 이해하기 |
+| 추천 환경 | 명령 실행 범위를 분리해야 하는 운영 환경 |
 | 현재 위치 | `tools/sandbox` |
 
 :::tip 학습 팁

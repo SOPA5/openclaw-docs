@@ -7,9 +7,9 @@ sidebar_label: 기능
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 이해 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Beginner** |
+| 읽는 목적 | OpenClaw가 무엇을 할 수 있는지 한눈에 파악하기 |
+| 추천 환경 | - |
 | 현재 위치 | `concepts/features` |
 
 :::tip 학습 팁
@@ -32,7 +32,7 @@ sidebar_label: 기능
 - 모델 제공자
 - 모바일 node와 자동화
 
-걱정하지 마세요. 큰 그림만 잡으면 됩니다.
+여기서는 모든 걸 외울 필요 없어요. 큰 그림만 잡아도 충분합니다.
 
 OpenClaw는 단순 채팅 봇이 아닙니다. **self-hosted Gateway (중앙 통로)**를 중심으로 채널, 에이전트, 도구, 모바일 node, 음성, 웹 UI를 한 제품 안에 묶은 운영 플랫폼입니다.
 

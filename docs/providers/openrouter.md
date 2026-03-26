@@ -8,9 +8,9 @@ sidebar_position: 5
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 모델 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | 여러 모델을 한 창구로 쓰는 방법을 이해하기 |
+| 추천 환경 | - |
 | 현재 위치 | `providers/openrouter` |
 
 :::tip 학습 팁

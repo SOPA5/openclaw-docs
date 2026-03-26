@@ -7,9 +7,9 @@ sidebar_label: BlueBubbles
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 연결 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | BlueBubbles를 통해 Apple 메시지 연결 흐름을 이해하기 |
+| 추천 환경 | macOS 호스트와 BlueBubbles를 함께 쓰는 환경 |
 | 현재 위치 | `channels/bluebubbles` |
 
 :::tip 학습 팁

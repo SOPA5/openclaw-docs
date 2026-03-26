@@ -9,8 +9,8 @@ sidebar_position: 5
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Beginner** |
-| 읽는 목적 | 설치 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | 여러 서버에 같은 설치를 반복해서 배포하기 |
+| 추천 환경 | 여러 대 서버를 함께 관리하는 팀 환경 |
 | 현재 위치 | `install/ansible` |
 
 :::tip 학습 팁
@@ -27,7 +27,7 @@ sidebar_position: 5
 - 인벤토리와 변수 설정
 - Playbook 실행
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 여러 대의 서버를 관리하거나, 보안이 강화된 전문 배포 환경을 만들고 싶을 때 Ansible Playbook을 활용할 수 있습니다.
 

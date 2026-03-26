@@ -9,8 +9,8 @@ sidebar_position: 6
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Beginner** |
-| 읽는 목적 | 설치 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | Bun 환경에서 OpenClaw 설치 가능 여부와 흐름 확인하기 |
+| 추천 환경 | Bun이 이미 깔린 JavaScript 개발 환경 |
 | 현재 위치 | `install/bun` |
 
 :::tip 학습 팁
@@ -27,7 +27,7 @@ sidebar_position: 6
 - `bun x openclaw gateway` 실행 방법
 - 언제 Node.js로 돌아가야 하는지
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 OpenClaw는 최신 JavaScript 런타임인 Bun을 통한 실행을 **실험적**으로 지원합니다. 빠른 시작 속도와 가벼운 동작이 필요할 때 시도해볼 수 있습니다.
 

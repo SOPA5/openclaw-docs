@@ -7,9 +7,9 @@ sidebar_label: 컨텍스트
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 개념 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | 컨텍스트가 왜 중요한지 쉽게 이해하기 |
+| 추천 환경 | - |
 | 현재 위치 | `concepts/context` |
 
 :::tip 학습 팁

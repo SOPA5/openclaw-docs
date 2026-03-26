@@ -8,9 +8,9 @@ sidebar_position: 6
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 모델 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | AWS Bedrock 연동 전에 구조와 준비물을 확인하기 |
+| 추천 환경 | AWS 계정과 권한이 준비된 클라우드 환경 |
 | 현재 위치 | `providers/amazon-bedrock` |
 
 :::tip 학습 팁

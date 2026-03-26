@@ -8,8 +8,8 @@ sidebar_label: MCP
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Advanced** |
-| 읽는 목적 | 운영 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | MCP가 도구 확장을 어떻게 돕는지 이해하기 |
+| 추천 환경 | MCP 서버를 함께 실험하는 개발 환경 |
 | 현재 위치 | `gateway/mcp` |
 
 :::tip 학습 팁
@@ -25,7 +25,7 @@ sidebar_label: MCP
 - Plugins
 - Skills
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 
 OpenClaw에서 MCP는 “도구를 하나 더 붙이는 별도 세계”가 아니라, **플러그인·스킬·내장 도구와 나란히 놓이는 확장 계층**입니다. 최신 구조를 이해할 때는 `plugins / skills / mcp` 세 축을 함께 보는 것이 가장 정확합니다.

@@ -7,9 +7,9 @@ sidebar_label: Linux
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 새 Linux 컴퓨터에서 OpenClaw를 처음 설치하고 바로 써보기 |
-| 추천 환경 | Ubuntu / Debian 계열 기준 |
+| 현재 단계 | **Beginner** |
+| 읽는 목적 | 리눅스에서 빠르게 설치하고 첫 실행까지 가기 |
+| 추천 환경 | Ubuntu / Debian 계열 터미널 |
 | 현재 위치 | `platforms/linux` |
 
 :::tip 먼저 마음 편하게 시작하세요
@@ -154,24 +154,24 @@ nvm은 엔진 버전을 쉽게 바꾸는 **리모컨** 같은 도구예요.
 
 이제 OpenClaw를 설치합니다.
 
-### 방법 1. npm으로 직접 설치 (공식 1순위) ⭐
+### 방법 1. 설치 스크립트 (공식 1순위) ⭐
 
 터미널에서 아래 명령어를 **복사해서 붙여넣고 Enter**를 누르세요.
-
-```bash
-npm install -g openclaw@latest
-```
-
-### 방법 2. 설치 스크립트 (공식 스크립트가 제공되는 경우)
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
-:::tip 💡 스크립트는 언제 쓰나요?
-`install.sh`는 Node.js, Git이 아직 없을 때 자동으로 설치를 시도합니다.
-Node.js가 이미 설치된 경우라면 **npm 직접 설치가 더 깔끔**합니다.
-단, **스크립트가 실제로 제공되는지 공식 사이트에서 먼저 확인**하세요.
+### 방법 2. npm으로 직접 설치 (대안)
+
+```bash
+npm install -g openclaw@latest
+```
+
+:::tip 💡 가장 쉬운 길
+처음 설치라면 `install.sh`가 더 쉽습니다.
+Node.js와 Git 같은 준비물이 덜 되어 있어도 같이 챙겨주기 때문이에요.
+Node.js가 이미 준비된 경우에는 npm 방법도 사용할 수 있어요.
 :::
 
 설치가 끝나면 아래 **검증 3단계**로 확인하세요.

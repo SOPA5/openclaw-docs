@@ -7,9 +7,9 @@ sidebar_label: Microsoft Teams
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 연결 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | Microsoft Teams 연동 흐름과 준비물을 살펴보기 |
+| 추천 환경 | Microsoft 365 관리 권한이 있는 팀 환경 |
 | 현재 위치 | `channels/ms-teams` |
 
 :::tip 학습 팁

@@ -9,8 +9,8 @@ sidebar_position: 4
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Beginner** |
-| 읽는 목적 | 설치 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | Nix로 재현 가능한 설치 환경을 만들기 |
+| 추천 환경 | Nix가 이미 익숙한 개발 환경 |
 | 현재 위치 | `install/nix` |
 
 :::tip 학습 팁
@@ -26,7 +26,7 @@ sidebar_position: 4
 - 1단계. Flake에 입력 추가
 - 2단계. Home Manager 모듈 활성화
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 
 NixOS를 사용하거나 Nix 패키지 매니저를 선호하는 사용자를 위해 `nix-openclaw` 모듈을 제공합니다. 선언적 방식으로 OpenClaw를 재현 가능하게 관리할 수 있습니다.

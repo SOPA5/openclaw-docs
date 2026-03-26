@@ -7,8 +7,8 @@ sidebar_label: Windows
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 새 Windows 컴퓨터에서 OpenClaw를 처음 설치하고 바로 써보기 |
+| 현재 단계 | **Beginner** |
+| 읽는 목적 | Windows에서 WSL2 기준으로 가장 안정적으로 시작하기 |
 | 추천 환경 | **Windows + WSL2 + Ubuntu** |
 | 현재 위치 | `platforms/windows` |
 
@@ -255,24 +255,24 @@ nvm은 엔진 버전을 쉽게 바꾸는 **리모컨** 같은 거예요.
 
 이제 진짜 OpenClaw를 설치합니다.
 
-### 방법 1. npm으로 직접 설치 (공식 1순위) ⭐
+### 방법 1. 설치 스크립트 (공식 1순위) ⭐
 
 Ubuntu 터미널에서 아래 명령어를 **복사해서 붙여넣고 Enter**를 누르세요.
-
-```bash
-npm install -g openclaw@latest
-```
-
-### 방법 2. 설치 스크립트 (공식 스크립트가 제공되는 경우)
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
-:::tip 💡 스크립트는 언제 쓰나요?
-`install.sh`는 Node.js, Git이 아직 없을 때 자동으로 설치를 시도합니다.
-Node.js가 이미 설치된 경우라면 **npm 직접 설치가 더 깔끔**합니다.
-단, **스크립트가 실제로 제공되는지 공식 사이트에서 먼저 확인**하세요.
+### 방법 2. npm으로 직접 설치 (대안)
+
+```bash
+npm install -g openclaw@latest
+```
+
+:::tip 💡 왜 WSL2가 더 추천될까요?
+처음 설치라면 `install.sh` + WSL2가 가장 쉽고 안정적인 길입니다.
+준비물이 조금 부족해도 같이 챙겨주기 때문이에요.
+Node.js가 이미 준비된 경우에는 npm 방법도 사용할 수 있어요.
 :::
 
 설치가 끝나면 아래 **검증 3단계**로 확인하세요.
@@ -297,6 +297,12 @@ openclaw gateway status
 ---
 
 ## 9) 온보딩 실행
+
+:::tip 🌟 이 명령이 핵심이에요
+`openclaw onboard --install-daemon`은 **모델 연결 + 채널 연결 + 데몬 설치**를 한 번에 이어주는 핵심 명령입니다.
+설치가 끝났다면 이 단계부터 바로 진행하세요.
+:::
+
 
 이제 OpenClaw의 첫 설정을 합니다.
 
@@ -436,11 +442,11 @@ OpenClaw 작업은 자기 방 책상에서 하는 게 더 편한 느낌이라고
 **PowerShell**을 열고 아래 명령어를 실행하세요.
 
 ```powershell
-# 방법 1: npm으로 직접 설치 (공식 1순위 권장)
-npm install -g openclaw@latest
-
-# 방법 2: 설치 스크립트 (스크립트가 제공되는 경우)
+# 방법 1: 설치 스크립트
 iwr -useb https://openclaw.ai/install.ps1 | iex
+
+# 방법 2: npm 직접 설치 (대안)
+npm install -g openclaw@latest
 ```
 
 그다음 온보딩과 검증 3단계를 실행하세요.
@@ -453,8 +459,9 @@ openclaw gateway status
 ```
 
 ### 알아두면 좋은 점
-- Windows 네이티브도 가능하지만,
-- **문서, 예시, 안정성 면에서는 WSL2 + Ubuntu가 더 추천**됩니다.
+- `install.ps1`은 **Windows 네이티브에서도 작동**합니다.
+- 그래도 가능하면 **WSL2 + Ubuntu가 더 추천**됩니다.
+- Windows 네이티브는 **간단한 CLI 용도**에는 괜찮지만, 긴 작업이나 문서 예시는 WSL2 쪽이 더 잘 맞습니다.
 
 :::tip 쉬운 비유
 Windows 네이티브는 **바로 거실에서 작업하는 방법**,

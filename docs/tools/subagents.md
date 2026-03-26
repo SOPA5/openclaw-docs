@@ -8,8 +8,8 @@ sidebar_label: 서브에이전트
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Advanced** |
-| 읽는 목적 | 실전 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | 서브에이전트로 일을 나누는 흐름을 이해하기 |
+| 추천 환경 | 긴 작업을 여러 흐름으로 나눠 보는 환경 |
 | 현재 위치 | `tools/subagents` |
 
 :::tip 학습 팁

@@ -7,9 +7,9 @@ sidebar_label: iMessage
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 연결 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | iMessage 연결이 어떤 환경에서 가능한지 이해하기 |
+| 추천 환경 | Apple 기기와 메시지 연동이 가능한 환경 |
 | 현재 위치 | `channels/imessage` |
 
 :::tip 학습 팁

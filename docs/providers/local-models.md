@@ -8,9 +8,9 @@ sidebar_position: 7
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 모델 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Intermediate** |
+| 읽는 목적 | 내 컴퓨터에서 로컬 모델을 돌리는 흐름 이해하기 |
+| 추천 환경 | GPU 또는 충분한 메모리가 있는 로컬 컴퓨터 |
 | 현재 위치 | `providers/local-models` |
 
 :::tip 학습 팁

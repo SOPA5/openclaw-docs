@@ -7,9 +7,9 @@ sidebar_label: 시스템 프롬프트
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 개념 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Advanced** |
+| 읽는 목적 | 시스템 프롬프트가 동작을 어떻게 바꾸는지 이해하기 |
+| 추천 환경 | - |
 | 현재 위치 | `concepts/system-prompt` |
 
 :::tip 학습 팁

@@ -8,8 +8,8 @@ sidebar_label: 게이트웨이 개요
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Advanced** |
-| 읽는 목적 | 운영 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | Gateway가 전체를 어떻게 통제하는지 이해하기 |
+| 추천 환경 | - |
 | 현재 위치 | `gateway/index` |
 
 :::tip 학습 팁
@@ -18,17 +18,31 @@ sidebar_label: 게이트웨이 개요
 
 # 게이트웨이 및 운영 (Gateway (중앙 통로) & Ops)
 
-이 문서에서는 OpenClaw Gateway가 어떻게 동작하는지 배웁니다.
+이 문서에서는 OpenClaw Gateway가 어떻게 동작하는지, 왜 전체의 제어 평면(control plane)이라고 부르는지 배웁니다.
 
 ## 📌 이 문서에서 배우는 것
 - Gateway가 하는 일
 - 설치와 운영의 최신 기본 흐름
 - 운영할 때 꼭 알아둘 포인트
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 
 OpenClaw의 중심은 **Gateway**입니다. Gateway는 채널, 에이전트, 세션, 웹 UI, CLI, 모바일 node를 한곳에서 묶는 **단일 제어면(control plane)** 입니다. 사용자는 Telegram, Discord, WebChat, Control UI, macOS 앱, iOS/Android node처럼 서로 다른 진입점에서 OpenClaw를 만나지만, 실제 상태와 라우팅은 모두 Gateway가 관리합니다.
+
+## 구조를 그림처럼 보면
+
+```text
+[채널들] ←→ [게이트웨이] ←→ [AI 모델 제공자]
+              ↕
+         [도구/스킬/메모리]
+```
+
+이 그림에서 Gateway는 **가운데에서 전체를 조율하는 관제실**입니다.
+- 채널에서 들어온 요청을 받습니다.
+- 어떤 세션을 이어야 하는지 판단합니다.
+- 어떤 도구를 열 수 있는지 관리합니다.
+- 어떤 AI 모델 제공자에게 보낼지 연결합니다.
 
 
 :::tip 💡 쉽게 이해하기
@@ -45,7 +59,7 @@ Gateway는 크게 다섯 가지를 맡습니다.
 - **도구 노출**: 파일 편집, 셸 실행, 브라우저 자동화, 이미지/음성/문서 처리 같은 도구를 에이전트에 제공합니다.
 - **운영 진입점 제공**: CLI, Web Control UI, API, node pairing, doctor 진단을 같은 런타임 위에서 동작하게 합니다.
 
-즉, OpenClaw는 “각 앱마다 따로 에이전트가 있는 구조”가 아니라, **하나의 Gateway 위에 여러 인터페이스가 붙는 구조**로 이해하면 가장 정확합니다.
+즉, OpenClaw는 “각 앱마다 따로 에이전트가 있는 구조”가 아니라, **하나의 Gateway가 모든 채널·세션·도구를 통합 관리하는 구조**로 이해하면 가장 정확합니다.
 
 ## 설치와 운영의 최신 기본 흐름
 
@@ -53,8 +67,8 @@ Gateway는 크게 다섯 가지를 맡습니다.
 
 아래 명령어를 터미널에 입력하세요:
 ```bash
-# 1. npm으로 설치 (공식 기본 방법)
-npm install -g openclaw@latest
+# 1. 설치 스크립트로 설치
+curl -fsSL https://openclaw.ai/install.sh | bash
 
 # 2. 온보딩
 openclaw onboard --install-daemon
@@ -65,10 +79,12 @@ openclaw doctor
 openclaw gateway status
 ```
 
-:::tip 💡 설치 스크립트를 쓰는 경우
-공식 설치 스크립트가 제공되는 경우, 아래 방법도 사용할 수 있습니다:
+:::tip 💡 빠른 시작 핵심
+처음 시작할 때는 **설치 스크립트 → `openclaw onboard --install-daemon`** 순서가 가장 쉽습니다.
+Node.js가 이미 준비된 경우에는 아래 대안도 사용할 수 있어요.
+
 ```bash
-curl -fsSL https://openclaw.ai/install.sh | bash
+npm install -g openclaw@latest
 ```
 :::
 

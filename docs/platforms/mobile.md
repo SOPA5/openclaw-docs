@@ -7,9 +7,9 @@ sidebar_label: 모바일
 
 | 항목 | 내용 |
 |---|---|
-| 현재 단계 | **Core** |
-| 읽는 목적 | 환경 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 현재 단계 | **Beginner** |
+| 읽는 목적 | 모바일 앱과 node 연결 흐름을 쉽게 이해하기 |
+| 추천 환경 | 휴대폰 앱 + 연결된 데스크톱 Gateway 환경 |
 | 현재 위치 | `platforms/mobile` |
 
 :::tip 학습 팁
@@ -25,7 +25,7 @@ sidebar_label: 모바일
 - 🔗 node 페어링 방법
 - 사전 조건
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 
 iOS와 Android 기기를 OpenClaw **node**로 페어링하면 기기의 카메라, 마이크, 화면 등 하드웨어 기능을 에이전트에서 직접 활용할 수 있습니다.

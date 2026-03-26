@@ -8,8 +8,8 @@ sidebar_label: Lobster
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Advanced** |
-| 읽는 목적 | 실전 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | Lobster 도구가 어떤 상황에서 쓰이는지 파악하기 |
+| 추천 환경 | - |
 | 현재 위치 | `tools/lobster` |
 
 :::tip 학습 팁

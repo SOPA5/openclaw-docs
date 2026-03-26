@@ -9,8 +9,8 @@ sidebar_position: 1
 | 항목 | 내용 |
 |---|---|
 | 현재 단계 | **Beginner** |
-| 읽는 목적 | 지원 이해와 실전 연결 |
-| 추천 환경 | Windows WSL2 + Ubuntu 기준, 필요 시 macOS / Linux / Windows Native 비교 |
+| 읽는 목적 | 자주 막히는 지점을 빠르게 해결하기 |
+| 추천 환경 | - |
 | 현재 위치 | `help/faq` |
 
 :::tip 학습 팁
@@ -26,7 +26,7 @@ sidebar_position: 1
 - Q. 설치가 안 돼요.
 - Q. 대시보드나 명령어가 안 열려요.
 
-걱정하지 마세요, 하나씩 따라하면 됩니다! 😊
+처음에는 낯설 수 있지만, 순서대로 보면 충분히 따라갈 수 있어요.
 
 
 이 문서는 OpenClaw 학습 게시판용 **트러블슈팅 허브**입니다. 문제가 생기면 아래 순서대로 보면 됩니다.
@@ -54,7 +54,7 @@ openclaw onboard --install-daemon
 ```
 
 확인 순서:
-1. Node 버전이 **Node 24 권장 / Node 22.14+ 지원** 범위인지 확인
+1. Node 버전이 **Node 24 권장 / Node 22.16+ 지원** 범위인지 확인
 2. 설치 후 `openclaw gateway status` 실행
 3. 문제가 있으면 `openclaw doctor` 실행
 
