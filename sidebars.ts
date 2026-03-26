@@ -75,7 +75,6 @@ const sidebars: SidebarsConfig = {
             'providers/local-models',
           ],
         },
-        'platforms/index',       // 플랫폼 설정 개요
       ],
     },
 
@@ -110,6 +109,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'start/getting-started', // 빠른 시작 (첫 질문까지)
+        'start/use-cases',       // 활용 사례
       ],
     },
 
