@@ -41,6 +41,7 @@ const sidebars: SidebarsConfig = {
           collapsible: true,
           collapsed: true,
           items: [
+            'platforms/index',
             'platforms/macos',
             'platforms/linux',
             'platforms/windows',
